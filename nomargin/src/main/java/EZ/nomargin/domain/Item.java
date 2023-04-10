@@ -26,7 +26,7 @@ public class Item {
     private boolean open;
 
     private String color;
-
+    @Embedded
     private ItemSize itemSize;
 
     //photo

@@ -2,7 +2,6 @@ package EZ.nomargin.web;
 
 import EZ.nomargin.domain.Item;
 import EZ.nomargin.domain.ItemColor;
-import EZ.nomargin.domain.ItemSize;
 import EZ.nomargin.domain.ItemType;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -78,15 +77,6 @@ public class BasicItemController {
         return colors;
     }
 
-    @ModelAttribute("allSize")
-    public List<ItemSize> allSize() {
-        List<ItemSize> allSize = new ArrayList<>();
-        allSize.add(new ItemSize(90, "S"));
-        allSize.add(new ItemSize(95, "M"));
-        allSize.add(new ItemSize(100, "L"));
-        allSize.add(new ItemSize(105, "XL"));
-        return allSize;
-    }
 
 
     @PostConstruct  // 생성 이후 얘를 실행

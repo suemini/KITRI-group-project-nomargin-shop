@@ -28,37 +28,50 @@
       <li class="outer"><a href="/form/itemList/outer">OUTER</a></li>
     </ul>
   </nav>
-  <div class="list-title">TOP</div>
-  <div class="list-title">BOTTOM</div>
-  <div class="list-title">OUTER</div>
   <div>
-  <label for="itemId">상품 ID</label>
-    <input type="text" id="itemId" name="itemId" class="form-control"
-    th:value="${item.itemId}" value="1" readonly>
-  </div>
-  <div>
-    <label for="itemName">상품 ID</label>
+    <label for="itemName">상품 이름</label>
     <input type="text" id="itemName" name="itemName" class="form-control"
            th:value="${item.itemName}" value="상품 A" readonly>
   </div>
   <div>
-    <label for="itemPrice">상품 ID</label>
+    <label for="itemPrice">상품 가격</label>
     <input type="text" id="itemPrice" name="itemPrice" class="form-control"
            th:value="${item.price}" value="10000" readonly>
   </div>
+
   <div>
-    <label for="itemStock">상품 ID</label>
-    <input type="text" id="itemStock" name="itemStock" class="form-control"
-           th:value="${item.stock}" value="10" readonly>
+    <div>사이즈 선택</div>
+    <select th:field="${item.itemSize}" class="form-select">
+      <option value="">==사이즈 선택==</option>
+      <option th:each="size : ${allSize}" th:value="${size.allSize}"
+              th:text="${size.sizeName}">S</option>
+    </select>
   </div>
 
-  <div>판매 여부</div>
   <div>
-    <div class="form-check">
-      <input type="checkbox" id="open" th:field="${item.open}" class="form-check-input" disabled>
-      <label for="open" class="form-check-label">판매 오픈</label>
+    <div>색상</div>
+    <select th:field="${item.color}" class="form-select">
+      <option value="">==색상 선택==</option>
+      <option th:each="color : ${colors}" th:value="${color.color}"
+              th:text="${color.colorName}">Red</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="w-100 btn btn-primary btn-lg"
+              th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|" type="button">상품 구매</button>
+    </div>
+
+    <div class="col">
+      <button class="w-100 btn btn-secondary btn-lg"
+              onclick="location.href='/form/itemList'"
+              th:onclick="|location.href='@{/form/itemList}'|"
+              type="button">목록으로</button>
     </div>
   </div>
+
+
 </div>
 
 <footer>

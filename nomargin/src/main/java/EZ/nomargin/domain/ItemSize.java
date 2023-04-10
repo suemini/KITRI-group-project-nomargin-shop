@@ -1,11 +1,18 @@
 package EZ.nomargin.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+public enum ItemSize {
+    S("90"),
+    M("95"),
+    L("100"),
+    XL("105");
 
-@Data
-@AllArgsConstructor
-public class ItemSize {
-    private int allSize;
-    private String sizeName;
+    private final String description;
+    ItemSize(String description){
+        this.description = description;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
 }
