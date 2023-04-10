@@ -1,12 +1,13 @@
-package EZ.nomargin.domain;
+package EZ.nomargin.domain.item;
 
-public enum ItemType {
+public enum ItemSize {
+    S("90"),
+    M("95"),
+    L("100"),
+    XL("105");
 
-    Top("상의"),
-    Bottom("하의"),
-    Outer("외투");
     private final String description;
-    ItemType(String description){
+    ItemSize(String description){
         this.description = description;
     }
 

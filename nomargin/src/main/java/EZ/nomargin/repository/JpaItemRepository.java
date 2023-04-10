@@ -1,7 +1,7 @@
 package EZ.nomargin.repository;
 
-import EZ.nomargin.domain.Item;
-import EZ.nomargin.domain.ItemType;
+import EZ.nomargin.domain.item.Item;
+import EZ.nomargin.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

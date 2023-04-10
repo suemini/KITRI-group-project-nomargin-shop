@@ -1,6 +1,6 @@
 package EZ.nomargin.repository;
 
-import EZ.nomargin.domain.Item;
+import EZ.nomargin.domain.item.Item;
 
 import java.util.List;
 import java.util.Optional;

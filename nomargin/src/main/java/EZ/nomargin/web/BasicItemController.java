@@ -1,7 +1,7 @@
 package EZ.nomargin.web;
 
-import EZ.nomargin.domain.Item;
-import EZ.nomargin.domain.ItemType;
+import EZ.nomargin.domain.item.Item;
+import EZ.nomargin.domain.item.ItemType;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -97,9 +97,6 @@ public class BasicItemController {
         model.addAttribute("items", items);
         return "/form/itemList";
     }
-
-
-
 
 
     @PostConstruct  // 생성 이후 얘를 실행

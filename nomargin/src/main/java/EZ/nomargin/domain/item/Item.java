@@ -1,4 +1,4 @@
-package EZ.nomargin.domain;
+package EZ.nomargin.domain.item;
 
 import lombok.Data;
 
