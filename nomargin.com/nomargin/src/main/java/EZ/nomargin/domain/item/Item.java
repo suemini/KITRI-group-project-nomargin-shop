@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 
-
+//이거 되면 커밋 되는거다
 @Data
 @Entity
 public class Item {
