@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/CSS/index.css">
+  <link rel="stylesheet" href="/static/CSS/itemList.css">
+  <title>NOMARGIN</title>
+</head>
+<body>
+<div class="container" id="'wrapper">
+  <header>
+    <div class="logo"><a href="index.html">Nomarjin</a></div>
+    <div class="search-box">
+      <form action="./itemList.html" method="get">
+        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+    <div class="login-btn">Login</div>
+  </header>
+  <nav>
+    <ul class="nav-icon">
+      <li class="top"><a href="/form/itemList/top">TOP</a></li>
+      <li class="bottom"><a href="/form/itemList/bottom">BOTTOM</a></li>
+      <li class="outer"><a href="/form/itemList/outer">OUTER</a></li>
+    </ul>
+  </nav>
+  <div>
+    <label for="itemName">상품 이름</label>
+    <input type="text" id="itemName" name="itemName" class="form-control"
+           th:value="${item.itemName}" value="상품 A" readonly>
+  </div>
+  <div>
+    <label for="itemPrice">상품 가격</label>
+    <input type="text" id="itemPrice" name="itemPrice" class="form-control"
+           th:value="${item.price}" value="10000" readonly>
+  </div>
+
+  <div>
+    <div>사이즈 선택</div>
+    <select th:field="${item.itemSize}" class="form-select">
+      <option value="">==사이즈 선택==</option>
+      <option th:each="size : ${allSize}" th:value="${size.allSize}"
+              th:text="${size.sizeName}">S</option>
+    </select>
+  </div>
+
+  <div>
+    <div>색상</div>
+    <select th:field="${item.color}" class="form-select">
+      <option value="">==색상 선택==</option>
+      <option th:each="color : ${colors}" th:value="${color.color}"
+              th:text="${color.colorName}">Red</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="w-100 btn btn-primary btn-lg"
+              th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|" type="button">상품 구매</button>
+    </div>
+
+    <div class="col">
+      <button class="w-100 btn btn-secondary btn-lg"
+              onclick="location.href='/form/itemList'"
+              th:onclick="|location.href='@{/form/itemList}'|"
+              type="button">목록으로</button>
+    </div>
+  </div>
+
+
+</div>
+
+<footer>
+  <ul class="company-info">
+    <li>Nomarjin company</li>
+    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
+    <li>김씨 권씨 이씨 임씨 최씨</li>
+    <li>02-869-8301</li>
+    <li>000-00-00000</li>
+  </ul>
+  <ul class="company-etc">
+    <li>healuhen@gmail.com</li>
+    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
+  </ul>
+</footer>
+</body>
+</html>

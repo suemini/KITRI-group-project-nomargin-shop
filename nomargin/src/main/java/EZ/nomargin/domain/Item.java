@@ -23,8 +23,11 @@ public class Item {
 
     private String imgName;
 
-    private String test;
+    private boolean open;
 
+    private String color;
+
+    private ItemSize itemSize;
 
     //photo
 

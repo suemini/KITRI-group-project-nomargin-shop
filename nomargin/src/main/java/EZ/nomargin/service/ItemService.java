@@ -27,7 +27,6 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-
     public List<Item> findTop() {
         return itemRepository.findTop();
     }
@@ -41,8 +40,6 @@ public class ItemService {
 
     }
 
-
-
     public void update(Long itemId, Item updateItem) {
         itemRepository.update(itemId, updateItem);
     }
@@ -50,5 +47,6 @@ public class ItemService {
     public void delete(Long itemId) {
         itemRepository.delete(itemId);
     }
+
 
 }

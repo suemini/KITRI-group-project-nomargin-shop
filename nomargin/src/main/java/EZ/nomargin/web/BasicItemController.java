@@ -1,6 +1,8 @@
 package EZ.nomargin.web;
 
 import EZ.nomargin.domain.Item;
+import EZ.nomargin.domain.ItemColor;
+import EZ.nomargin.domain.ItemSize;
 import EZ.nomargin.domain.ItemType;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -8,10 +10,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 @Slf4j
 @Controller
@@ -19,57 +20,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BasicItemController {
     private final ItemService itemService;
-
-    @GetMapping("/{itemId}")
-    public String item(@PathVariable Long ItemId, Model model) {
-        Item item = itemService.findById(ItemId);
-        model.addAttribute("item", item);
-        return "/form/item";
-    }
-
-    @GetMapping("/add")
-    public String addForm(Model model) {
-        model.addAttribute("item", new Item());
-        return "/form/addForm";
-    }
-
-    // V6 : 새로고침 문제 해결
-    @PostMapping("/add")
-    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
-        item = itemService.save(item);
-        // PRG(Post/Redirect/Get) 방식을 통해 새로고침 문제 해결!!!
-        redirectAttributes.addAttribute("itemId", item.getItemId());
-        redirectAttributes.addAttribute("status", true);
-        return "redirect:/form/items/{itemId}";
-    }
-
-    @GetMapping("/{itemId}/edit")
-    public String editItem(@PathVariable Long itemId, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
-        return "/form/editForm";
-    }
-
-    @PostMapping("/{itemId}/edit")
-    public String edit(@ModelAttribute Item item, Model model) {
-        itemService.update(item.getItemId(), item);
-        model.addAttribute("item",item);
-        return "/form/item";
-    }
-
-    @GetMapping("/{itemId}/delete")
-    public String delete(@PathVariable Long itemId) {
-        itemService.delete(itemId);
-        return  "redirect:/form/items";
-    }
-
-    @GetMapping
-    public ModelAndView items() {
-        List<Item> items = itemService.findAll();
-        ModelAndView mav = new ModelAndView("/form/items")
-                .addObject("items", items);
-        return mav;
-    }
 
 
     @ModelAttribute("ItemType")
@@ -98,8 +48,45 @@ public class BasicItemController {
         return "/form/itemList";
     }
 
+    @GetMapping("/itemType/{itemType}")
+    public String showItemCategory(Model model, @PathVariable String itemType) {
+        List<String> imageUrls = new ArrayList<>();
+        for (Item item : itemService.findAll()) {
+            if (item.getItemType().getDescription().equals(itemType)) {
+                imageUrls.add(item.getImgName());
+            }
+        }
+        model.addAttribute("itemType", itemType);
+        model.addAttribute("imagUrls", imageUrls);
 
+        return "/form/itemList";
+    }
 
+    @GetMapping("/{itemId}")
+    public String item(@PathVariable long itemId, Model model) {
+        Item item = itemService.findById(itemId);
+        model.addAttribute("item", item);
+        return "/form/item";
+    }
+
+    @ModelAttribute("colors")
+    public List<ItemColor> colors() {
+        List<ItemColor> colors = new ArrayList<>();
+        colors.add(new ItemColor("Red", "적색"));
+        colors.add(new ItemColor("White", "흰색"));
+        colors.add(new ItemColor("Black", "검은색"));
+        return colors;
+    }
+
+    @ModelAttribute("allSize")
+    public List<ItemSize> allSize() {
+        List<ItemSize> allSize = new ArrayList<>();
+        allSize.add(new ItemSize(90, "S"));
+        allSize.add(new ItemSize(95, "M"));
+        allSize.add(new ItemSize(100, "L"));
+        allSize.add(new ItemSize(105, "XL"));
+        return allSize;
+    }
 
 
     @PostConstruct  // 생성 이후 얘를 실행

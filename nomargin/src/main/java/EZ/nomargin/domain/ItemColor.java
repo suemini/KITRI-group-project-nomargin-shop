@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class ItemSize {
-    private int allSize;
-    private String sizeName;
+public class ItemColor {
+    private String color;
+    private String colorName;
 }

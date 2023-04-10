@@ -51,7 +51,7 @@
                             <td><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
                             <td th:text="${item.price}">아이템 가격</td>
                             <td th:text="${item.stock}">아이템 재고</td>
-                            <td><img th:src="@{/static/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Example Image"></td>
+                            <td><img th:each="imagUrl : ${imagUrls}" th:src="@{/images/__${imagUrl}__.jpg}" alt="Example Image"></td>
                         </tr>
                         </tbody>
                     </table>
