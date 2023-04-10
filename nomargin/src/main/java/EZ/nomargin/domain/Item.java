@@ -23,6 +23,9 @@ public class Item {
 
     private String imgName;
 
+    private String test;
+
+
     //photo
 
     public Item() {
