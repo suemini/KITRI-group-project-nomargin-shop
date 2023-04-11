@@ -25,9 +25,7 @@
 .item-list article:hover {
     transition: all 0.5s;
     transform:scale(103%);
-
 }
-
 
 article img {
     width: 100%;

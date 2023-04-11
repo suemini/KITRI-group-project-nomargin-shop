@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/CSS/index.css">
-  <link rel="stylesheet" href="/static/CSS/itemList.css">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="/css/itemList.css">
   <title>NOMARGIN</title>
 </head>
 <body>
@@ -14,7 +13,7 @@
   <header>
     <div class="logo"><a href="index.html">Nomarjin</a></div>
     <div class="search-box">
-      <form action="./itemList.html" method="get">
+      <form action="itemList.html" method="get">
         <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
         <input type="submit" value="Search">
       </form>
@@ -28,40 +27,39 @@
       <li class="outer"><a href="/form/itemList/outer">OUTER</a></li>
     </ul>
   </nav>
+  <tr class="items" th:each="item : ${items}">
+  <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
+  </tr>
+<!--  <div>-->
+<!--    <label for="itemId">상품 ID</label>-->
+<!--    <input type="text" id="itemId" name="id" class="form-control"-->
+<!--           th:value="${items.itemId}" value="1" readonly>-->
+<!--  </div>-->
   <div>
-    <label for="itemName">상품 이름</label>
-    <input type="text" id="itemName" name="itemName" class="form-control"
-           th:value="${item.itemName}" value="상품 A" readonly>
+    <label for="name">상품 이름</label>
+    <input type="text" id="name" name="name" class="form-control"
+           th:value="${items.itemName}" value="상품 A" readonly>
   </div>
   <div>
-    <label for="itemPrice">상품 가격</label>
-    <input type="text" id="itemPrice" name="itemPrice" class="form-control"
-           th:value="${item.price}" value="10000" readonly>
-  </div>
-
-  <div>
-    <div>사이즈 선택</div>
-    <select th:field="${item.itemSize}" class="form-select">
-      <option value="">==사이즈 선택==</option>
-      <option th:each="size : ${allSize}" th:value="${size.allSize}"
-              th:text="${size.sizeName}">S</option>
-    </select>
+    <label for="price">상품 가격</label>
+    <input type="text" id="price" name="price" class="form-control"
+           th:value="${items.price}" value="10000" readonly>
   </div>
 
   <div>
     <div>색상</div>
-    <select th:field="${item.color}" class="form-select">
+    <select th:field="${items.color}" class="form-select">
       <option value="">==색상 선택==</option>
       <option th:each="color : ${colors}" th:value="${color.color}"
               th:text="${color.colorName}">Red</option>
     </select>
   </div>
 
-  <div class="row">
-    <div class="col">
-      <button class="w-100 btn btn-primary btn-lg"
-              th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|" type="button">상품 구매</button>
-    </div>
+<!--  <div class="row">-->
+<!--    <div class="col">-->
+<!--      <button class="w-100 btn btn-primary btn-lg"-->
+<!--              th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|" type="button">상품 구매</button>-->
+<!--    </div>-->
 
     <div class="col">
       <button class="w-100 btn btn-secondary btn-lg"
@@ -70,10 +68,7 @@
               type="button">목록으로</button>
     </div>
   </div>
-
-
 </div>
-
 <footer>
   <ul class="company-info">
     <li>Nomarjin company</li>

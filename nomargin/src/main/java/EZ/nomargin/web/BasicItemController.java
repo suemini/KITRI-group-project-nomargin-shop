@@ -1,7 +1,7 @@
 package EZ.nomargin.web;
 
 import EZ.nomargin.domain.Item;
-import EZ.nomargin.domain.ItemColor;
+import EZ.nomargin.domain.ItemColor.ItemColor;
 import EZ.nomargin.domain.ItemType;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+
 @Slf4j
 @Controller
 @RequestMapping("/form/itemList")
@@ -27,46 +28,34 @@ public class BasicItemController {
     }
 
 
-    @GetMapping("top")
+    @GetMapping("/itemType/top")
     public String itemsTop(Model model) {
         List<Item> items = itemService.findTop();
         model.addAttribute("items", items);
         return "/form/itemList";
     }
 
-    @GetMapping("bottom")
+    @GetMapping("/itemType/bottom")
     public String itemsBottom(Model model) {
         List<Item> items = itemService.findBottom();
         model.addAttribute("items", items);
         return "/form/itemList";
     }
-    @GetMapping("outer")
+
+    @GetMapping("/itemType/outer")
     public String itemsOuter(Model model) {
         List<Item> items = itemService.findOuter();
         model.addAttribute("items", items);
         return "/form/itemList";
     }
 
-    @GetMapping("/itemType/{itemType}")
-    public String showItemCategory(Model model, @PathVariable String itemType) {
-        List<String> imageUrls = new ArrayList<>();
-        for (Item item : itemService.findAll()) {
-            if (item.getItemType().getDescription().equals(itemType)) {
-                imageUrls.add(item.getImgName());
-            }
-        }
-        model.addAttribute("itemType", itemType);
-        model.addAttribute("imagUrls", imageUrls);
-
-        return "/form/itemList";
-    }
-
     @GetMapping("/{itemId}")
-    public String item(@PathVariable long itemId, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
+    public String item(Model model, @PathVariable Long itemId) {
+        Item items = itemService.findById(itemId);
+        model.addAttribute("items", items);
         return "/form/item";
     }
+
 
     @ModelAttribute("colors")
     public List<ItemColor> colors() {
@@ -78,11 +67,35 @@ public class BasicItemController {
     }
 
 
+    // 공부하자...PathVariable
+    @GetMapping("/itemType/{itemType}")
+    public String itemTypeName(@PathVariable("itemType") String itemType, Model model) {
+        List<Item> items = new ArrayList<>();
+
+        switch (itemType) {
+            case "TOP":
+                items = itemService.findTop();
+                model.addAttribute("items", items);
+                model.addAttribute("itemType", "TOP");
+                break;
+            case "BOTTOM":
+                items = itemService.findBottom();
+                model.addAttribute("items", items);
+                model.addAttribute("itemType", "BOTTOM");
+                break;
+            case "OUTER":
+                items = itemService.findOuter();
+                model.addAttribute("items", items);
+                model.addAttribute("itemType", "OUTER");
+                break;
+        }
+        return "/form/itemList";
+    }
 
     @PostConstruct  // 생성 이후 얘를 실행
     public void initProducts() {
-        itemService.save(new Item("티샤스", "이것은 흰티",10000,100, ItemType.Top ,"1" ));
-        itemService.save(new Item("줄무늬 남방", "공대생 전용 교복",5000,10, ItemType.Top ,"2" ));
+        itemService.save(new Item("티샤스", "이것은 흰티",10000,100, ItemType.Top ,"1"));
+        itemService.save(new Item("줄무늬 남방", "공대생 전용 교복",5000,10, ItemType.Top ,"2"));
         itemService.save(new Item("바지", "키커보이는 바지",25000, 50,ItemType.Bottom, "3"));
         itemService.save(new Item("찢어진 청바지", "거지 아님 오해 ㄴ",25000, 40,ItemType.Bottom, "4"));
         itemService.save(new Item("아우터", "예쁜 가디건",35000, 200, ItemType.Outer, "5"));

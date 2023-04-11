@@ -5,6 +5,8 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.persistence.GenerationType;
 
+import static javax.persistence.EnumType.STRING;
+
 
 @Data
 @Entity
@@ -18,23 +20,21 @@ public class Item {
     private String itemSellStatus;
     private Integer price;
     private Integer stock;
-
+    @Enumerated(STRING)
     private ItemType itemType;
-
-    private String imgName;
 
     private boolean open;
 
     private String color;
-    @Embedded
-    private ItemSize itemSize;
+
+    private String imgName;
 
     //photo
 
     public Item() {
     }
 
-    public Item(String itemName, String itemDetail,  Integer price, Integer stock,ItemType itemType, String imgName) {
+    public Item(String itemName, String itemDetail, Integer price, Integer stock, ItemType itemType, String imgName) {
         this.itemDetail = itemDetail;
         this.itemName = itemName;
         this.price = price;

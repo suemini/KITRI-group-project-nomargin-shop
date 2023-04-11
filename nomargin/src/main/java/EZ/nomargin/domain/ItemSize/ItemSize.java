@@ -1,4 +1,4 @@
-package EZ.nomargin.domain;
+package EZ.nomargin.domain.ItemSize;
 
 public enum ItemSize {
     S("90"),
@@ -7,6 +7,7 @@ public enum ItemSize {
     XL("105");
 
     private final String description;
+
     ItemSize(String description){
         this.description = description;
     }

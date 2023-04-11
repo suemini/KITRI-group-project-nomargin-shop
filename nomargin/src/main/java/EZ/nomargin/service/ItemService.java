@@ -2,6 +2,7 @@ package EZ.nomargin.service;
 
 
 import EZ.nomargin.domain.Item;
+import EZ.nomargin.domain.ItemType;
 import EZ.nomargin.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,8 @@ public class ItemService {
     public Item findById(Long id) {
         return itemRepository.findById(id).get();
     }
+//    public Item findByName(String name) {return itemRepository.findByName(name).get();}
+    public List<Item> findByItemType(ItemType itemType) {return itemRepository.findByItemType(itemType);}
 
     public List<Item> findAll() {
         return itemRepository.findAll();
