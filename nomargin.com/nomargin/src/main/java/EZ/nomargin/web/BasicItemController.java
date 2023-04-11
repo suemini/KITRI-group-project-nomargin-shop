@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 @Slf4j
 @Controller
@@ -77,21 +78,45 @@ public class BasicItemController {
         return ItemType.values();
     }
 
+    @GetMapping("/type/{type}")
+    public String itemsTop(@PathVariable("type") String type, Model model) {
+            List<Item> items = new ArrayList<>();
 
-    @GetMapping("top")
+        switch (type) {
+            case "top":
+                items = itemService.findTop();
+                model.addAttribute("items", items);
+                model.addAttribute("type", "TOP");
+                break;
+            case "bottom":
+                items = itemService.findBottom();
+                model.addAttribute("items", items);
+                model.addAttribute("type", "BOTTOM");
+                break;
+            case "outer":
+                items = itemService.findOuter();
+                model.addAttribute("items", items);
+                model.addAttribute("type", "OUTER");
+                break;
+        }
+
+        return "/form/itemList";
+    }
+
+    //@GetMapping("top")
     public String itemsTop(Model model) {
         List<Item> items = itemService.findTop();
         model.addAttribute("items", items);
         return "/form/itemList";
     }
 
-    @GetMapping("bottom")
+    //@GetMapping("bottom")
     public String itemsBottom(Model model) {
         List<Item> items = itemService.findBottom();
         model.addAttribute("items", items);
         return "/form/itemList";
     }
-    @GetMapping("outer")
+    //@GetMapping("outer")
     public String itemsOuter(Model model) {
         List<Item> items = itemService.findOuter();
         model.addAttribute("items", items);
