@@ -56,8 +56,6 @@ public class JpaItemRepository implements ItemRepository {
     }
 
 
-
-
     @Override
     public void update(Long itemId, Item updateItem) {
         updateItem.setItemId(itemId);
