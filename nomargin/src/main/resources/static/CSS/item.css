@@ -1,0 +1,49 @@
+table {
+    display: inline-block;
+    width: 500px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    /* 정렬 고정 */
+}
+
+
+.item-mainImage img {
+    width: 90%;
+}
+
+.item-info {
+    display: inline-block;
+}
+
+.item-info li {
+    margin: 0;
+    /*padding: 30px;*/
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    font-size: 15pt;
+}
+
+label {
+    font-size: 15pt;
+}
+
+.form-select {
+    display: block;
+    /*    */
+    width: 100%;
+    height: 30px;
+}
+
+.item-size {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin: 0 0 30px 0;
+}
