@@ -18,7 +18,6 @@ public class Member {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     private Long id;
-
     @NotEmpty
     private String loginId; //로그인 ID
     @NotEmpty
