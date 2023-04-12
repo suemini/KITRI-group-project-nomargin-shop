@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="headerFragment">
+  <!--  container class 밑에서부터 include (꼭!!!)-->
+  <header>
+    <div class="logo"><a href="/index.html">Nomarjin</a></div>
+    <div class="search-box">
+      <form action="../form/itemList.html" method="get">
+        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+    <div class="login-btn">Login</div>
+  </header>
+</th:block>
+</html>
