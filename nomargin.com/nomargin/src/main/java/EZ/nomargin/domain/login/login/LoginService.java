@@ -2,13 +2,14 @@ package EZ.nomargin.domain.login.login;
 
 
 import EZ.nomargin.domain.member.Member;
-import EZ.nomargin.domain.member.MemberRepository;
+import EZ.nomargin.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class LoginService {
+public class
+LoginService {
 
     private final MemberRepository memberRepository;
 

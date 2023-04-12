@@ -18,7 +18,6 @@ public class Item {
     private String itemSellStatus;
     private Integer price;
     private Integer stock;
-
     private ItemType itemType;
 
     private String imgName;

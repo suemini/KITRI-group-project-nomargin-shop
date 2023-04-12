@@ -1,7 +1,7 @@
 package EZ.nomargin.web;
 
-import hello.login.domain.member.Member;
-import hello.login.domain.member.MemberRepository;
+import EZ.nomargin.domain.member.Member;
+import EZ.nomargin.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

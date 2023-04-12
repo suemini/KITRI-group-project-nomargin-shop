@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Slf4j
-@Repository
+//@Repository
 public class MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>(); //static 사용
