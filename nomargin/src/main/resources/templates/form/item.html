@@ -66,6 +66,32 @@
 
             <input type="button" value="장바구니" onclick="alert(`장바구니에 담겼습니다.`)">
 
+            <div class="row mt-4">
+                <nav class="w-100">
+                    <div class="tab-group" id="item-tab" role="tablist">
+                        <a class="tab" id="item-desc-tab" href="#item-desc" role="tab" aria-controls="item-desc"
+                           aria-selected="true">설명</a>
+                        <a class="tab" id="item-comments-tab" href="#item-comments" role="tab" aria-controls="item-comments"
+                           aria-selected="false">리뷰</a>
+                        <a class="tab" id="item-rating-tab" href="#item-rating" role="tab" aria-controls="item-rating"
+                           aria-selected="false">평가</a>
+                    </div>
+                </nav>
+                <div class="tab-content p-3" id="nav-tabContent">
+                    <div class="tab-pane" id="item-desc" role="tabpanel" aria-labelledby="item-desc-tab">
+                        <h2>상세 설명</h2>
+                        <p>제품에 대한 상세한 설명입니다.</p>
+                    </div>
+                    <div class="tab-pane" id="item-comments" role="tabpanel" aria-labelledby="item-comments-tab">
+                        <h2>리뷰</h2>
+                        <p>제품에 대한 리뷰 내용입니다.</p>
+                    </div>
+                    <div class="tab-pane" id="item-rating" role="tabpanel" aria-labelledby="item-rating-tab">
+                        <h2>평가</h2>
+                        <p>제품에 대한 평가 내용입니다.</p>
+                    </div>
+                </div>
+            </div>
         </ul>
     </section>
 
@@ -88,7 +114,7 @@
     <!--            th:onclick="|location.href='@{/form/itemList}'|"-->
     <!--            type="button">목록으로</button>-->
     <!--  </div>-->
-</div>
+</li>
 <footer>
     <ul class="company-info">
         <li>Nomarjin company</li>
