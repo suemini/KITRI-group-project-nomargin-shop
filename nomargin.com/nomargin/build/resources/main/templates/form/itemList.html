@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="fragments/head :: headFragment"></th:block>
-    <body>
-        <div class="container" id="'wrapper">
-            <th:block th:replace="fragments/headerAndNav :: headerAndNavFragment"></th:block>
-            <div class="list-title" th:each="item : ${items}"></div>
-        <div class="list-title" th:text="${type}">TOP</div>
-            <section class="item-list">
-                    <table class="item-table">
-                        <tbody>
-                        <!--      each : 반복분 -->
-                        <tr class="items" th:each="item : ${items}">
-                            <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
-                            <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
-                            <td class="item-price" th:text="${item.price}">아이템 가격</td>
-                        </tr>
-                    </tbody>
-                    </table>
-            </section>
-        </div>
-        <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-    </body>
+<body>
+<div class="container" id="'wrapper">
+    <th:block th:replace="fragments/headerAndNav :: headerAndNavFragment"></th:block>
+    <div class="list-title" th:each="item : ${items}"></div>
+    <div class="list-title" th:text="${type}">TOP</div>
+    <section class="item-list">
+        <table class="item-table">
+            <tbody>
+            <!--      each : 반복분 -->
+            <tr class="items" th:each="item : ${items}">
+                <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
+                <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
+                <!--                            <td class="item-price" th:text="${item.price}">아이템 가격</td>-->
+                <td class="item-price" th:text="|${item.price}원|">아이템 가격</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
 </html>
 
 abc
