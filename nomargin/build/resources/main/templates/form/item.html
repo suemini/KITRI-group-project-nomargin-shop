@@ -1,86 +1,106 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/index.css">
-  <link rel="stylesheet" href="/css/itemList.css">
-  <title>NOMARGIN</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/item.css">
+    <title>NOMARGIN</title>
 </head>
 <body>
-<div class="container" id="'wrapper">
-  <header>
-    <div class="logo"><a href="index.html">Nomarjin</a></div>
-    <div class="search-box">
-      <form action="itemList.html" method="get">
-        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
-        <input type="submit" value="Search">
-      </form>
-    </div>
-    <div class="login-btn">Login</div>
-  </header>
-  <nav>
-    <ul class="nav-icon">
-      <li class="top"><a href="/form/itemList/top">TOP</a></li>
-      <li class="bottom"><a href="/form/itemList/bottom">BOTTOM</a></li>
-      <li class="outer"><a href="/form/itemList/outer">OUTER</a></li>
-    </ul>
-  </nav>
-  <tr class="items" th:each="item : ${items}">
-  <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
-  </tr>
-<!--  <div>-->
-<!--    <label for="itemId">상품 ID</label>-->
-<!--    <input type="text" id="itemId" name="id" class="form-control"-->
-<!--           th:value="${items.itemId}" value="1" readonly>-->
-<!--  </div>-->
-  <div>
-    <label for="name">상품 이름</label>
-    <input type="text" id="name" name="name" class="form-control"
-           th:value="${items.itemName}" value="상품 A" readonly>
-  </div>
-  <div>
-    <label for="price">상품 가격</label>
-    <input type="text" id="price" name="price" class="form-control"
-           th:value="${items.price}" value="10000" readonly>
-  </div>
+<li class="container" id="'wrapper">
+    <header>
+        <div class="logo"><a href="../../../index.html">Nomarjin</a></div>
+        <div class="search-box">
+            <form action="itemList.html" method="get">
+                <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        <div class="login-btn">Login</div>
+    </header>
+    <nav>
+        <ul class="nav-icon">
+            <li class="top"><a href="/form/itemList/type/top">TOP</a></li>
+            <li class="bottom"><a href="/form/itemList/type/bottom">BOTTOM</a></li>
+            <li class="outer"><a href="/form/itemList/type/outer">OUTER</a></li>
+        </ul>
+    </nav>
 
-  <div>
-    <div>색상</div>
-    <select th:field="${items.color}" class="form-select">
-      <option value="">==색상 선택==</option>
-      <option th:each="color : ${colors}" th:value="${color.color}"
-              th:text="${color.colorName}">Red</option>
-    </select>
-  </div>
+    <section>
+        <table>
+            <tr class="items" th:each="item : ${item}">
+                <td class="item-mainImage"><img
+                        th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}"
+                        alt="Image"></td>
+            </tr>
+        </table>
 
-<!--  <div class="row">-->
-<!--    <div class="col">-->
-<!--      <button class="w-100 btn btn-primary btn-lg"-->
-<!--              th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|" type="button">상품 구매</button>-->
-<!--    </div>-->
+        <ul class="item-info">
+            <li>
+                <label for="name">상품 이름</label>
+                <input type="text" id="name" name="name" class="form-control"
+                       th:value="${item.itemName}" value="상품 A" readonly>
+            </li>
+            <li><label for="price">상품 가격</label>
+                <input type="text" id="price" name="price" class="form-control"
+                       th:value="${item.price}" value="10000" readonly>
+            </li>
+            <li><label for="store">판매처</label>
+                <input type="text" id="store" name="store" class="form-control"
+                       th:value="${item.itemStore}" value="abc" readonly>
+            </li>
 
-    <div class="col">
-      <button class="w-100 btn btn-secondary btn-lg"
-              onclick="location.href='/form/itemList'"
-              th:onclick="|location.href='@{/form/itemList}'|"
-              type="button">목록으로</button>
-    </div>
-  </div>
+            <div class="item-size">
+                <label>사이즈 선택</label>
+                <select th:field="${item.itemSize}" class="form-select">
+                    <option value="">==사이즈 선택==</option>
+                    <option th:each="size : ${itemSize}" th:value="${size.key}"
+                            th:text="${size.value}">S
+                    </option>
+                </select>
+            </div>
+
+            <input type="button" value="상품 구매">
+
+            <input type="button" value="장바구니" onclick="alert(`장바구니에 담겼습니다.`)">
+
+        </ul>
+    </section>
+
+
+    <!--  <div>-->
+    <!--    <div>색상</div>-->
+    <!--    <select th:field="${items.color}" class="form-select">-->
+    <!--      <option value="">==색상 선택==</option>-->
+    <!--      <option th:each="color : ${colors}" th:value="${color.color}"-->
+    <!--              th:text="${color.colorName}">Red</option>-->
+    <!--    </select>-->
+    <!--  </div>-->
+
+    <!--  th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|"  -->
+
+
+    <!--  <div class="col">-->
+    <!--    <button class="w-100 btn btn-secondary btn-lg"-->
+    <!--            onclick="location.href='/form/itemList'"-->
+    <!--            th:onclick="|location.href='@{/form/itemList}'|"-->
+    <!--            type="button">목록으로</button>-->
+    <!--  </div>-->
 </div>
 <footer>
-  <ul class="company-info">
-    <li>Nomarjin company</li>
-    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
-    <li>김씨 권씨 이씨 임씨 최씨</li>
-    <li>02-869-8301</li>
-    <li>000-00-00000</li>
-  </ul>
-  <ul class="company-etc">
-    <li>healuhen@gmail.com</li>
-    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
-  </ul>
+    <ul class="company-info">
+        <li>Nomarjin company</li>
+        <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
+        <li>김씨 권씨 이씨 임씨 최씨</li>
+        <li>02-869-8301</li>
+        <li>000-00-00000</li>
+    </ul>
+    <ul class="company-etc">
+        <li>healuhen@gmail.com</li>
+        <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
+    </ul>
 </footer>
 </body>
 </html>

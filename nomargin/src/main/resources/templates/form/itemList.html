@@ -12,7 +12,7 @@
     <body>
         <div class="container" id="'wrapper">
             <header>
-                <div class="logo"><a href="../../static/index.html">Nomarjin</a></div>
+                <div class="logo"><a href="../../../index.html">Nomarjin</a></div>
                 <div class="search-box">
                     <form action="../form/itemList.html" method="get">
                         <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
@@ -23,26 +23,29 @@
             </header>
             <nav>
                 <ul class="nav-icon">
-                    <li class="top"><a href="/form/itemList/itemType/TOP">TOP</a></li>
-                    <li class="bottom"><a href="/form/itemList/itemType/BOTTOM">BOTTOM</a></li>
-                    <li class="outer"><a href="/form/itemList/itemType/OUTER">OUTER</a></li>
+                    <li class="top"><a href="/form/itemList/type/Top">TOP</a></li>
+                    <li class="bottom"><a href="/form/itemList/type/Bottom">BOTTOM</a></li>
+                    <li class="outer"><a href="/form/itemList/type/Outer">OUTER</a></li>
                 </ul>
             </nav>
-            <div class="item-list" th:each="item : ${items}"></div>
-            </div>
-            <div class="list-title" th:text="${itemType}">Top</div>
+            <div class="list-title" th:each="item : ${items}"></div>
+        </div>
+            <div class="list-title" th:text="${type}">TOP</div>
+
             <section class="item-list">
                     <table class="item-table">
                         <tbody>
                         <!--      each : 반복분 -->
                         <tr class="items" th:each="item : ${items}">
                             <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
+<!--                            <td class="item-image"><img src="../../static/asset/045.jpg" alt="Image"></td>-->
                             <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
                             <td class="item-price" th:text="${item.price}">아이템 가격</td>
                         </tr>
                     </tbody>
                     </table>
             </section>
+
             <footer>
                 <ul class="company-info">
                     <li>Nomarjin company</li>
@@ -58,3 +61,5 @@
             </footer>
     </body>
 </html>
+
+abc

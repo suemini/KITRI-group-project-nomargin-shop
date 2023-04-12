@@ -1,7 +1,6 @@
 package EZ.nomargin.repository;
 
-import EZ.nomargin.domain.Item;
-import EZ.nomargin.domain.ItemType;
+import EZ.nomargin.domain.item.Item;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +8,6 @@ import java.util.Optional;
 public interface ItemRepository {
     Item save(Item item);
     Optional<Item> findById(Long id);
-//    Optional<Item> findByName(String name);
-    List<Item> findByItemType(ItemType itemType);
     List<Item> findAll();
     void update(Long productId, Item updateProduct);
     void delete(Long productId);

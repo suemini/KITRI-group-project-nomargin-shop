@@ -1,13 +1,12 @@
 package EZ.nomargin.repository;
 
-import EZ.nomargin.domain.Item;
-import EZ.nomargin.domain.ItemType;
+import EZ.nomargin.domain.item.Item;
+import EZ.nomargin.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,13 +26,6 @@ public class JpaItemRepository implements ItemRepository {
     public Optional<Item> findById(Long id) {
         Item item = em.find(Item.class, id);
         return Optional.ofNullable(item);
-    }
-
-    @Override
-    public List<Item> findByItemType(ItemType itemType) {
-        return em.createQuery("select i from Item i where i.itemType = :itemType", Item.class)
-                .setParameter("itemType", itemType)
-                .getResultList();
     }
 
     @Override
@@ -62,6 +54,7 @@ public class JpaItemRepository implements ItemRepository {
                 .setParameter("itemType",ItemType.Outer)
                 .getResultList();
     }
+
 
     @Override
     public void update(Long itemId, Item updateItem) {

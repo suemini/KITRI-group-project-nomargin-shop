@@ -31,7 +31,8 @@
 }
 
 .item-image img {
-    width: 100%;
+    width: 250px;
+
 }
 
 .item-name a {
