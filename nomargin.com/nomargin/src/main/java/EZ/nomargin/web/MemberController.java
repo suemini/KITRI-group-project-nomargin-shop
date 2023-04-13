@@ -2,8 +2,8 @@ package EZ.nomargin.web;
 
 import EZ.nomargin.domain.member.Member;
 
+import EZ.nomargin.domain.member.Role;
 import EZ.nomargin.dto.JoinDto;
-import EZ.nomargin.repository.JpaMemberRepository;
 import EZ.nomargin.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @Slf4j
@@ -54,10 +56,13 @@ public class MemberController {
         return "redirect:/";
     }
 
+
+    //로그인 페이지 이동
     @GetMapping("login")
     public String memberLogin() {
         return "members/loginForm";
     }
+
 
     // 로그인 실패
     @GetMapping("/login/fail")
@@ -66,5 +71,15 @@ public class MemberController {
         return "members/loginForm";
     }
 
+    @PostConstruct
+    @Transactional
+    public void init() {
+        Member member = new Member();
+        member.setName("현덕");
+        member.setPassword(passwordEncoder.encode("kitri123456!"));
+        member.setLoginId("kitri");
+        member.setRole(Role.ADMIN);
 
+        memberService.joinMember(member);
+    }
 }

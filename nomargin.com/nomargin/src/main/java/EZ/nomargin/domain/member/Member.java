@@ -1,19 +1,19 @@
 package EZ.nomargin.domain.member;
 
 import EZ.nomargin.dto.JoinDto;
-import lombok.Data;
+import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 public class Member {
 
     @Id @GeneratedValue(strategy = IDENTITY)
@@ -25,6 +25,8 @@ public class Member {
     @NotEmpty
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
 
@@ -35,7 +37,7 @@ public class Member {
 //        member.setAddress(joinFormDto.getAddress());
         String password = passwordEncoder.encode(joinDto.getPassword());
         member.setPassword(password);
-//        member.setRole(Role.ADMIN);
+        member.setRole(Role.USER);
         return member;
     }
 
