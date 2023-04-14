@@ -1,0 +1,151 @@
+table {
+    display: inline-block;
+    width: 500px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.item-mainImage img {
+    width: 90%;
+}
+
+.item-info {
+    display: inline-block;
+}
+
+.item-info li {
+    margin: 0;
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    font-size: 15pt;
+}
+
+label {
+    font-size: 15pt;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.item-size {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    margin: 0 0 30px 0;
+}
+
+
+/* JE-내가 추가한 부분 */
+.item-quantity {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    left: 0;
+
+}
+
+.item-quantity-text {
+    font-size: 15pt;
+}
+
+.item-quantity input[type="number"] {
+    width: 50px;
+    height: 40px;
+    border:1px solid lightgray;
+
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 40px;
+}
+
+#order-box {
+    margin: 10px;
+    padding: 0 5px 0 5px;
+    width: 500px;
+    height: 80px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 2px 2px rgb(226, 226, 226);
+}
+
+#order-box input[type="button"] {
+    margin-left: 95%;
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    font-size: 10px;
+    color: gray;
+    border: none;
+    border-radius: 3px;
+}
+
+#order-box input[type="button"]:hover {
+    color: white;
+    background-color: black;
+}
+
+.order-box-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.order-item-name {
+    text-align: start;
+}
+
+.order-item-price {
+    text-align: end;
+}
+
+.order-box-list :nth-child(1) {
+    flex-basis: 250px;
+}
+
+.order-box-list :nth-child(n) {
+    width: 70px;
+}
+
+#item-totalPrice-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    flex-basis: 200px;
+}
+
+.item-totalPrice-text {
+    position: relative;
+    margin-right: 10%;
+}
+
+.item-totalPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items:first baseline;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.totalPrice {
+    font-size: 30pt;
+    margin-right: 10px;
+}
+/*JE-내가 추가한 부분 끝*/
