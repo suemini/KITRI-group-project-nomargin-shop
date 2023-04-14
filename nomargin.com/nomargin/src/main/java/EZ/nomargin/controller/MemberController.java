@@ -60,7 +60,7 @@ public class MemberController {
     //로그인 페이지 이동////get
     @GetMapping ("login")
     public String memberLogin() {
-        return "members/loginForm";
+        return "/members/loginForm";
     }
 
 
