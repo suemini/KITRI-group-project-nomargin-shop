@@ -3,6 +3,7 @@ package EZ.nomargin.service;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.repository.JpaMemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class MemberService implements UserDetailsService {
 
 //
+    @Autowired
     private final JpaMemberRepository jpaMemberRepository;
 
 

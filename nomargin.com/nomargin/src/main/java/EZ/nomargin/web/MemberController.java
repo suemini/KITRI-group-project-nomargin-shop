@@ -82,4 +82,15 @@ public class MemberController {
 
         memberService.joinMember(member);
     }
+
+    // 로그인이 성공되면 메인으로 이동
+    @GetMapping("/index")
+    public String Test(Model model) {
+        return "index";
+    }
+
+
+
+
+
 }

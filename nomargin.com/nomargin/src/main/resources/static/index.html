@@ -21,7 +21,24 @@
                     </form>
                 </div>
                 <div class="login-btn">
-                    <li><a href="/members/login">Login</a></li></div>
+                    <li><a href="/members/login">Login</a></li>
+
+                    <li><a sec:authorize="hasRole('ADMIN')">Has admin Role</a></li>
+                    <li><a sec:authorize="hasRole('USER')">Has USER Role</a></li>
+
+                    <sec:authorize access="isAnonymous()">
+
+                        <a href="/login" target="_self">Login</a>
+
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
+
+                        <a href="/logout" target="_self">Logout</a>
+
+
+                </div>
+
 
             </header>
             <nav>
