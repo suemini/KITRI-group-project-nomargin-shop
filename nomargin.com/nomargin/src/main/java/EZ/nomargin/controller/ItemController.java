@@ -13,7 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -23,54 +25,10 @@ public class ItemController {
     private final ItemService itemService;
 
     @GetMapping("/{itemId}")
-    public String item(@PathVariable Long ItemId, Model model) {
-        Item item = itemService.findById(ItemId);
-        model.addAttribute("item", item);
-        return "/form/item";
-    }
-
-    @GetMapping("/add")
-    public String addForm(Model model) {
-        model.addAttribute("item", new Item());
-        return "/form/addForm";
-    }
-
-    // V6 : 새로고침 문제 해결
-    @PostMapping("/add")
-    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
-        item = itemService.save(item);
-        // PRG(Post/Redirect/Get) 방식을 통해 새로고침 문제 해결!!!
-        redirectAttributes.addAttribute("itemId", item.getItemId());
-        redirectAttributes.addAttribute("status", true);
-        return "redirect:/form/items/{itemId}";
-    }
-
-    @GetMapping("/{itemId}/edit")
-    public String editItem(@PathVariable Long itemId, Model model) {
+    public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
-        return "/form/editForm";
-    }
-
-    @PostMapping("/{itemId}/edit")
-    public String edit(@ModelAttribute Item item, Model model) {
-        itemService.update(item.getItemId(), item);
-        model.addAttribute("item",item);
         return "/form/item";
-    }
-
-    @GetMapping("/{itemId}/delete")
-    public String delete(@PathVariable Long itemId) {
-        itemService.delete(itemId);
-        return  "redirect:/form/items";
-    }
-
-    @GetMapping
-    public ModelAndView items() {
-        List<Item> items = itemService.findAll();
-        ModelAndView mav = new ModelAndView("/form/items")
-                .addObject("items", items);
-        return mav;
     }
 
 
@@ -106,9 +64,14 @@ public class ItemController {
     }
 
 
-
-
-
+    @ModelAttribute("itemSize")
+    public Map<Integer, String> size() {
+        Map<Integer, String> sizes = new LinkedHashMap<>();
+        sizes.put(90, "S");
+        sizes.put(95, "M");
+        sizes.put(100, "L");
+        return sizes;
+    }
 
 
 //
