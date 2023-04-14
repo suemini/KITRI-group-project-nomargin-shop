@@ -1,4 +1,4 @@
 package EZ.nomargin.controller;
 
-public class memberController {
+public class AdminController {
 }

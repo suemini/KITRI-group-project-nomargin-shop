@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +20,25 @@
                         <input type="submit" value="Search">
                     </form>
                 </div>
-                <div class="login-btn">Login</div>
+                <div class="login-btn">
+                    <li><a href="/members/login">Login</a></li>
+
+                    <li><a sec:authorize="hasRole('ADMIN')">Has admin Role</a></li>
+                    <li><a sec:authorize="hasRole('USER')">Has USER Role</a></li>
+
+                    <sec:authorize access="isAnonymous()">
+
+                        <a href="/login" target="_self">Login</a>
+
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
+
+                        <a href="/logout" target="_self">Logout</a>
+
+
+
+
             </header>
             <nav>
                 <ul class="nav-icon">

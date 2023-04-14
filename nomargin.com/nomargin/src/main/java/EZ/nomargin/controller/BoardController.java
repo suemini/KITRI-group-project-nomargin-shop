@@ -1,4 +1,4 @@
 package EZ.nomargin.controller;
 
-public class cartController {
+public class BoardController {
 }
