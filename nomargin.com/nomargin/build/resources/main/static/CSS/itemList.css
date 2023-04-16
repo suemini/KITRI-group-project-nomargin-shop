@@ -21,22 +21,25 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: center;
 }
 
 .items {
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin-bottom: 20px;
+    text-align : center;
+    margin: 40px;
 }
 
 .item-image img {
-    width: 100%;
+    width: 300px;
+    height: 300px;
 }
 
 .item-name a {
     font-weight: bold;
-    font-size: 20pt;
+    font-size: 15pt;
     color: black;
     margin: 0;
 }

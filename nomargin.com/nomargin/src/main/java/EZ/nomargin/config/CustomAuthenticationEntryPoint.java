@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+    //권한 예외처리
     @Override
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,

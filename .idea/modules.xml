@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/nomargin.com.iml" filepath="$PROJECT_DIR$/.idea/nomargin.com.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nomargin.main.iml" filepath="$PROJECT_DIR$/.idea/modules/nomargin.main.iml" />
     </modules>
   </component>
 </project>
