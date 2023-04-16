@@ -46,6 +46,7 @@ public class JpaMemberRepository implements MemberRepository {
         return findAll().stream()
                 .filter(m -> m.getLoginId().equals(loginId))
                 .findFirst();
+
     }
 
 
