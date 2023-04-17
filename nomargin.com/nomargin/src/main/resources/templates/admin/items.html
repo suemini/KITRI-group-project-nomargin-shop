@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<!--thymeleaf는 jsp와 다르게 바로 볼 수 있음, jsp와 유사하게 js와 html를 같이 씀-->
+<html xmlns:th="http://www.thymeleaf.org"> <!--thymeleaf가 이 문법을 읽겠다 사용선언-->
+<!--th가 핵심이라고 볼 수 있음-->
+<head>
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+        th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
+  <!--그냥 여기서 실행할 때는 위의 href가 실행, 서버에서 실행될때는 th:href가 실행 -->
+</head>
+<body>
+<div class="container" style="max-width: 600px">
+  <div class="py-5 text-center">
+    <h2>상품 목록</h2>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-primary float-end"
+              onclick="location.href='addForm.html'"
+              th:onclick="|location.href='@{/admin/add}'|"
+              type="button">상품 등록</button> <!--/있으면 절대경로, 없는 위에꺼는 상대경로, 폴더 안에 있는 곳으로 감-->
+                          <!--@{} 이건 링크 / ||는 자바스크립트에서`` 1옆에 있는거 2개 와 비슷,
+                            ||안에꺼는 전부 다 문자로 인식할 수 있다는 것, + 안써도됨-->
+    </div>
+  </div>
+  <hr class="my-4">
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>수량</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--th:each 타임리프에서 반복할 때 사용  -->
+      <!--[ {1, 삼다수, 800, 20},  {2, 아이시스, 500, 30} ]
+      엔진의 입장에서는 이 데이터가 모델에 있는 것, each 문법으로 각각 접근
+      개발자도구에서 보면 똑같은 뭉탱이 갯수만큼 있음-->
+      <!--${products}는 변수-->
+      <tr th:each="item : ${items}">
+        <!--th:href="@{/basic/products/{productId}(productId=${product.id})}
+        {productId}는 (productId=${product.id})다 path variable 동적으로 생성된다-->
+        <td><a href="item.html" th:href="@{/admin/items/{itemId}(itemId=${item.itemId})}"
+               th:text="${item.itemId}">아이템id</a></td> <!--타임리프 안돌때는 회원id, 타임리프 돌때는 text=뒤에껄로 기존걸 대체하겠다  -->
+        <td><a href="item.html" th:href="@{|/admin/items/${item.itemId}|}"
+               th:text="${item.itemName}">상품명</a></td>
+        <td th:text="${item.price}">10000</td>
+        <td th:text="${item.stock}">10</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>

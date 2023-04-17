@@ -19,18 +19,28 @@ public class Item {
     private Integer stock;
     private ItemType itemType;
     private String imgName;
+    private String imgDetail1;
+    private String imgDetail2;
+    private String imgDetail3;
+    private String imgSize;
+
 
     //photo
 
     public Item() {
     }
 
-    public Item(String itemName, String itemStore,  Integer price, Integer stock,ItemType itemType, String imgName) {
+    public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType, String imgName,
+                String imgDetail1, String imgDetail2, String imgDetail3, String imgSize) {
         this.itemName = itemName;
         this.itemStore = itemStore;
         this.price = price;
         this.stock = stock;
         this.itemType = itemType;
         this.imgName = imgName;
+        this.imgDetail1 = imgDetail1;
+        this.imgDetail2 = imgDetail2;
+        this.imgDetail3 = imgDetail3;
+        this.imgSize = imgSize;
     }
 }

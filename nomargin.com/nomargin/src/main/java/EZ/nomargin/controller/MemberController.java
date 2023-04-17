@@ -89,7 +89,7 @@ public class MemberController {
     public void init() {
         Member member = new Member();
         member.setName("현덕");
-        member.setPassword(passwordEncoder.encode("kitri123456!"));
+        member.setPassword(passwordEncoder.encode("kitri"));
         member.setLoginId("kitri");
         member.setRole(Role.ADMIN);
 

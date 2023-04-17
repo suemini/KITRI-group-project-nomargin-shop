@@ -19,12 +19,12 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-@RequestMapping("/form/itemList")
+//@RequestMapping("/form/itemList")
 @RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
 
-    @GetMapping("/{itemId}")
+    @GetMapping("/form/itemList/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
@@ -38,7 +38,7 @@ public class ItemController {
     }
 
 
-    @GetMapping("/type/{type}")
+    @GetMapping("/form/itemList/type/{type}")
     public String itemsTop(@PathVariable("type") String type, Model model) {
         List<Item> items = new ArrayList<>();
 
@@ -64,6 +64,9 @@ public class ItemController {
     }
 
 
+
+
+
     @ModelAttribute("itemSize")
     public Map<Integer, String> size() {
         Map<Integer, String> sizes = new LinkedHashMap<>();
@@ -74,56 +77,78 @@ public class ItemController {
     }
 
 
-//
-//    @GetMapping("top")
-//    public String itemsTop(Model model) {
-//        List<Item> items = itemService.findTop();
-//        model.addAttribute("items", items);
-//        return "/form/itemList";
-//    }
-//
-//    @GetMapping("bottom")
-//    public String itemsBottom(Model model) {
-//        List<Item> items = itemService.findBottom();
-//        model.addAttribute("items", items);
-//        return "/form/itemList";
-//    }
-//    @GetMapping("outer")
-//    public String itemsOuter(Model model) {
-//        List<Item> items = itemService.findOuter();
-//        model.addAttribute("items", items);
-//        return "/form/itemList";
-//    }
+    @GetMapping("/admin/add")
+    public String addForm(Model model) {
+        model.addAttribute("item", new Item());
+        return "/admin/addForm";
+    }
+
+    @PostMapping("/admin/add")
+    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
+        item = itemService.save(item);
+        redirectAttributes.addAttribute("itemId", item.getItemId());
+        redirectAttributes.addAttribute("status", true);
+        return "redirect:/admin/items/{itemId}";
+    }
+
+    @GetMapping("/admin/edit/{itemId}")
+    public String editItem(@PathVariable Long itemId, Model model) {
+        Item item = itemService.findById(itemId);
+        model.addAttribute("item", item);
+        return "/admin/editForm";
+    }
+
+    @PostMapping("/admin/edit/{itemId}")
+    public String edit(@ModelAttribute Item item, Model model) {
+        itemService.update(item.getItemId(), item);
+        model.addAttribute("item",item);
+        return "/admin/item";
+    }
+
+    @GetMapping("/admin/{itemId}/delete")
+    public String delete(@PathVariable Long itemId) {
+        itemService.delete(itemId);
+        return  "redirect:/admin/items";
+    }
+
+    @GetMapping("/admin/items")
+    public ModelAndView items() {
+        List<Item> items = itemService.findAll();
+        ModelAndView mav = new ModelAndView("/admin/items")
+                .addObject("items", items);
+        return mav;
+    }
+
+
 
 
     @PostConstruct  // 생성 이후 얘를 실행
     public void initProducts() {
-        itemService.save(new Item("탑 티셔츠", "Shop1102717919 Store", 19000, 100, ItemType.Top,"1.main"));
-        itemService.save(new Item("프린트 후드 티", "Shop1102733813 Store", 12000, 100, ItemType.Top,"2.main"));
-        itemService.save(new Item("패치워크 스웨터", "LBL LEADING THE BETTER Store", 11700, 100, ItemType.Top,"3.main"));
-        itemService.save(new Item("코튼 긴팔 티셔츠", "MrValloon Store", 22600, 100, ItemType.Top,"4.main"));
-        itemService.save(new Item("하라주쿠 레터 후드 스웨터", "DUOFIER Dropshipping Store", 13000, 100, ItemType.Top,"5.main"));
-        itemService.save(new Item("스포츠 티셔츠", "shop5831243", 21000, 100, ItemType.Top,"6.main"));
-        itemService.save(new Item("오버사이즈 코튼 루즈핏 티셔츠", "FOGESSENTIALSLOT", 27000, 100, ItemType.Top,"7.main"));
-        itemService.save(new Item("클래식 긴 소매 티셔츠", "Fashion", 29000, 100, ItemType.Top,"8.main"));
-        itemService.save(new Item("캐주얼 소프트 통기성 스웨트 팬츠", "TOLOER", 28000, 100, ItemType.Bottom,"9.main"));
-        itemService.save(new Item("오버사이즈 루즈핏 캐주얼 바지", "I need a billion", 36700, 100, ItemType.Bottom,"10.main"));
-        itemService.save(new Item("코튼 캐주얼 바지", "neverfunction", 38300, 100, ItemType.Bottom,"11.main"));
-        itemService.save(new Item("비즈니스 캐주얼 바지", "Isfriday Aelisa", 17000, 100, ItemType.Bottom,"12.main"));
-        itemService.save(new Item("비즈니스 스트레이트 바지", "Brother Wang", 44200, 100, ItemType.Bottom,"13.main"));
-        itemService.save(new Item("캐주얼 스웨트 팬츠", "TOLOER", 70000, 100, ItemType.Bottom,"14.main"));
-        itemService.save(new Item("영국 비즈니스 패션 바지", "JEYWOOD", 42000, 100, ItemType.Bottom,"15.main"));
-        itemService.save(new Item("3D 패턴 슬림 스키니 프린트 청바지", "Vogue 333 Store", 720000, 100, ItemType.Bottom,"16.main"));
-        itemService.save(new Item("루즈핏 코튼 데님 재킷", "Vogue 333 Store", 58400, 100, ItemType.Outer,"17.main"));
-        itemService.save(new Item("하이 스트리트 데님 자켓", "Vogue 333 Store", 183000, 100, ItemType.Outer,"18.main"));
-        itemService.save(new Item("곰 자수 가디건 스웨터", "Phoenixce Store", 16700, 100, ItemType.Outer,"19.main"));
-        itemService.save(new Item("양모 캐시미어 스웨터", "Phoenixce Store", 69000, 100, ItemType.Outer,"20.main"));
-        itemService.save(new Item("야구 칼라 재킷", "Phoenixce Store", 18400, 100, ItemType.Outer,"21.main"));
-        itemService.save(new Item("골프 지퍼 재킷", "Vogue 333 Store", 23000, 100, ItemType.Outer,"22.main"));
-        itemService.save(new Item("대학 캠퍼스 무지 캐주얼 재킷", "HKAZ Official Store", 18000, 100, ItemType.Outer,"23.main"));
-        itemService.save(new Item("코듀로이 단색 다목적 코트", "FURCW Store", 11700, 100, ItemType.Outer,"24.main"));
-        itemService.save(new Item("후드 풀오버 재킷", "My Lord Store", 15000, 100, ItemType.Outer,"25.main"));
-
+        itemService.save(new Item("탑 티셔츠", "Shop1102717919 Store", 19000, 100, ItemType.Top, "1.main", "1.1", "1.2", "1.3", "topSize"));
+        itemService.save(new Item("프린트 후드 티", "Shop1102733813 Store", 12000, 100, ItemType.Top, "2.main", "2.1", "2.2", "2.3", "topSize"));
+        itemService.save(new Item("패치워크 스웨터", "LBL LEADING THE BETTER Store", 11700, 100, ItemType.Top, "3.main", "3.1", "3.2", "3.3", "topSize"));
+        itemService.save(new Item("코튼 긴팔 티셔츠", "MrValloon Store", 22600, 100, ItemType.Top, "4.main", "4.1", "4.2", "4.3", "topSize"));
+        itemService.save(new Item("하라주쿠 레터 후드 스웨터", "DUOFIER Dropshipping Store", 13000, 100, ItemType.Top, "5.main", "5.1", "5.2", "5.3", "topSize"));
+        itemService.save(new Item("스포츠 티셔츠", "shop5831243", 21000, 100, ItemType.Top, "6.main", "6.1", "6.2", "6.3", "topSize"));
+        itemService.save(new Item("오버사이즈 코튼 루즈핏 티셔츠", "FOGESSENTIALSLOT", 27000, 100, ItemType.Top, "7.main", "7.1", "7.2", "7.3", "topSize"));
+        itemService.save(new Item("클래식 긴 소매 티셔츠", "Fashion", 29000, 100, ItemType.Top, "8.main", "8.1", "8.2", "8.3", "topSize"));
+        itemService.save(new Item("캐주얼 소프트 통기성 스웨트 팬츠", "TOLOER", 28000, 100, ItemType.Bottom, "9.main", "9.1", "9.2", "9.3", "bottomSize"));
+        itemService.save(new Item("오버사이즈 루즈핏 캐주얼 바지", "I need a billion", 36700, 100, ItemType.Bottom, "10.main", "10.1", "10.2", "10.3", "bottomSize"));
+        itemService.save(new Item("코튼 캐주얼 바지", "neverfunction", 38300, 100, ItemType.Bottom, "11.main", "11.1", "11.2", "11.3", "bottomSize"));
+        itemService.save(new Item("비즈니스 캐주얼 바지", "Isfriday Aelisa", 17000, 100, ItemType.Bottom, "12.main", "12.1", "12.2", "12.3", "bottomSize"));
+        itemService.save(new Item("비즈니스 스트레이트 바지", "Brother Wang", 44200, 100, ItemType.Bottom, "13.main", "13.1", "13.2", "13.3", "bottomSize"));
+        itemService.save(new Item("캐주얼 스웨트 팬츠", "TOLOER", 70000, 100, ItemType.Bottom, "14.main", "14.1", "14.2", "14.3", "bottomSize"));
+        itemService.save(new Item("영국 비즈니스 패션 바지", "JEYWOOD", 42000, 100, ItemType.Bottom, "15.main", "15.1", "15.2", "15.3", "bottomSize"));
+        itemService.save(new Item("3D 패턴 슬림 스키니 프린트 청바지", "Vogue 333 Store", 720000, 100, ItemType.Bottom, "16.main", "16.1", "16.2", "16.3", "bottomSize"));
+        itemService.save(new Item("루즈핏 코튼 데님 재킷", "Vogue 333 Store", 58400, 100, ItemType.Outer, "17.main", "17.1", "17.2", "17.3", "outerSize"));
+        itemService.save(new Item("하이 스트리트 데님 자켓", "Vogue 333 Store", 183000, 100, ItemType.Outer, "18.main", "18.1", "18.2", "18.3", "outerSize"));
+        itemService.save(new Item("곰 자수 가디건 스웨터", "Phoenixce Store", 16700, 100, ItemType.Outer, "19.main", "19.1", "19.2", "19.3", "outerSize"));
+        itemService.save(new Item("양모 캐시미어 스웨터", "Phoenixce Store", 69000, 100, ItemType.Outer, "20.main", "20.1", "20.2", "20.3", "outerSize"));
+        itemService.save(new Item("야구 칼라 재킷", "Phoenixce Store", 18400, 100, ItemType.Outer, "21.main", "21.1", "21.2", "21.3", "outerSize"));
+        itemService.save(new Item("골프 지퍼 재킷", "Vogue 333 Store", 23000, 100, ItemType.Outer, "22.main", "22.1", "22.2", "22.3", "outerSize"));
+        itemService.save(new Item("대학 캠퍼스 무지 캐주얼 재킷", "HKAZ Official Store", 18000, 100, ItemType.Outer, "23.main", "23.1", "23.2", "23.3", "outerSize"));
+        itemService.save(new Item("코듀로이 단색 다목적 코트", "FURCW Store", 11700, 100, ItemType.Outer, "24.main", "24.1", "24.2", "24.3", "outerSize"));
+        itemService.save(new Item("후드 풀오버 재킷", "My Lord Store", 15000, 100, ItemType.Outer, "25.main", "25.1","25.2","25.3","outerSize"));
     }
 
 
