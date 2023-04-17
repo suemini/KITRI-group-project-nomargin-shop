@@ -38,6 +38,10 @@ public class Member {
 
     private String fullAddr;
 
+
+    private String fullPhoneNumber;
+
+
     public static Member createMember(JoinDto joinDto, PasswordEncoder passwordEncoder) {
         Member member = new Member();
         member.setLoginId(joinDto.getLoginId());

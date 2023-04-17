@@ -49,7 +49,15 @@ public class JpaMemberRepository implements MemberRepository {
 
     }
 
+    @Override
+    public void update(Long id, Member updateId) {
 
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
 
 
 }
