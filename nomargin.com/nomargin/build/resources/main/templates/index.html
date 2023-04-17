@@ -20,32 +20,32 @@
                         <input type="submit" value="Search">
                     </form>
                 </div>
-                <div class="line">
+<!--                <div class="line">-->
 
-<!--                    로그인안한 사람 보기-->
-                    <div sec:authorize="isAnonymous()">
-                        <li><a href="/members/login">Login</a></li>
-                    </div>
-
-
-<!--                    로그인한 사람 전부(ADMIN, USER) -->
-                    <div sec:authorize="isAuthenticated()">
-                        <ul>
-                            <li><a th:text="${#authentication.principal.username} + '님 환영합니다.'" href=""></a></li>
-                            <li><a class="" href="/cart">Cart</a></li>
-                            <li><a class="" href="/orders">Order</a></li>
-                            <li><a class="" href="/members/logout">Log out</a></li>
-                        </ul>
-                    </div>
-
-<!--                    관리자 설정(ADMIN)-->
-                    <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-                        <a class="nav-link" href="/admin/members">회원 관리</a>
-                        <a class="nav-link" href="/admin/">상품 관리</a>
-                    </li>
+<!--&lt;!&ndash;                    로그인안한 사람 보기&ndash;&gt;-->
+<!--                    <div sec:authorize="isAnonymous()">-->
+<!--                        <li><a href="/members/login">Login</a></li>-->
+<!--                    </div>-->
 
 
-                </div>
+<!--&lt;!&ndash;                    로그인한 사람 전부(ADMIN, USER) &ndash;&gt;-->
+<!--                    <div sec:authorize="isAuthenticated()">-->
+<!--                        <ul>-->
+<!--                            <li><a th:text="${#authentication.principal.username} + '님 환영합니다.'" href=""></a></li>-->
+<!--                            <li><a class="" href="/cart">Cart</a></li>-->
+<!--                            <li><a class="" href="/orders">Order</a></li>-->
+<!--                            <li><a class="" href="/members/logout">Log out</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+
+<!--&lt;!&ndash;                    관리자 설정(ADMIN)&ndash;&gt;-->
+<!--                    <li sec:authorize="hasAnyAuthority('ROLE_ADMIN')">-->
+<!--                        <a class="nav-link" href="/admin/members">회원 관리</a>-->
+<!--                        <a class="nav-link" href="/admin/">상품 관리</a>-->
+<!--                    </li>-->
+
+
+<!--                </div>-->
 
             </header>
             <nav>
