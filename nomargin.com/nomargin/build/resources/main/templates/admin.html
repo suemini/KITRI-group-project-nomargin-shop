@@ -30,17 +30,12 @@
 </head>
 <body>
 <!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:replace="/fragment/navigation :: menu(${user})">
 
-</nav>
 
 <div class="container-fluid mt-3">
   <div class="row">
 
-    <!-- SIDE BAR -->
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" th:replace="/fragment/navigation :: side(${user})">
 
-    </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -62,27 +57,30 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="users : ${userList}">
-            <form th:action="@{/user/change/{id}(id=${users.id})}" method="post" class="d-flex">
-              <td th:text="${users.getId()}">1</td>
-              <td th:text="${users.getName()}">name</td>
-              <td th:text="${users.getUsername()}">username</td>
-              <td th:text="${users.getRole()}">role</td>
+          <tr th:each="members : ${allMember}">
+<!--            <form th:action="@{/user/change/{id}(id=${users.id})}" method="post" class="d-flex">-->
+              <td th:text="${members.getId()}">1</td>
+              <td th:text="${members.getName()}">name</td>
+              <td th:text="${members.getRole()}">username</td>
+              <td th:text="${members.getFullAddr()}">role</td>
               <td>
                 <select name="role">
                   <option value="ROLE_SELLER">ROLE_SELLER</option>
                   <option value="ROLE_USER">ROLE_USER</option>
                 </select>
               </td>
-              <td th:text="${users.getEmail()}">email</td>
-              <td th:text="${users.getMoney()}">money</td>
-              <td th:text="${users.getCreateDate()}">createdate</td>
+<!--              <td th:text="${users.getEmail()}">email</td>-->
+<!--              <td th:text="${users.getMoney()}">money</td>-->
+<!--              <td th:text="${users.getCreateDate()}">createdate</td>-->
               <td>
                 <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                   업데이트
                 </button>
               </td>
-            </form>
+<!--            </form>-->
+
+
+
           </tr>
           </tbody>
         </table>
