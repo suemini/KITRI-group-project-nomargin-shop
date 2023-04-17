@@ -32,6 +32,17 @@ public class ItemController {
     }
 
 
+
+    @GetMapping("/admin/items/{itemId}")
+    public String itemedit(@PathVariable Long itemId, Model model) {
+        Item item = itemService.findById(itemId);
+        model.addAttribute("item", item);
+        return "/admin/item";
+    }
+
+
+
+
     @ModelAttribute("ItemType")
     public ItemType[] ItemTypes() {
         return ItemType.values();
@@ -105,7 +116,7 @@ public class ItemController {
         return "/admin/item";
     }
 
-    @GetMapping("/admin/{itemId}/delete")
+    @GetMapping("/admin/delete/{itemId}")
     public String delete(@PathVariable Long itemId) {
         itemService.delete(itemId);
         return  "redirect:/admin/items";

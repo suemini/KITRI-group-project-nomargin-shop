@@ -22,6 +22,17 @@
                           <!--@{} 이건 링크 / ||는 자바스크립트에서`` 1옆에 있는거 2개 와 비슷,
                             ||안에꺼는 전부 다 문자로 인식할 수 있다는 것, + 안써도됨-->
     </div>
+
+    <div class="col">
+      <button class="w-100 btn btn-danger btn-lg"
+              onclick="location.href='addForm.html'"
+              th:onclick="|location.href='/'|"
+              type="button">홈으로</button> <!--/있으면 절대경로, 없는 위에꺼는 상대경로, 폴더 안에 있는 곳으로 감-->
+      <!--@{} 이건 링크 / ||는 자바스크립트에서`` 1옆에 있는거 2개 와 비슷,
+        ||안에꺼는 전부 다 문자로 인식할 수 있다는 것, + 안써도됨-->
+    </div>
+
+
   </div>
   <hr class="my-4">
   <div>
@@ -43,9 +54,9 @@
       <tr th:each="item : ${items}">
         <!--th:href="@{/basic/products/{productId}(productId=${product.id})}
         {productId}는 (productId=${product.id})다 path variable 동적으로 생성된다-->
-        <td><a href="item.html" th:href="@{/admin/edit/{itemId}(itemId=${item.itemId})}"
+        <td><a href="item.html" th:href="@{/admin/items/{itemId}(itemId=${item.itemId})}"
                th:text="${item.itemId}">아이템id</a></td> <!--타임리프 안돌때는 회원id, 타임리프 돌때는 text=뒤에껄로 기존걸 대체하겠다  -->
-        <td><a href="item.html" th:href="@{|/admin/edit/${item.itemId}|}"
+        <td><a href="item.html" th:href="@{|/admin/items/${item.itemId}|}"
                th:text="${item.itemName}">상품명</a></td>
         <td th:text="${item.price}">10000</td>
         <td th:text="${item.stock}">10</td>
