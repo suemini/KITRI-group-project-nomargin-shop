@@ -3,7 +3,6 @@ package EZ.nomargin.service;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.repository.JpaMemberRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,21 +10,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class MemberService implements UserDetailsService , Validator {
 
-    //
-    @Autowired
     private final JpaMemberRepository jpaMemberRepository;
+    @Autowired
+    public MemberService(JpaMemberRepository jpaMemberRepository) {
+        this.jpaMemberRepository = jpaMemberRepository;
+    }
 
 
     // 중복 회원 검증 TEST
@@ -41,11 +39,6 @@ public class MemberService implements UserDetailsService , Validator {
         }
     }
     ///
-
-
-    public List<Member> findMembers() {
-        return jpaMemberRepository.findAll();
-    }
 
 
     //조회된 회원객체를 소유한 userDetailsService

@@ -14,6 +14,7 @@ import java.util.Optional;
 @Transactional
 @Repository
 public class JpaItemRepository implements ItemRepository {
+
     private final EntityManager em;
 
     @Override
