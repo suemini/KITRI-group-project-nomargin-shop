@@ -21,15 +21,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 @Configuration
 @EnableWebSecurity
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final MemberService memberService;
-
-    @Autowired
-    public SecurityConfig(MemberService memberService) {
-        this.memberService = memberService;
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

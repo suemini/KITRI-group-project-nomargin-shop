@@ -13,12 +13,6 @@
 <div class="container" style="max-width: 600px">
 
     <form role="form" method="post" action="/members/new" th:object="${joinDto}">
-        <div class="form-group">
-            <label th:for="name">이름</label>
-            <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력해주세요">
-            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
-        </div>
-
 
         <div class="form-group">
             <label th:for="loginId">ID</label>
@@ -36,6 +30,21 @@
             <input type="password" id="password_check" name="password_check" class="form-control" placeholder="비밀번호 입력">
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect data</p>
 
+        </div>
+
+
+        <div class="form-group">
+            <label th:for="name">이름</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력해주세요">
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">Incorrect data</p>
+        </div>
+
+
+
+        <div class="form-group">
+            <label th:for="phoneNumber">휴대폰 번호</label>
+            <input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="'-'포함해서 휴대폰 번호를 입력해주세요">
+            <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="fieldError">Incorrect data</p>
         </div>
 
 

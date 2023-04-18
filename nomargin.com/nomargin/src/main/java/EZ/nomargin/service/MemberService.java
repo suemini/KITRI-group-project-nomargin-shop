@@ -3,6 +3,7 @@ package EZ.nomargin.service;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.repository.JpaMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,13 +18,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MemberService implements UserDetailsService , Validator {
 
     private final JpaMemberRepository jpaMemberRepository;
-    @Autowired
-    public MemberService(JpaMemberRepository jpaMemberRepository) {
-        this.jpaMemberRepository = jpaMemberRepository;
-    }
 
 
     // 중복 회원 검증 TEST

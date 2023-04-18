@@ -38,8 +38,7 @@ public class Member {
 
     private String fullAddr;
 
-
-    private String fullPhoneNumber;
+    private String phoneNumber;
 
 
     public static Member createMember(JoinDto joinDto, PasswordEncoder passwordEncoder) {
@@ -49,7 +48,8 @@ public class Member {
         String password = passwordEncoder.encode(joinDto.getPassword());
         member.setPassword(password);
         member.setRole(Role.USER);
-        member.setFullAddr(joinDto.getPostcode() + " " +joinDto.getAddress() + " " +joinDto.getExtraAddress() + " " +joinDto.getDetailAddress());
+        member.setFullAddr(joinDto.getPostcode() + " " + joinDto.getAddress() + " " + joinDto.getExtraAddress() + " " + joinDto.getDetailAddress());
+        member.setPhoneNumber(joinDto.getPhoneNumber());
         return member;
     }
 

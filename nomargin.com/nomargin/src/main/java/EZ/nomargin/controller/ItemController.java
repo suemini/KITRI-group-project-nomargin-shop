@@ -19,27 +19,17 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-//@RequestMapping("/form/itemList")
+@RequestMapping("/form/itemList")
 @RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
 
-    @GetMapping("/form/itemList/{itemId}")
+    @GetMapping("/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
         return "/form/item";
     }
-
-
-
-    @GetMapping("/admin/items/{itemId}")
-    public String itemedit(@PathVariable Long itemId, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
-        return "/admin/item";
-    }
-
 
 
 
@@ -49,7 +39,7 @@ public class ItemController {
     }
 
 
-    @GetMapping("/form/itemList/type/{type}")
+    @GetMapping("/type/{type}")
     public String itemsTop(@PathVariable("type") String type, Model model) {
         List<Item> items = new ArrayList<>();
 
@@ -75,9 +65,6 @@ public class ItemController {
     }
 
 
-
-
-
     @ModelAttribute("itemSize")
     public Map<Integer, String> size() {
         Map<Integer, String> sizes = new LinkedHashMap<>();
@@ -86,50 +73,6 @@ public class ItemController {
         sizes.put(100, "L");
         return sizes;
     }
-
-
-    @GetMapping("/admin/add")
-    public String addForm(Model model) {
-        model.addAttribute("item", new Item());
-        return "/admin/addForm";
-    }
-
-    @PostMapping("/admin/add")
-    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
-        item = itemService.save(item);
-        redirectAttributes.addAttribute("itemId", item.getItemId());
-        redirectAttributes.addAttribute("status", true);
-        return "redirect:/admin/items/{itemId}";
-    }
-
-    @GetMapping("/admin/edit/{itemId}")
-    public String editItem(@PathVariable Long itemId, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
-        return "/admin/editForm";
-    }
-
-    @PostMapping("/admin/edit/{itemId}")
-    public String edit(@ModelAttribute Item item, Model model) {
-        itemService.update(item.getItemId(), item);
-        model.addAttribute("item",item);
-        return "/admin/item";
-    }
-
-    @GetMapping("/admin/delete/{itemId}")
-    public String delete(@PathVariable Long itemId) {
-        itemService.delete(itemId);
-        return  "redirect:/admin/items";
-    }
-
-    @GetMapping("/admin/items")
-    public ModelAndView items() {
-        List<Item> items = itemService.findAll();
-        ModelAndView mav = new ModelAndView("/admin/items")
-                .addObject("items", items);
-        return mav;
-    }
-
 
 
 
@@ -161,6 +104,8 @@ public class ItemController {
         itemService.save(new Item("코듀로이 단색 다목적 코트", "FURCW Store", 11700, 100, ItemType.Outer, "24.main", "24.1", "24.2", "24.3", "outerSize"));
         itemService.save(new Item("후드 풀오버 재킷", "My Lord Store", 15000, 100, ItemType.Outer, "25.main", "25.1","25.2","25.3","outerSize"));
     }
+
+
 
 
 }
