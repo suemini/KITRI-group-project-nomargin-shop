@@ -7,15 +7,39 @@
 </th:block>
 <body>
 <div class="container" id="'wrapper">
-    <th:block th:replace="fragments/headerAndNav :: headerAndNavFragment"></th:block>
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
+    <div id="search-results">
+        <!-- 검색 결과가 이곳에 표시됩니다 -->
+    </div>
     <div class="main-slider"><img src="asset/016.jpg" alt=""></div>
     <section class="item-list">
         <article><img src="asset/045.jpg" alt=""></article>
         <article><img src="asset/045.jpg" alt=""></article>
         <article><img src="asset/045.jpg" alt=""></article>
     </section>
+
 </div>
-<th:block th:replace="fragments/footer :: footerFragment">
-</th:block>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script>
+    function search(event) {
+        event.preventDefault();
+
+        const keyword = document.getElementById('search').value;
+
+        const form = document.createElement('form');
+        form.method = 'get';
+        form.action = '/form/itemList/search';
+
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'keyword';
+        input.value = keyword;
+        form.appendChild(input);
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
 </body>
 </html>

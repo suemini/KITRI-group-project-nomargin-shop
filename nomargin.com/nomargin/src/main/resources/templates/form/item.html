@@ -6,13 +6,14 @@
 <th:block th:replace="fragments/head :: headFragment">
 </th:block>
 <body>
-<div class="container" id="'wrapper">
-    <th:block th:replace="fragments/headerAndNav :: headerAndNavFragment"></th:block>
+<div class="container" id="wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
     <section>
         <table class="image-table">
             <tr class="items" th:each="item : ${item}">
                 <td class="item-mainImage">
-                    <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
+                    <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
             </tr>
         </table>
 
@@ -57,62 +58,23 @@
                 <input type="button" value="장바구니" onclick="alert(`장바구니에 담겼습니다.`)">
                 <input type="button" value="상품 구매">
             </div>
-
-
-            <!--            &lt;!&ndash; 하이퍼링크가 설정되있으면 누르면 해당 값들이 출력되게 한다. &ndash;&gt;-->
-            <!--            <div class="item-QnA">-->
-            <!--                <nav class="w-100">-->
-            <!--                    <div class="nav nav-tabs" id="item-tab" role="tablist">-->
-            <!--                        <a class="nav-item nav-link active" id="item-desc-tab" data-toggle="tab" href="#item-desc"-->
-            <!--                           role="tab" aria-controls="item-desc" aria-selected="true">설명</a>-->
-            <!--                        <a class="nav-item nav-link" id="item-comments-tab" data-toggle="tab" href="#item-comments"-->
-            <!--                           role="tab" aria-controls="item-comments" aria-selected="false">리뷰</a>-->
-            <!--                        <a class="nav-item nav-link" id="item-rating-tab" data-toggle="tab" href="#item-rating"-->
-            <!--                           role="tab" aria-controls="item-rating" aria-selected="false">평가</a>-->
-            <!--                    </div>-->
-            <!--                </nav>-->
-
-            <!--                <div class="tab-content p-3" id="nav-tabContent">-->
-            <!--                    <div class="tab-pane fade show active" id="item-desc" role="tabpanel"-->
-            <!--                         aria-labelledby="item-desc-tab">상세 설명-->
-            <!--                    </div>-->
-            <!--                    <div class="tab-pane fade" id="item-comments" role="tabpanel" aria-labelledby="item-comments-tab">-->
-            <!--                        <div>-->
-            <!--                            <p>리뷰 1</p>-->
-            <!--                        </div>-->
-            <!--                        <div>-->
-            <!--                            <p>리뷰 2</p>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                    <div class="tab-pane fade" id="item-rating" role="tabpanel" aria-labelledby="item-rating-tab">평가-->
-            <!--                        4.5-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
-            <!--        </ul>-->
         </ul>
     </section>
+    <div class="item-subImages">
+        <img th:src="@{/clothesImg/{itemType}/{imgDetail1}.jpg(itemType=${item.itemType}, imgDetail1=${item.imgDetail1})}"
+             alt="Image">
+        <img th:src="@{/clothesImg/{itemType}/{imgDetail2}.jpg(itemType=${item.itemType}, imgDetail2=${item.imgDetail2})}"
+             alt="Image">
+        <img th:src="@{/clothesImg/{itemType}/{imgDetail3}.jpg(itemType=${item.itemType}, imgDetail3=${item.imgDetail3})}"
+             alt="Image">
+        <img class="item-size"             th:src="@{/clothesImg/{itemType}/{itemSize}.jpg(itemType=${item.itemType}, itemSize=${item.imgSize})}">
+    </div>
 </div>
 
-<!--  <div>-->
-<!--    <div>색상</div>-->
-<!--    <select th:field="${items.color}" class="form-select">-->
-<!--      <option value="">==색상 선택==</option>-->
-<!--      <option th:each="color : ${colors}" th:value="${color.color}"-->
-<!--              th:text="${color.colorName}">Red</option>-->
-<!--    </select>-->
-<!--  </div>-->
-
-<!--  th:onclick="|location.href='@{/form/itemList/{itemId}/buy(itemId=${item.id})}'|"  -->
-
-
-<!--  <div class="col">-->
-<!--    <button class="w-100 btn btn-secondary btn-lg"-->
-<!--            onclick="location.href='/form/itemList'"-->
-<!--            th:onclick="|location.href='@{/form/itemList}'|"-->
-<!--            type="button">목록으로</button>-->
-<!--  </div>-->
-
+<div id="searc  h-results">
+    <!-- 검색 결과가 이곳에 표시됩니다 -->
+</div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script src="/JS/search.js"></script>
 </body>
 </html>

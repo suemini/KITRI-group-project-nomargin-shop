@@ -2,6 +2,7 @@ package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.item.Item;
 import EZ.nomargin.domain.member.Member;
+import EZ.nomargin.dto.MemberManagementDto;
 import EZ.nomargin.service.AdminService;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
@@ -27,11 +28,12 @@ public class AdminController {
 
     @GetMapping("/members")
     public String allMember(Model model) {
-        List<Member> allMember = adminService.findAll();
-        model.addAttribute("allMember", allMember);
+
+        List<MemberManagementDto> memberManagementDtos = adminService.findByMMDto();
+        model.addAttribute("memberManagementDtos", memberManagementDtos);
+
         return "/admin/memberManagement";
     }
-
 
 
     @GetMapping("/add")

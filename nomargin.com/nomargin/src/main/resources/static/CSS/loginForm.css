@@ -1,45 +1,82 @@
-*{
-    padding: 0;
-    margin: 0;
-    border: none;
-}
-body{
+body {
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
 }
 
+hr {
+    border: 0;
+    height: 1px;
+    background-color: lightgrey;
+}
+
+.login-container {
+    margin: 150px 0 150px 0;
+    text-align: center;
+}
+
 .login-wrapper{
-    width: 400px;
-    height: 350px;
-    padding: 40px;
+    width: 350px;
+    height: 270px;
     box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid lightgrey;
 }
 
 .login-wrapper > h2{
     font-size: 24px;
-    color: #6A24FE;
+    color: #000000;
     margin-bottom: 20px;
 }
 .form-group{
-    width: 100%;
-    height: 48px;
-    padding: 0 10px;
+    display: inline-block;
+    width: 250px;
+    height: 45px;
+    padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 16px;
+    text-align: center;
+    margin-bottom: 13px;
     border-radius: 6px;
     background-color: #F8F8F8;
+}
+
+.login-label {
+    margin-right: 10px;
+}
+
+.form-control {
+    height: 95%;
+    border: 0;
+    font-size: 12pt;
+    width: 160px;
+}
+
+.form-control:focus {
+    outline: 0;
+}
+
+.error {
+    margin: 0;
+    color: red;
 }
 
 /*#login-form > input::placeholder{*/
 /*    color: #D2D2D2;*/
 /*}*/
 
-button{
+.sign-button button {
     color: #fff;
     font-size: 16px;
-    background-color: #6A24FE;
-    margin-top: 20px;
+    background-color: #000000;
+    margin-top: 15px;
+    border: 0;
+    width: 80px;
+    height: 30px;
 }
 
+.sign-button button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    color: grey;
+}
 
 

@@ -3,9 +3,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<th:block th:fragment="headerFragment">
+<header th:fragment="headerFragment">
   <!--  container class 밑에서부터 include (꼭!!!)-->
-  <header>
     <div class="logo"><a href="/members/index">Nomarjin</a></div>
     <div class="search-box">
       <form action="/form/itemList/search" method="get">
@@ -13,6 +12,7 @@
         <input type="submit" value="Search">
       </form>
     </div>
+    <a href="#" class="cart"><img src="/asset/shopping_cart.png" alt="cart"></a>
     <div class="line">
 
       <!--                    로그인안한 사람 보기-->
@@ -38,7 +38,5 @@
       </li>
 
     </div>
-
   </header>
-</th:block>
 </html>

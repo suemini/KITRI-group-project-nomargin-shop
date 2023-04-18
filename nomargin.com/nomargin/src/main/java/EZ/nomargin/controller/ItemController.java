@@ -74,6 +74,13 @@ public class ItemController {
         return sizes;
     }
 
+    @GetMapping("/search")
+    public String itemList(@RequestParam("keyword") String keyword, Model model) {
+        List<Item> items = itemService.searchItems(keyword);
+        model.addAttribute("items", items);
+        return "/form/itemList";
+    }
+
 
 
     @PostConstruct  // 생성 이후 얘를 실행

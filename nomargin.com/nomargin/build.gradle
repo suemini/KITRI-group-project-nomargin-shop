@@ -30,6 +30,10 @@ dependencies {
 
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'
 
+
+	//타임리프 레이아웃 디펜던시 추가
+	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
 	//시큐리티 추가
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation 'org.springframework.boot:spring-boot-starter-security'

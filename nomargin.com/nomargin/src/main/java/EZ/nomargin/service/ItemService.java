@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,7 +39,19 @@ public class ItemService {
 
     public List<Item> findOuter() {
         return itemRepository.findOuter();
+    }
 
+    public List<Item> searchItems(String keyword) {
+        List<Item> allItems = itemRepository.findAll();
+        List<Item> searchedItems = new ArrayList<>();
+
+        for (Item item : allItems) {
+            if (item.getItemName().contains(keyword)) { // 상품 이름에서 검색어가 포함된 경우
+                searchedItems.add(item);
+            }
+        }
+
+        return searchedItems;
     }
 
 

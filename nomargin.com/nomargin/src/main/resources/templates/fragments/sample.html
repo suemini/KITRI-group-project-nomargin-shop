@@ -1,0 +1,13 @@
+<!-- fragments 복붙용입니다 (실제로 사용되는 폼이 아님) -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:replace="fragments/head :: headFragment"></th:block>
+  <body>
+  <div class="container" id="'wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
+  </div>
+  <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+  </body>
+</html>
