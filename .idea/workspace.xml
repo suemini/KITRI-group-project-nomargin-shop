@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
+    <list default="true" id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="23-04-19 test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,7 +143,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "vcs.Git",
     "spring.configuration.checksum": "b96b92cf4bb9e60fd0ec5846b8e1a91f",
     "vue.rearranger.settings.migration": "true"
   }
@@ -193,7 +193,7 @@
       <workItem from="1681284660772" duration="1533000" />
       <workItem from="1681359669913" duration="3213000" />
       <workItem from="1681447889891" duration="15126000" />
-      <workItem from="1681808203611" duration="7289000" />
+      <workItem from="1681808203611" duration="9056000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1681119049296</created>
@@ -293,11 +293,29 @@
       <option name="project" value="LOCAL" />
       <updated>1681864190710</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="23-04-19 test">
+      <created>1681864668881</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681864668881</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -330,6 +348,7 @@
     <MESSAGE value="commit" />
     <MESSAGE value="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진" />
     <MESSAGE value="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
-    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
+    <MESSAGE value="23-04-19 test" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 test" />
   </component>
 </project>
