@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<<<<<<< HEAD:nomargin.com/nomargin/nomargin.com/nomargin/out/production/resources/static/index.html
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+=======
+<html lang="ko">
+>>>>>>> kyungjins-patch:nomargin/src/main/resources/static/index.html
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="CSS/index.css">
+        <link rel="stylesheet" href="CSS/main.css">
+        <title>NOMARGIN</title>
+    </head>
+    <body>
+        <div class="container" id="'wrapper">
+            <header>
+                <div class="logo"><a href="index.html">Nomarjin</a></div>
+                <div class="search-box">
+                    <form action="../templates/form/itemList.html" method="get">
+                        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
+                        <input type="submit" value="Search">
+                    </form>
+                </div>
+<<<<<<< HEAD:nomargin.com/nomargin/nomargin.com/nomargin/out/production/resources/static/index.html
+                <div class="login-btn">
+                    <li><a href="/members/login">Login</a></li>
+
+                    <li><a sec:authorize="hasRole('ADMIN')">Has admin Role</a></li>
+                    <li><a sec:authorize="hasRole('USER')">Has USER Role</a></li>
+
+                    <sec:authorize access="isAnonymous()">
+
+                        <a href="/login" target="_self">Login</a>
+
+                    </sec:authorize>
+
+                    <sec:authorize access="isAuthenticated()">
+
+                        <a href="/logout" target="_self">Logout</a>
+
+
+                </div>
+
+
+            </header>
+            <nav>
+                <ul class="nav-icon">
+                    <li class="top"><a href="/form/itemList/type/top">TOP</a></li>
+                    <li class="bottom"><a href="/form/itemList/type/bottom">BOTTOM</a></li>
+                    <li class="outer"><a href="/form/itemList/type/outer">OUTER</a></li>
+=======
+                <div class="login-btn">Login</div>
+            </header>
+            <nav>
+                <ul class="nav-icon">
+                    <li class="top"><a href="/form/itemList/type/Top">TOP</a></li>
+                    <li class="bottom"><a href="/form/itemList/type/Bottom">BOTTOM</a></li>
+                    <li class="outer"><a href="/form/itemList/type/Outer">OUTER</a></li>
+>>>>>>> kyungjins-patch:nomargin/src/main/resources/static/index.html
+                </ul>
+            </nav>
+            <div class="main-slider"><img src="asset/016.jpg" alt=""></div>
+            <section class="item-list">
+                <article><img src="asset/045.jpg" alt=""></article>
+                <article><img src="asset/045.jpg" alt=""></article>
+                <article><img src="asset/045.jpg" alt=""></article>
+            </section>
+        </div>
+            <footer>
+                <ul class="company-info">
+                    <li>ⓒNomarjin company</li>
+                    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
+                    <li>김씨 권씨 이씨 임씨 최씨</li>
+                    <li>02-869-8301</li>
+                    <li>000-00-00000</li>
+                </ul>
+                <ul class="company-etc">
+                    <li>healuhen@gmail.com</li>
+                    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
+                </ul>
+            </footer>
+    </body>
+</html>

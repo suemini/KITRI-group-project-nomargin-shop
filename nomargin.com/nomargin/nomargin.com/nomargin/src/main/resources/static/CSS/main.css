@@ -1,0 +1,32 @@
+.main-slider {
+    text-align: center;
+}
+
+.main-slider img {
+    display: inline-block;
+    width: 90%;
+    height: 650px;
+    border: 1px solid black;
+}
+
+.item-list {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.item-list article {
+    position: relative;
+    display: inline-block;
+    padding: 20px;
+    width: 25%;
+}
+
+.item-list article:hover {
+    transition: all 0.5s;
+    transform:scale(103%);
+}
+
+article img {
+    width: 100%;
+}
