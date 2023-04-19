@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진">
-      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/build/resources/main/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/build/resources/main/templates/form/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/java/EZ/nomargin/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/java/EZ/nomargin/domain/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/resources/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/resources/templates/form/item.html" afterDir="false" />
-    </list>
+    <list default="true" id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -197,7 +193,7 @@
       <workItem from="1681284660772" duration="1533000" />
       <workItem from="1681359669913" duration="3213000" />
       <workItem from="1681447889891" duration="15126000" />
-      <workItem from="1681808203611" duration="6796000" />
+      <workItem from="1681808203611" duration="7289000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1681119049296</created>
@@ -290,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681813299610</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="23-04-19 09:29 Entity 추가 by 현덕, 수민">
+      <created>1681864190710</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681864190710</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +329,7 @@
     <MESSAGE value="2023.04.14 16:58 commit by 현덕&#10;관리자 권한 확장 + 로그인화면 css조금" />
     <MESSAGE value="commit" />
     <MESSAGE value="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진" />
-    <option name="LAST_COMMIT_MESSAGE" value="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진" />
+    <MESSAGE value="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 09:29 Entity 추가 by 현덕, 수민" />
   </component>
 </project>
