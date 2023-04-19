@@ -14,6 +14,6 @@ public interface ItemRepository {
     List<Item> findTop();
     List<Item> findBottom();
     List<Item> findOuter();
-    List<Item> itemSearch(String keyWord);
+
 
 }

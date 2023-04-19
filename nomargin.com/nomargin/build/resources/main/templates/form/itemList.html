@@ -10,17 +10,65 @@
     <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
     <div class="list-title" th:each="item : ${items}"></div>
     <div class="list-title" th:text="${type}">TOP</div>
+
+<!--    <section class="item-list">-->
+<!--        <table class="item-table">-->
+<!--            <tbody>-->
+<!--            <tr class="items" th:each="item : ${items}">-->
+<!--                <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>-->
+<!--                <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>-->
+<!--                <td class="item-price" th:text="|${item.price}원|">아이템 가격</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </section>-->
+
     <section class="item-list">
         <table class="item-table">
             <tbody>
             <tr class="items" th:each="item : ${items}">
-                <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
+                <td class="item-image">
+                    <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
+                    <div th:if="${item.attachFile}">
+                        <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="100" height="100">
+                    </div>
+                    <div th:each="imageFile : ${item.imageFiles}">
+                        <img th:src="@{'/images/' + ${imageFile.storeFileName}}" width="100" height="100">
+                    </div>
+                </td>
                 <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
                 <td class="item-price" th:text="|${item.price}원|">아이템 가격</td>
             </tr>
             </tbody>
         </table>
     </section>
+
+<!--    <section class="item-list">-->
+<!--        <table class="item-table">-->
+<!--            <tbody>-->
+<!--            <tr class="items" th:each="item : ${items}">-->
+<!--                <td class="item-image">-->
+<!--                    <div th:if="${not #lists.isEmpty(item.imageFiles)}">-->
+<!--                        <div th:each="imageFile : ${item.imageFiles}">-->
+<!--                            <img th:src="@{'/images/' + ${imageFile.storeFileName}}" width="100" height="100">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div th:if="${item.attachFile}">-->
+<!--                        <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="100" height="100">-->
+<!--                    </div>-->
+<!--                    <div th:if="${#lists.isEmpty(item.imageFiles) and !item.attachFile}">-->
+<!--                        <img th:src="@{/images/no_image.png}" width="100" height="100">-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td class="item-name">-->
+<!--                    <a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a>-->
+<!--                </td>-->
+<!--                <td class="item-price" th:text="|${item.price}원|">아이템 가격</td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </section>-->
+
     <div id="search-results">
         <!-- 검색 결과가 이곳에 표시됩니다 -->
     </div>

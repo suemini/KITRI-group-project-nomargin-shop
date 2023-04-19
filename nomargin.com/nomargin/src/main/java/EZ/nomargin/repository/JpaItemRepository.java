@@ -57,15 +57,6 @@ public class JpaItemRepository implements ItemRepository {
     }
 
     @Override
-    public List<Item> itemSearch(String keyWord) {
-        return em.createQuery("select i from Item i where i.itemName like :keyWord", Item.class)
-                .setParameter("keyWord", "%" + keyWord + "%")
-                .getResultList();
-    }
-
-
-
-    @Override
     public void update(Long itemId, Item updateItem) {
         updateItem.setItemId(itemId);
         em.merge(updateItem);

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
+import java.util.List;
 
 
 @Data
@@ -23,6 +24,10 @@ public class Item {
     private String imgDetail2;
     private String imgDetail3;
     private String imgSize;
+    @Embedded
+    private UploadFile attachFile;
+    @ElementCollection
+    private List<UploadFile> imageFiles;
 
 
     public Item() {

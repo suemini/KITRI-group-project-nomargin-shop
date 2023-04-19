@@ -2,8 +2,11 @@ package EZ.nomargin.service;
 
 
 import EZ.nomargin.domain.item.Item;
+import EZ.nomargin.domain.item.ItemMapper;
+import EZ.nomargin.file.FileStore;
 import EZ.nomargin.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -14,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional
 public class ItemService {
+    @Autowired
     private final ItemRepository itemRepository;
 
     public Item save(Item item) {
@@ -53,8 +57,6 @@ public class ItemService {
 
         return searchedItems;
     }
-
-
 
     public void update(Long itemId, Item updateItem) {
         itemRepository.update(itemId, updateItem);

@@ -4,7 +4,7 @@ public enum ItemType {
 
     Top("상의"),
     Bottom("하의"),
-    Outer("외투");
+    Outer("아우터");
 
     
     private final String description;
