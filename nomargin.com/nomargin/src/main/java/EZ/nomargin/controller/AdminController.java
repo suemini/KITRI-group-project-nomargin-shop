@@ -29,11 +29,33 @@ public class AdminController {
     @GetMapping("/members")
     public String allMember(Model model) {
 
-        List<MemberManagementDto> memberManagementDtos = adminService.findByMMDto();
-        model.addAttribute("memberManagementDtos", memberManagementDtos);
+        List<MemberManagementDto> memberManagementDto = adminService.findByMmDto();
+        model.addAttribute("memberManagementDto", memberManagementDto);
 
         return "/admin/memberManagement";
     }
+
+    @PostMapping("/editMember/{id}")
+    public String editMember(@PathVariable Long id, @ModelAttribute MemberManagementDto memberManagementDto, Model model) {
+
+        adminService.editByMmDto(id, memberManagementDto);
+        List<MemberManagementDto> allMemberManagementDto = adminService.findByMmDto();
+        model.addAttribute("memberManagementDto", allMemberManagementDto);
+        return "/admin/memberManagement";
+    }
+
+    @GetMapping("deleteMember/{id}")
+    public String deleteMember(@PathVariable Long id, @ModelAttribute MemberManagementDto MemberManagementDto, Model model) {
+
+        adminService.deleteById(id);
+        List<MemberManagementDto> allMemberManagementDto = adminService.findByMmDto();
+        model.addAttribute("memberManagementDto", allMemberManagementDto);
+        return "/admin/memberManagement";
+
+    }
+
+
+
 
 
     @GetMapping("/add")

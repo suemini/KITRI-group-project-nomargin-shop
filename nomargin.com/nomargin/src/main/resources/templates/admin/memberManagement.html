@@ -1,93 +1,96 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<link rel="stylesheet" href="/CSS/joinForm.css">-->
+<script src="/JS/memberList.js" th:inline="javascript"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>회원관리</title>
-  <!-- Bootstrap icons-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="/css/styles2.css" rel="stylesheet" />
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Member Management</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <!-- Custom styles -->
+    <style>
+        .container-fluid {
+            margin-top: 3rem;
+        }
+    </style>
 </head>
 <body>
-<!-- Navigation-->
 
+<!-- Navigation -->
 
-<div class="container-fluid mt-3">
-  <div class="row">
+<div class="container-fluid">
+    <div class="row">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Member Management</h1>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Login ID</th>
+                    <th>Role</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Search Address</th>
+                    <th>Address</th>
+                    <th>Update</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="memberManagementDto, status : ${memberManagementDto}">
+                    <form th:action="@{/admin/editMember/{id}(id=${memberManagementDto.id})}" method="post">
+                        <td>
+                            <input type="text" id="id" name="id" class="form-control" th:value="${memberManagementDto.getId()}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" id="LoginId" name="LoginId" class="form-control" th:value="${memberManagementDto.getLoginId()}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" id="role" name="role" class="form-control" th:value="${memberManagementDto.getRole()}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" id="name" name="name" class="form-control" th:value="${memberManagementDto.getName()}" readonly>
+                        </td>
+                        <td>
+                            <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" th:value="${memberManagementDto.getPhoneNumber()}">
+                        </td>
+                        <td>
+                            <input type="button" th:onclick="'sample6_execDaumPostcode(' + ${status.index} + ')'" value="Search Address">
+                        </td>
+                        <td>
+                            <input type="text" th:id="'sample6_address_'+${status.index}" name="fullAddr" class="form-control" th:value="${memberManagementDto.getFullAddr()}">
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" type="submit">Update</button>
+                        </td>
 
-
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">회원관리</h1>
-      </div>
-      <div class="table-responsive">
-        <table class="table table-striped table-sm">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID</th>
-            <th scope="col">구분</th>
-            <th scope="col">이름</th>
-            <th scope="col">전호번호</th>
-            <th scope="col">주소</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each="memberManagementDtos : ${memberManagementDtos}">
-<!--            <form th:action="" method="post" class="d-flex">-->
-              <td th:text="${memberManagementDtos.getId()}">순번</td>
-              <td th:text="${memberManagementDtos.getLoginId()}">ID</td>
-              <td th:text="${memberManagementDtos.getRole()}">구분</td>
-              <td th:text="${memberManagementDtos.getName()}">이름</td>
-              <td th:text="${memberManagementDtos.getPhoneNumber()}">전화번호</td>
-              <td th:text="${memberManagementDtos.getFullAddr()}">주소</td>
-
-<!--                "@{/user/change/{id}(id=${users.id})}"-->
-<!--              <td>-->
-<!--                <select name="Grade">-->
-<!--                  <option value="VVIP">VVIP</option>-->
-<!--                  <option value="VIP">VIP</option>-->
-<!--                    <option value="Grade">NOMAL</option>-->
-<!--                </select>-->
-<!--              </td>-->
-
-              <td>
-                <button class="btn btn-outline-dark flex-shrink-0" type="submit">
-                  업데이트
-                </button>
-              </td>
-<!--            </form>-->
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </main>
-  </div>
+                        <<td>
+                        <button class="btn btn-danger"
+                                th:onclick="|location.href='@{/admin/deleteMember/{id}/(id=${memberManagementDto.id})}'|" type="button"> delete </button>
+                            </form>
+                        </td>
+                    </form>
+                </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
 </div>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="/js/scripts.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+

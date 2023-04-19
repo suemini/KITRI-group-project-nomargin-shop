@@ -24,9 +24,10 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Member findOne(Long id) {
+    public Member findById(Long id) {
         return em.find(Member.class, id);
     }
+
 
     @Override
     public List<Member> findAll() {
@@ -50,13 +51,9 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public void update(Long id, Member updateId) {
-
-    }
-
-    @Override
     public void delete(Long id) {
-
+        Member member = findById(id);
+        em.remove(member);
     }
 
 

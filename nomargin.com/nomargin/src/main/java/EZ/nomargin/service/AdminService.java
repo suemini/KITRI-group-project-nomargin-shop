@@ -22,21 +22,19 @@ public class AdminService {
 
     private final JpaMemberRepository jpaMemberRepository;
 
-    public Member save(Member member) {
-        return jpaMemberRepository.save(member);
-    }
-
     public Member findByLoginId(String loginId) {
         return jpaMemberRepository.findByLoginId(loginId).get();
     }
 
-    public List<Member> findAll() {
-        return jpaMemberRepository.findAll();
-    }
+    public Member findById(Long id) {
+        return jpaMemberRepository.findById(id);}
 
 
+    public void deleteById(Long id) {
+        jpaMemberRepository.delete(id);}
 
-    public List<MemberManagementDto> findByMMDto() {
+
+    public List<MemberManagementDto> findByMmDto() {
         List<Member> Members = jpaMemberRepository.findAll();
         List<MemberManagementDto> memberManagementDtos = new ArrayList<>();
         for (Member member : Members) {
@@ -49,10 +47,15 @@ public class AdminService {
         return memberManagementDtos;
     }
 
+    public void editByMmDto(Long memberId, MemberManagementDto memberManagementDto) {
 
-
-
-
+        Member member = jpaMemberRepository.findById(memberId);
+        member.setName(memberManagementDto.getName());
+        member.setRole(memberManagementDto.getRole());
+        member.setPhoneNumber(memberManagementDto.getPhoneNumber());
+        member.setFullAddr(memberManagementDto.getFullAddr());
+        jpaMemberRepository.save(member);
+    }
 
 
 
