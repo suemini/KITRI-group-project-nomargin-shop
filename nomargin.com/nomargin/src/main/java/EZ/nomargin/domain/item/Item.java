@@ -25,8 +25,6 @@ public class Item {
     private String imgSize;
 
 
-    //photo
-
     public Item() {
     }
 

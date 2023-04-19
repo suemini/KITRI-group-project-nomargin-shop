@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진">
+      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/build/resources/main/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/build/resources/main/templates/form/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/java/EZ/nomargin/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/java/EZ/nomargin/domain/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/resources/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/nomargin.com/nomargin/src/main/resources/templates/form/item.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/nomargin.com/nomargin">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/nomargin.com/nomargin">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="nomargin" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="backup-master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OEHl8WlI3DAz5Gm7sMjnIxNeEv" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/kitri/Desktop/nomargin.com/nomargin.com/nomargin/src/main/java/EZ/nomargin/domain",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "spring.configuration.checksum": "b96b92cf4bb9e60fd0ec5846b8e1a91f",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\java\EZ\nomargin\domain" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\JS" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\templates" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\CSS" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\asset" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\templates\fragments" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\templates\admin" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\clothesImg\Bottom" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\clothesImg\Outer" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="EZ.nomargin.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="NomarginApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="nomargin.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="EZ.nomargin.NomarginApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c04f45f4-4b30-4e0a-8d5a-f6d837706d6a" name="Changes" comment="" />
+      <created>1681118968688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681118968688</updated>
+      <workItem from="1681118969879" duration="15213000" />
+      <workItem from="1681201980727" duration="5035000" />
+      <workItem from="1681258387976" duration="15000" />
+      <workItem from="1681260055754" duration="341000" />
+      <workItem from="1681262214081" duration="1238000" />
+      <workItem from="1681266937364" duration="1973000" />
+      <workItem from="1681273159318" duration="696000" />
+      <workItem from="1681284660772" duration="1533000" />
+      <workItem from="1681359669913" duration="3213000" />
+      <workItem from="1681447889891" duration="15126000" />
+      <workItem from="1681808203611" duration="6796000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1681119049296</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681119049296</updated>
+    </task>
+    <task id="LOCAL-00002" summary="팀장님의 손길">
+      <created>1681122142294</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681122142294</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2023.04.11 첫번째 Commit">
+      <created>1681205502970</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681205502970</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2023.04.11 두번째 Commit">
+      <created>1681205678918</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681205678918</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2023.04.12 09:45 Commit">
+      <created>1681260332680</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681260332680</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2023.04.12 09:45 Commit">
+      <created>1681260351429</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681260351429</updated>
+    </task>
+    <task id="LOCAL-00007" summary="2023.04.12 11:45 Commit&#10;head, header, footer 반복 include 추가">
+      <created>1681273186301</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681273186301</updated>
+    </task>
+    <task id="LOCAL-00008" summary="2023.04.14 15:51 commit by 현덕&#10;관리자 로그인 기능 추가">
+      <created>1681455255068</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681455255068</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2023.04.14 16:58 commit by 현덕&#10;관리자 권한 확장 + 로그인화면 css조금">
+      <created>1681459157782</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681459157782</updated>
+    </task>
+    <task id="LOCAL-00010" summary="2023.04.14 16:58 commit by 현덕&#10;관리자 권한 확장 + 로그인화면 css조금">
+      <created>1681459173674</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681459173674</updated>
+    </task>
+    <task id="LOCAL-00011" summary="commit">
+      <created>1681709940312</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681709940312</updated>
+    </task>
+    <task id="LOCAL-00012" summary="commit">
+      <created>1681718729680</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681718729680</updated>
+    </task>
+    <task id="LOCAL-00013" summary="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진">
+      <created>1681813299609</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681813299610</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="팀장님의 손길" />
+    <MESSAGE value="2023.04.11 첫번째 Commit" />
+    <MESSAGE value="2023.04.11 두번째 Commit" />
+    <MESSAGE value="2023.04.12 11:41 Commit&#10;head, header, footer 반복 include 추가" />
+    <MESSAGE value="2023.04.12 09:45 Commit" />
+    <MESSAGE value="2023.04.12 11:45 Commit" />
+    <MESSAGE value="2023.04.12 11:45 Commit&#10;head, header, footer 반복 include 추가" />
+    <MESSAGE value="2023.04.14 15:51 commit by 현덕&#10;관리자 로그인 기능 추가" />
+    <MESSAGE value="2023.04.14 16:58 commit by 현덕&#10;관리자 권한 확장 + 로그인화면 css조금" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-04-18 19:18 검색+상품상세이미+로그인+회원가입 수정 by 정은, 경진" />
+  </component>
+</project>
