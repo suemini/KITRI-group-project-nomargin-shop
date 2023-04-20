@@ -258,3 +258,85 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: lightgrey;
     color: black;
 }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .active {
+    display: block;
+}
+
+/* 탭 + 탭 결과값 가운데 정렬 */
+.row {
+    text-align: center;
+}
+
+.nav-tabs {
+    display: inline-block;
+    text-align: left;
+}
+
+.nav-item {
+    margin-right: 10px;
+}
+
+.item-comments,
+.item-rating {
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 판매자 정보 CSS*/
+
+.item-return-warp h4 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.item-return-warp table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px auto 0;
+    max-width: 600px;
+    text-align: center;
+}
+
+.item-return-warp th,
+.item-return-warp td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.item-return-warp td:first-child {
+    font-weight: bold;
+    background-color: #f7f7f7;
+    width: 50%;
+}
+
+.cautions {
+    list-style-type: none;
+}
+
+.cautions li {
+    margin: 10px 0;
+    position: relative;
+}
+
+.cautions .ico {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+}

@@ -1,31 +1,115 @@
-function search() {
-    var input = document.getElementById("search");
-    var filter = input.value.toUpperCase();
-    var tables = document.getElementsByClassName("item-table");
-    var resultsDiv = document.getElementById("search-results");
-    resultsDiv.innerHTML = "";
+/* const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const itemList = document.querySelector('.item-table');
+const items = [...itemList.querySelectorAll('.items')];
 
-    // Loop through all tables and rows, and hide those who don't match the search query
-    var hasResults = false;
-    for (var i = 0; i < tables.length; i++) {
-        var rows = tables[i].getElementsByTagName("tr");
-        for (var j = 0; j < rows.length; j++) {
-            var item = rows[j];
-            var name = item.getElementsByClassName("item-name")[0];
-            if (name) {
-                if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    item.style.display = "";
-                    hasResults = true;
-                } else {
-                    item.style.display = "none";
-                }
-            }
+const searchResults = document.getElementById('search-results');
+let message = document.getElementById('no-items-message');
+if (!message) {
+    message = document.createElement('p');
+    message.textContent = '검색하신 상품이 존재하지 않습니다.';
+    message.setAttribute('id', 'no-items-message');
+}
+message.style.display = 'none';
+searchResults.appendChild(message);
+
+searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const filter = searchInput.value.toLowerCase().trim();
+
+    if (filter === '') {
+        message.style.display = 'none';
+        items.forEach((item) => {
+            item.style.display = 'flex';
+        });
+    } else {
+        const itemsToShow = items.filter((item) => {
+            const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+            return itemName.includes(filter);
+        });
+
+        if (itemsToShow.length > 0) {
+            message.style.display = 'none';
+            items.forEach((item) => {
+                item.style.display = 'none';
+            });
+            itemsToShow.forEach((item) => {
+                item.style.display = 'table-row';
+            });
+        } else {
+            alert('검색하신 상품이 존재하지 않습니다.');
+            message.style.display = 'block';
         }
     }
+});
 
-    if (!hasResults) {
-        var noResultsMsg = document.createElement("p");
-        noResultsMsg.innerHTML = "No results found.";
-        resultsDiv.appendChild(noResultsMsg);
+const searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const searchTerm = searchInput.value.trim();
+    const itemsToShow = items.filter((item) => {
+        const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+        return itemName.includes(searchTerm);
+    });
+    if (searchTerm === '') {
+        alert('검색어를 입력해주세요.');
+    } else if (itemsToShow.length === 0) {
+        alert('검색하신 상품이 존재하지 않습니다.');
+    } else {
+        searchForm.submit();
     }
+}); */
+
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
+const itemList = document.querySelector('.item-table');
+const items = [...itemList.querySelectorAll('.items')];
+
+const searchResults = document.getElementById('search-results');
+let message = document.getElementById('no-items-message');
+if (!message) {
+    message = document.createElement('p');
+    message.setAttribute('id', 'no-items-message');
 }
+message.style.display = 'none';
+searchResults.appendChild(message);
+
+searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const filter = searchInput.value.toLowerCase().trim();
+
+    if (filter === '') {
+        message.style.display = 'none';
+        items.forEach((item) => {
+            item.style.display = 'flex';
+        });
+    } else {
+        const itemsToShow = items.filter((item) => {
+            const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+            return itemName.includes(filter);
+        });
+
+        if (itemsToShow.length > 0) {
+            message.style.display = 'none';
+            items.forEach((item) => {
+                item.style.display = 'none';
+            });
+            itemsToShow.forEach((item) => {
+                item.style.display = 'flex';
+            });
+        }
+    }
+});
+const searchBtn = document.getElementById('search-btn');
+searchBtn.addEventListener('click', () => {
+    const searchTerm = searchInput.value.trim();
+    const itemsToShow = items.filter((item) => {
+        const itemName = item.querySelector('.item-name').textContent.toLowerCase();
+        return itemName.includes(searchTerm);
+    });
+    if (searchTerm === '') {
+        alert('검색어를 입력해주세요.');
+    } else if (itemsToShow.length === 0) {
+        alert(`${searchTerm}의 상품이 존재하지 않습니다.`);
+    }
+});

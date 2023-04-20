@@ -62,7 +62,23 @@
             </div>
         </ul>
     </section>
-    <div class="item-subImages">
+
+    <div class="row mt-4 justify-content-center">
+        <nav class="w-100">
+            <div class="nav nav-tabs" id="item-tab" role="tablist">
+                <a class="nav-item nav-link active" href="#item-desc" id="item-desc-tab" data-toggle="tab"
+                   aria-selected="true">설명</a>
+                <a class="nav-item nav-link" href="#item-comments" id="item-comments-tab" data-toggle="tab"
+                   aria-selected="false">리뷰</a>
+                <a class="nav-item nav-link" href="#item-rating" id="item-rating-tab" data-toggle="tab"
+                   aria-selected="false">평가</a>
+                <a class="nav-item nav-link" href="#item-seller" id="item-seller-tab">판매자 정보</a>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="item-subImages">
         <img th:src="@{/clothesImg/{itemType}/{imgDetail1}.jpg(itemType=${item.itemType}, imgDetail1=${item.imgDetail1})}"
              alt="Image">
         <img th:src="@{/clothesImg/{itemType}/{imgDetail2}.jpg(itemType=${item.itemType}, imgDetail2=${item.imgDetail2})}"
@@ -73,10 +89,65 @@
     </div>
 </div>
 
-<div id="search-results">
-    <!-- 검색 결과가 이곳에 표시됩니다 -->
+<div class="item-comments">리뷰</div>
+<br>
+<div class="item-rating">4.5</div>
+
+<div class="item-return-warp">
+    <h4 class="tit">판매자 정보</h4>
+    <table class="seller-info">
+        <tr class="seller-name">
+            <td>판매자 이름</td>
+            <td>John Doe</td>
+        </tr>
+        <tr class="seller-email">
+            <td>이메일 주소</td>
+            <td>johndoe@example.com</td>
+        </tr>
+        <tr class="seller-phone">
+            <td>전화번호</td>
+            <td>123-456-7890</td>
+        </tr>
+    </table>
+    <h4 class="tit">반품/환불 정보</h4>
+    <table class="return-info">
+        <tr>
+            <td>반품/교환 배송비</td>
+            <td>(구매자 전액 부담)</td>
+        </tr>
+        <tr>
+            <td>초기배송비 무료시 반품배송비 부과방법</td>
+            <td>왕복(편도x2)</td>
+        </tr>
+        <tr>
+            <td>반품/교환지 주소</td>
+            <td>나중에 쓰자</td>
+        </tr>
+        <tr>
+            <td>반품/교환 안내</td>
+            <td>(구매자귀책) 8,000원/16,000원 / 초기배송비 무료시 반품배송비 부과방법 : 왕복(편도x2)</td>
+        </tr>
+    </table>
+    <h4 class="tit">구매 시 주의사항</h4>
+    <ul class="cautions">
+        <li><span class="ico"></span>「전자상거래 등에서의 소비자보호에 관한 법률」에 의한 반품규정이 판매자가 지정한 반품조건보다 우선합니다.</li>
+        <li><span class="ico"></span>미성년자가 물품을 구매하는 경우, 법정대리인이 동의하지 않으면 미성년자 본인 또는 법정대리인이 구매를 취소할 수 있습니다.</li>
+        <li><span class="ico"></span>공산품, 전기용품 등 인증대상 상품을 구매하실 경우 '전기용품 및 생활용품 안전관리법' 등 관련 법률에 따라 허가 받은 상품인지 확인하시기 바랍니다.</li>
+        <li><span class="ico"></span>NoMarGin의 결제시스템을 이용하지 않고 판매자와 직접거래 하실 경우 상품을 받지 못하거나. 구매한 상품과 상이한 상품을 받는 등 피해가 발생 할 수 있으니 유의하시기 바랍니다.</li>
+        <li><span class="ico"></span>등록된 판매물품과 내용은 판매자가 등록한 것으로 11번가(주)가 운영하는 11번가에 등록된 내용에 대하여 일체의 책임을 지지 않습니다.</li>
+    </ul>
 </div>
+
+<div id="item-container">
+    <!-- 검색 결과가 이곳에 표시됩니다 -->
+    <p id="no-items-message"></p>
+</div>
+
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-<script src="/JS/search.js"></script>
+<script src="/JS/addToCart.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JS/tab.js"></script>
+<script src="/JS/itemSer.js"></script>
+<script src="/JS/itemInfo.js"></script>
 </body>
 </html>
