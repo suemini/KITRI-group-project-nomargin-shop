@@ -22,13 +22,13 @@
     </div>
     <div>
         <label for="itemName">상품명</label>
-        <input type="text" id="itemName" name="name" class="form-control"
+        <input type="text" id="itemName" name="itemName" class="form-control"
                th:value="${item.getItemName()}" value="상품A" readonly>
     </div>
     <div>
         <label for="itemStore">판매처</label>
-        <input type="text" id="itemStore" name="name" class="form-control"
-               th:value="${item.getItemStore()}" value="상품A" readonly>
+        <input type="text" id="itemStore" name="itemStore" class="form-control"
+               th:value="${item.getItemStore()}" value="판매처A" readonly>
     </div>
     <div>
         <label for="price">가격</label>
@@ -42,9 +42,26 @@
     </div>
 
     <div>
-        메인 이미지<br><img th:if="${item.attachFile}" th:src="@{'/images/' + ${item.attachFile.uploadFileName}}" width="300" height="300"/><br/>
-        상세 이미지<br><img th:each="imageFile : ${item.imageFiles}" th:src="@{'/images/' + ${imageFile.storeFileName}}" width="300" height="300"/>
+        <div>상품 종류</div>
+        <div th:each="type : ${ItemType}" class="form-check form-check-inline">
+            <input type="radio" th:field="${item.itemType}" th:value="${type.name()}" class="form-check-input" disabled>
+            <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">
+                BOOK
+            </label>
+        </div>
     </div>
+
+    <td class="item-image">
+        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" width="300" height="300" onerror=this.style.display='none'>
+        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail1})}" width="300" height="300" onerror=this.style.display='none'>
+        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail2})}" width="300" height="300" onerror=this.style.display='none'>
+        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail3})}" width="300" height="300" onerror=this.style.display='none'>
+        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgSize})}" width="300" height="300" onerror=this.style.display='none'>
+        <div th:if="${item.attachFile}">
+            <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="300" height="300">
+        </div>
+        <br><img th:each="imageFile : ${item.imageFiles}" th:src="@{'/images/' + ${imageFile.storeFileName}}" width="300" height="300"/>
+    </td>
 
 
     <hr class="my-4">
@@ -54,6 +71,7 @@
                     onclick="location.href='editForm.html'"
                     th:onclick="|location.href='@{|/admin/edit/${item.getItemId()}|}'|"
                     type="button">상품 수정</button>
+            <!--th:onclick="|location.href='@{/basic/products/{productId}/edit(productId=${product.getId()})}'|" 도 가능-->
         </div>
         <div class="col">
             <button class="w-100 btn btn-danger btn-lg"
@@ -64,9 +82,9 @@
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='/admin/items'"
-                    type="button">목록으로</button>
+                    type="button">목록으로</button> <!--href 어차피 정적이라 타임리프 안써도됨-->
         </div>
     </div>
-</div>
+</div> <!-- /container -->
 </body>
 </html>

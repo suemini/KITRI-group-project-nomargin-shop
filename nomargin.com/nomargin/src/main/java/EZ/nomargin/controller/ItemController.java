@@ -2,16 +2,22 @@ package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.item.Item;
 import EZ.nomargin.domain.item.ItemType;
+import EZ.nomargin.file.FileStore;
 import EZ.nomargin.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.util.UriUtils;
 
 import javax.annotation.PostConstruct;
+import java.net.MalformedURLException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,19 +25,17 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-@RequestMapping("/form/itemList")
 @RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
+    private final FileStore fileStore;
 
-    @GetMapping("/{itemId}")
+    @GetMapping("/form/itemList/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
         return "/form/item";
     }
-
-
 
     @ModelAttribute("ItemType")
     public ItemType[] ItemTypes() {
@@ -39,7 +43,7 @@ public class ItemController {
     }
 
 
-    @GetMapping("/type/{type}")
+    @GetMapping("/form/itemList/type/{type}")
     public String itemsTop(@PathVariable("type") String type, Model model) {
         List<Item> items = new ArrayList<>();
 
@@ -60,7 +64,6 @@ public class ItemController {
                 model.addAttribute("type", "OUTER");
                 break;
         }
-
         return "/form/itemList";
     }
 
@@ -74,13 +77,36 @@ public class ItemController {
         return sizes;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/form/itemList/search")
     public String itemList(@RequestParam("keyword") String keyword, Model model) {
         List<Item> items = itemService.searchItems(keyword);
         model.addAttribute("items", items);
         return "/form/itemList";
     }
 
+    @ResponseBody
+    @GetMapping("/images/{filename}")
+    public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
+        return new UrlResource("file:" + fileStore.getFullPath(filename));
+    }
+
+    @GetMapping("/attach/{itemId}")
+    public ResponseEntity<Resource> downloadAttach(@PathVariable Long itemId) throws MalformedURLException {
+        Item item = itemService.findById(itemId);
+        String storeFileName = item.getAttachFile().getStoreFileName();
+        String uploadFileName = item.getAttachFile().getUploadFileName();
+
+        UrlResource resource = new UrlResource("file:" + fileStore.getFullPath(storeFileName));
+
+        log.info("uploadFileName={}", uploadFileName);
+
+        String encodedUploadFileName = UriUtils.encode(uploadFileName, StandardCharsets.UTF_8);
+        String contentDisposition = "attachment; filename=\"" + encodedUploadFileName + "\"";
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition)
+                .body(resource);
+    }
 
 
     @PostConstruct  // 생성 이후 얘를 실행

@@ -14,7 +14,9 @@ function order() {
         }
         document.getElementById("item-totalPrice-info").innerHTML +=
             "<div id='order-box'>" +
+            "<div id='order-cancel-button'>" +
             "<input type='button' value='X' onclick='del()'>" +
+            "</div>" +
             "<div id='show-ItemList'>" +
             "<input type='text' id='name' name='name' class='form-itemName' value='" + itemName + "' readonly>" +
             "<input type='text' id='item-size' name='item-size' class='form-itemSize' value='" + itemSize + "' readonly>" +

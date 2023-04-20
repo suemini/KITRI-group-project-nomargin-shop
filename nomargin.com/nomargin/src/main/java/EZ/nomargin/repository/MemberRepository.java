@@ -14,5 +14,4 @@ public interface MemberRepository {
     Optional<Member> findByLoginId(String loginId);
     void delete(Long id);
 
-
 }
