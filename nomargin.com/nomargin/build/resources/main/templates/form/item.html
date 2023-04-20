@@ -10,12 +10,11 @@
     <th:block th:replace="fragments/header :: headerFragment"></th:block>
     <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
     <section>
-        <table class="image-table">
-            <tr class="items" th:each="item : ${item}">
-                <td class="item-mainImage">
-                    <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
-            </tr>
-        </table>
+        <div class="image-table">
+            <div class="item-mainImage" th:each="item : ${item}">
+                <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
+            </div>
+        </div>
 
         <ul class="item-info">
             <li class="item-name">
@@ -23,7 +22,7 @@
                        th:value="${item.itemName}" value="상품 A" readonly>
             </li>
             <li class="item-price">
-                <label for="price">상품 가격</label>
+                <label for="price">가격</label>
                 <input type="text" id="price" name="price" class="form-control"
                        th:value="${item.price}" value="10000" readonly>
             </li>
@@ -33,19 +32,22 @@
                        th:value="${item.itemStore}" value="abc" readonly>
             </li>
 
-            <div class="item-size">
-                <label>사이즈 선택</label>
-                <select  onchange="order()" class="form-select">
-                    <option value = "" disabled selected>==사이즈를 선택해주세요==</option>
-                    <option th:each="size : ${itemSize}" th:value="${size.key}"
-                            th:text="${size.value}">S</option>
-                </select>
-            </div>
+            <hr>
 
             <div class="item-quantity">
                 <div class="item-quantity-text">수량</div>
                 <input type="number" name="count" id="count" value="1" min="1">
             </div>
+
+            <div class="item-size">
+                <label>사이즈 선택</label>
+                <select  onchange="order()" class="form-select">
+                    <option value = "" disabled selected>=사이즈 선택=</option>
+                    <option th:each="size : ${itemSize}" th:value="${size.key}"
+                            th:text="${size.value}">S</option>
+                </select>
+            </div>
+
             <div id="item-totalPrice-info">
             </div>
             <div class="item-totalPrice">
@@ -71,7 +73,7 @@
     </div>
 </div>
 
-<div id="searc  h-results">
+<div id="search-results">
     <!-- 검색 결과가 이곳에 표시됩니다 -->
 </div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>

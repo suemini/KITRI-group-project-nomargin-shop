@@ -5,6 +5,7 @@ label {
 
 input {
     font-size: 11pt;
+    font-weight: normal;
     height: 30px;
     border: 0;
     margin-bottom: 1px;
@@ -46,6 +47,11 @@ input:focus {
     width: 90%;
 }
 
+.phone-group input {
+    text-align: center;
+    width: 140px;
+}
+
 @keyframes blink-effect {
     50% {
         opacity: 0.5;
@@ -53,6 +59,9 @@ input:focus {
 }
 
 .fieldError {
+    word-break: keep-all;
+    font-size: 11pt;
+    font-weight: bold;
     color: red;
     animation: blink-effect 0.3s step-end 3;
 }

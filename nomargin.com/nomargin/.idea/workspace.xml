@@ -4,7 +4,86 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7646d8bd-3de1-4d21-b8c2-40c6ff061362" name="Changes" comment="23-04-19 16:11 회원목록 by 현덕" />
+    <list default="true" id="7646d8bd-3de1-4d21-b8c2-40c6ff061362" name="Changes" comment="23-04-19 16:32 확인">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/NomarginApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/NomarginApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/CustomAuthenticationEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/CustomAuthenticationEntryPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/ItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/adminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/adminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/boardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/boardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/cartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/cartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/mainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/mainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/memberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/memberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/admin/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/admin/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/board/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/board/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/Cart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/CartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/CartItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemType.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/UploadFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/UploadFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/order/OrderItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/order/OrderItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/order/Orders.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/order/Orders.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/ItemDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/ItemDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/JoinDto$JoinDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/JoinDto$JoinDtoBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/JoinDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/JoinDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/MemberManagementDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/dto/MemberManagementDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/file/FileStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/file/FileStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/BoardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/BoardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/CartRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaMemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaMemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/MemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/OrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/OrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/MemberService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/OrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/OrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/CSS/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/CSS/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/CSS/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/CSS/itemList.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/CSS/itemList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/CSS/joinForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/CSS/joinForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/static/CSS/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/static/CSS/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/addForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/addForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/itemList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/itemList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/members/joinForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/members/joinForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/members/loginForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/members/loginForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminController.class.uniqueId0" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminController.class.uniqueId0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/itemList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/itemList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/joinForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/joinForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/CSS/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/CSS/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/addForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/addForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/itemList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/itemList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/members/joinForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/members/joinForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/members/loginForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/members/loginForm.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,9 +106,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/kitri/Desktop/nomargin.com/nomargin.com/nomargin",
+    "last_opened_file_path": "C:/Users/kitri/Desktop/nomargin.com/nomargin.com/nomargin/src/main/resources/static/JS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -41,6 +124,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\JS" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\asset" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="NomarginApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="nomargin.main" />
@@ -58,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681887849021</updated>
-      <workItem from="1681887850009" duration="1162000" />
+      <workItem from="1681887850009" duration="7746000" />
     </task>
     <task id="LOCAL-00001" summary="23-04-19 16:11 회원목록 by 현덕">
       <created>1681888305623</created>
@@ -74,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681888319077</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="23-04-19 16:32 확인">
+      <created>1681889589412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681889589412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,6 +178,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="23-04-19 16:11 회원목록 by 현덕" />
-    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 16:11 회원목록 by 현덕" />
+    <MESSAGE value="23-04-19 16:32 확인" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 16:32 확인" />
   </component>
 </project>

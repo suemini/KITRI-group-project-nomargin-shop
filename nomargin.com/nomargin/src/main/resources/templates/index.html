@@ -12,15 +12,21 @@
     <div id="search-results">
         <!-- 검색 결과가 이곳에 표시됩니다 -->
     </div>
-    <div class="main-slider"><img src="asset/016.jpg" alt=""></div>
+    <div class="main-slider-container">
+        <div class="slider fade"><img src="asset/slide_0.png" alt="slide0" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_1.jpg" alt="slide1" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_2.jpg" alt="slide2" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_3.jpg" alt="slide3" style="width:100%"></div>
+    </div>
     <section class="item-list">
-        <article><img src="asset/045.jpg" alt=""></article>
-        <article><img src="asset/045.jpg" alt=""></article>
-        <article><img src="asset/045.jpg" alt=""></article>
+        <article><img src="clothesImg/Top/8.1.jpg" alt=""></article>
+        <article><img src="clothesImg/Bottom/14.2.jpg" alt=""></article>
+        <article><img src="clothesImg/Outer/22.1.jpg" alt=""></article>
     </section>
 
 </div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script src="/JS/main.js"></script>
 <script>
     function search(event) {
         event.preventDefault();

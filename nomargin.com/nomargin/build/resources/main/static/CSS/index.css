@@ -1,12 +1,14 @@
 * {
     box-sizing: border-box;
     list-style: none;
+    font-family: 'Noto Serif KR', serif;
 }
 
 .container {
     margin: 0;
-    font-family: 'Noto Serif KR', serif;
     padding: 0 5% 0 5%;
+    font-weight: bold;
+    min-width: 1050px;
 }
 
 ul {
@@ -18,6 +20,8 @@ a {
 }
 
 header {
+    z-index: 2;
+    position: sticky;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,7 +31,7 @@ header {
     width: 100%;
     height: 80px;
     padding-bottom: 15px;
-
+    background-color: white;
 }
 
 .logo {
@@ -47,10 +51,10 @@ header {
     text-align: right;
     margin-top: 10px;
     margin-left: auto;
-    margin-right: 2%;
+    margin-right: 15px;
     padding-top: 3px;
     padding-bottom: 3px;
-    width: 15%;
+    width: 180px;
 }
 
 .search-box form {
@@ -76,6 +80,7 @@ header {
 }
 
 .cart {
+    margin-top: 10px;
     width: 25px;
     height: 25px;
 }
@@ -84,9 +89,15 @@ header {
     width: 25px;
 }
 
+.line {
+    width: 100px;
+    text-align: center;
+    margin-top: 7px;
+}
+
 .login-btn {
+    font-weight: normal;
     background-color: #ffffff;
-    width: auto;
     color: gray;
     margin: 15px 20px 0 10px;
     padding-top: 2px;
@@ -133,7 +144,8 @@ footer {
     bottom: 0;
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-between;
+    align-items: flex-start;
     border-top: 1px solid lightgray;
     margin-bottom: 1%;
 }
@@ -152,6 +164,59 @@ footer ul {
 }
 
 .company-info li, .company-etc li {
-    color: gray;
+    font-family: 'Gowun Batang', serif;
+    font-weight: 700;
     font-size: 11px;
+    color: gray;
+}
+
+/*04.19 로그인 성공 후 ui*/
+.login-all-tab {
+    position: relative;
+    width: 95px;
+    height: 80px;
+    top: 0;
+    font-size: 12pt;
+    padding: 15px 5px 0 8px;
+    margin-top: 35px;
+}
+
+#welcome-button {
+    display: none;
+}
+
+#welcome-button:checked ~ .login-user-tab  {
+    z-index: 2;
+
+    list-style: none;
+    margin: 3px 0 0 0;
+    padding: 10px 0 10px 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
+}
+
+
+.login-user-tab {
+    display: none;
+}
+
+.login-user-tab li {
+
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.login-user-tab li:last-child {
+    border: 0;
+}
+
+.login-user-tab li a {
+    font-weight: normal;
+    color: #282828;
 }

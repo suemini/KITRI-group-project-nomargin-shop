@@ -26,10 +26,10 @@
 
         <div class="form-group pw-group">
             <label th:for="password">비밀번호</label>
-            <input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호 입력">
+            <input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호를 입력해주세요">
 
             <label th:for="password">비밀번호 확인</label>
-            <input type="password" id="password_check" name="password_check" class="form-control" placeholder="비밀번호 입력">
+            <input type="password" id="password_check" name="password_check" class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요">
             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect data</p>
         </div>
 
@@ -43,7 +43,7 @@
 
         <div class="form-group phone-group">
             <label th:for="phoneNumber">휴대폰 번호</label>
-            <input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="'-'포함해서 휴대폰 번호를 입력해주세요">
+            <input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="' - ' 포함">
             <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="fieldError">Incorrect data</p>
         </div>
 
@@ -66,7 +66,7 @@
             </div>
 
         <div class="submit-button">
-            <button type="submit" class="btn btn-primary" style="">Submit</button>
+            <button type="submit" class="btn btn-primary" style="">가입하기</button>
         </div>
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     </form>

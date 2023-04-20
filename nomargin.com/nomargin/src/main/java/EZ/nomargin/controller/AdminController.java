@@ -55,7 +55,8 @@ public class AdminController {
         adminService.editByMmDto(id, memberManagementDto);
         List<MemberManagementDto> allMemberManagementDto = adminService.findByMmDto();
         model.addAttribute("memberManagementDto", allMemberManagementDto);
-        return "/admin/memberManagement";
+        return "redirect:/admin/members";
+                //"/admin/memberManagement";
     }
 
     @GetMapping("deleteMember/{id}")
@@ -64,7 +65,7 @@ public class AdminController {
         adminService.deleteById(id);
         List<MemberManagementDto> allMemberManagementDto = adminService.findByMmDto();
         model.addAttribute("memberManagementDto", allMemberManagementDto);
-        return "/admin/memberManagement";
+        return "redirect:/admin/members";
 
     }
 

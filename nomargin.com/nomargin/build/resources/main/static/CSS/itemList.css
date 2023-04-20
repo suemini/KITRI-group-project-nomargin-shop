@@ -12,16 +12,12 @@
 }
 
 .item-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     position: relative;
     text-align: left;
     width: 100%;
-}
-
-.item-table tbody {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: center;
 }
 
 .items {
@@ -37,9 +33,9 @@
     height: 300px;
 }
 
-.item-name a {
+.item-name {
     font-weight: bold;
-    font-size: 15pt;
+    font-size: 14pt;
     color: black;
     margin: 0;
 }

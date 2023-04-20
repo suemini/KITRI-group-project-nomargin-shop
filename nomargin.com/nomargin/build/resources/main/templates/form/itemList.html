@@ -24,10 +24,10 @@
 <!--    </section>-->
 
     <section class="item-list">
-        <table class="item-table">
-            <tbody>
-            <tr class="items" th:each="item : ${items}">
-                <td class="item-image">
+        <div class="item-table">
+            <div class="items" th:each="item : ${items}">
+                <a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}">
+                <div class="item-image">
                     <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
                     <div th:if="${item.attachFile}">
                         <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="100" height="100">
@@ -35,12 +35,16 @@
                     <div th:each="imageFile : ${item.imageFiles}">
                         <img th:src="@{'/images/' + ${imageFile.storeFileName}}" width="100" height="100">
                     </div>
-                </td>
-                <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
-                <td class="item-price" th:text="|${item.price}원|">아이템 가격</td>
-            </tr>
-            </tbody>
-        </table>
+                </div>
+                <div class="item-name" th:text="${item.itemName}">
+                    아이템이름자리
+                </div>
+                <div class="item-price" th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}">
+                    아이템 가격
+                </div>
+                </a>
+            </div>
+        </div>
     </section>
 
 <!--    <section class="item-list">-->
