@@ -75,27 +75,39 @@ public class AdminController {
     }
 
     @PostMapping("/add")
-    public String addItem(@ModelAttribute ItemDto itemDto, RedirectAttributes redirectAttributes) throws IOException {
-        UploadFile attachFile = fileStore.storeFile(itemDto.getAttachFile());
-        List<UploadFile> imageFiles = fileStore.storeFiles(itemDto.getImageFiles());
-
-        Item item = ItemMapper.toEntity(itemDto, attachFile, imageFiles);
-        Item savedItem = itemService.save(item);
-
-        redirectAttributes.addAttribute("itemId", savedItem.getItemId());
-        redirectAttributes.addAttribute("attachFile", savedItem.getAttachFile()
-                .getStoreFileName());
-
-        // 각 이미지 파일에 대한 파일 이름을 리스트로 변환하여 전달합니다.
-        List<String> imageFileNames = savedItem.getImageFiles()
-                .stream()
-                .map(file -> file.getStoreFileName())
-                .collect(Collectors.toList());
-        redirectAttributes.addAttribute("imageFiles", imageFileNames);
+    public String addItem(@ModelAttribute Item item, RedirectAttributes redirectAttributes){
+        item = itemService.save(item);
+        redirectAttributes.addAttribute("itemId", item.getItemId());
         redirectAttributes.addAttribute("status", true);
-
         return "redirect:/admin/items/{itemId}";
     }
+
+//    @PostMapping("/add")
+//    public String addItem(@ModelAttribute ItemDto itemDto, RedirectAttributes redirectAttributes) throws IOException {
+//        UploadFile attachFile = fileStore.storeFile(itemDto.getAttachFile());
+//        List<UploadFile> imageFiles = fileStore.storeFiles(itemDto.getImageFiles());
+//
+//        Item item = ItemMapper.toEntity(itemDto, attachFile, imageFiles);
+//        Item savedItem = itemService.save(item);
+//
+//        redirectAttributes.addAttribute("itemId", savedItem.getItemId());
+//        redirectAttributes.addAttribute("attachFile", savedItem.getAttachFile()
+//                .getStoreFileName());
+//
+//        // 각 이미지 파일에 대한 파일 이름을 리스트로 변환하여 전달합니다.
+//        List<String> imageFileNames = savedItem.getImageFiles()
+//                .stream()
+//                .map(file -> file.getStoreFileName())
+//                .collect(Collectors.toList());
+//        redirectAttributes.addAttribute("imageFiles", imageFileNames);
+//        redirectAttributes.addAttribute("status", true);
+//
+//        return "redirect:/admin/items/{itemId}";
+//    }
+
+
+
+
 
     @GetMapping("/edit/{itemId}")
     public String editItem(@PathVariable Long itemId, Model model) {
@@ -104,12 +116,12 @@ public class AdminController {
         return "/admin/editForm";
     }
 
-//    @PostMapping("/edit/{itemId}")
-//    public String edit(@ModelAttribute Item item, Model model) {
-//        itemService.update(item.getItemId(), item);
-//        model.addAttribute("item",item);
-//        return "redirect:/admin/items/{itemId}";
-//    }
+    @PostMapping("/edit/{itemId}")
+    public String edit(@ModelAttribute Item item, Model model) {
+        itemService.update(item.getItemId(), item);
+        model.addAttribute("item",item);
+        return "redirect:/admin/items/{itemId}";
+    }
 
 
 //    @PostMapping("/edit/{itemId}")

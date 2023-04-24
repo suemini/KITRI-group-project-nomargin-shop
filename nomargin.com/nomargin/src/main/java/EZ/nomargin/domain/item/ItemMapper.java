@@ -19,7 +19,7 @@ public class ItemMapper {
         item.setImgDetail1(dto.getImgDetail1());
         item.setImgDetail2(dto.getImgDetail2());
         item.setImgDetail3(dto.getImgDetail3());
-        item.setImgSize(dto.getImgSize());
+        item.setSizeImg(dto.getImgSize());
         item.setAttachFile(attachFile);
         item.setImageFiles(imageFiles);
         return item;

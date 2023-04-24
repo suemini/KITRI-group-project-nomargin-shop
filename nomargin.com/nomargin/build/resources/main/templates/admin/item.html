@@ -2,15 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-        .container {
-            max-width: 560px;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+          th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin/items">관리자 페이지</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/members">회원 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/items">상품 관리</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" onclick="location.href='addForm.html'"
+                   th:onclick="|location.href='/'|" style="cursor: pointer;">홈으로</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" style="max-width: 600px">
     <div class="py-5 text-center">
         <h2>상품 상세</h2>
     </div>
@@ -40,7 +60,7 @@
         <input type="text" id="stock" name="stock" class="form-control"
                th:value="${item.getStock()}" value="10" readonly>
     </div>
-
+    <br>
     <div>
         <div>상품 종류</div>
         <div th:each="type : ${ItemType}" class="form-check form-check-inline">
@@ -51,17 +71,17 @@
         </div>
     </div>
 
-    <td class="item-image">
-        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" width="300" height="300" onerror=this.style.display='none'>
-        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail1})}" width="300" height="300" onerror=this.style.display='none'>
-        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail2})}" width="300" height="300" onerror=this.style.display='none'>
-        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail3})}" width="300" height="300" onerror=this.style.display='none'>
-        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgSize})}" width="300" height="300" onerror=this.style.display='none'>
-        <div th:if="${item.attachFile}">
-            <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="300" height="300">
-        </div>
-        <br><img th:each="imageFile : ${item.imageFiles}" th:src="@{'/images/' + ${imageFile.storeFileName}}" width="300" height="300"/>
-    </td>
+<!--    <td class="item-image">-->
+<!--        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" width="300" height="300" onerror=this.style.display='none'>-->
+<!--        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail1})}" width="300" height="300" onerror=this.style.display='none'>-->
+<!--        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail2})}" width="300" height="300" onerror=this.style.display='none'>-->
+<!--        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgDetail3})}" width="300" height="300" onerror=this.style.display='none'>-->
+<!--        <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.getSizeImg})}" width="300" height="300" onerror=this.style.display='none'>-->
+<!--        <div th:if="${item.attachFile}">-->
+<!--            <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="300" height="300">-->
+<!--        </div>-->
+<!--        <br><img th:each="imageFile : ${item.imageFiles}" th:src="@{'/images/' + ${imageFile.storeFileName}}" width="300" height="300"/>-->
+<!--    </td>-->
 
 
     <hr class="my-4">
@@ -82,9 +102,9 @@
         <div class="col">
             <button class="w-100 btn btn-secondary btn-lg"
                     onclick="location.href='/admin/items'"
-                    type="button">목록으로</button> <!--href 어차피 정적이라 타임리프 안써도됨-->
+                    type="button">목록으로</button>
         </div>
     </div>
-</div> <!-- /container -->
+</div>
 </body>
 </html>

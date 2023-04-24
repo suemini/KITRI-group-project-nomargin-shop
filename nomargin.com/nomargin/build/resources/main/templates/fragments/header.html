@@ -29,11 +29,11 @@
       <ul class="login-user-tab">
         <li><a class="" href="/cart">Cart</a></li>
         <li><a class="" href="/orders">Order</a></li>
-        <li><a class="" href="/members/logout">Log out</a></li>
+        <li><a class="" href="/members/logout">Logout</a></li>
         <!--      &lt;!&ndash;관리자 설정(ADMIN)&ndash;&gt;-->
         <div sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="login-admin-tab">
-          <li><a class="nav-link" href="/admin/members">회원 관리</a></li>
-          <li><a class="nav-link" href="/admin/items">상품 관리</a></li>
+<!--          <li><a class="nav-link" href="/admin/members">회원 관리</a></li>-->
+          <li><a class="nav-link" href="/admin/items">Admin</a></li>
         </div>
       </ul>
     </div>

@@ -12,7 +12,7 @@
     <section>
         <div class="image-table">
             <div class="item-mainImage" th:each="item : ${item}">
-                <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image">
+                <img th:src="@{/clothesImg/{imgName}.jpg(imgName=${item.imgName})}" alt="Image">
             </div>
         </div>
 
@@ -79,14 +79,14 @@
 </div>
 
 <div class="item-subImages">
-        <img th:src="@{/clothesImg/{itemType}/{imgDetail1}.jpg(itemType=${item.itemType}, imgDetail1=${item.imgDetail1})}"
-             alt="Image">
-        <img th:src="@{/clothesImg/{itemType}/{imgDetail2}.jpg(itemType=${item.itemType}, imgDetail2=${item.imgDetail2})}"
-             alt="Image">
-        <img th:src="@{/clothesImg/{itemType}/{imgDetail3}.jpg(itemType=${item.itemType}, imgDetail3=${item.imgDetail3})}"
-             alt="Image">
-        <img class="item-size" th:src="@{/clothesImg/{itemType}/{itemSize}.jpg(itemType=${item.itemType}, itemSize=${item.imgSize})}">
-    </div>
+    <img th:src="@{/clothesImg/{imgDetail1}.jpg( imgDetail1=${item.imgDetail1})}"
+         alt="Image">
+    <img th:src="@{/clothesImg/{imgDetail2}.jpg( imgDetail2=${item.imgDetail2})}"
+         alt="Image">
+    <img th:src="@{/clothesImg/{imgDetail3}.jpg( imgDetail3=${item.imgDetail3})}"
+         alt="Image">
+    <img class="item-size" th:src="@{/clothesImg/{itemSize}.jpg( itemSize=${item.getSizeImg})}">
+</div>
 </div>
 
 <div class="item-comments">리뷰</div>

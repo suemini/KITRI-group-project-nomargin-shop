@@ -23,7 +23,7 @@ public class Item {
     private String imgDetail1;
     private String imgDetail2;
     private String imgDetail3;
-    private String imgSize;
+    private String sizeImg;
     @Embedded
     private UploadFile attachFile;
     @ElementCollection
@@ -34,7 +34,7 @@ public class Item {
     }
 
     public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType, String imgName,
-                String imgDetail1, String imgDetail2, String imgDetail3, String imgSize) {
+                String imgDetail1, String imgDetail2, String imgDetail3, String sizeImg) {
         this.itemName = itemName;
         this.itemStore = itemStore;
         this.price = price;
@@ -44,6 +44,6 @@ public class Item {
         this.imgDetail1 = imgDetail1;
         this.imgDetail2 = imgDetail2;
         this.imgDetail3 = imgDetail3;
-        this.imgSize = imgSize;
+        this.sizeImg = sizeImg;
     }
 }

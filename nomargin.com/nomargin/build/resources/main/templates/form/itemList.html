@@ -24,10 +24,7 @@
 <!--                    <div th:each="imageFile : ${item.imageFiles}">-->
 <!--                        <img th:src="@{'/images/' + ${imageFile.storeFileName}}" width="100" height="100">-->
 <!--                    </div>-->
-                    <img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" onerror=this.style.display='none'>
-                    <div th:if="${item.attachFile}">
-                        <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="100" height="100">
-                    </div>
+                    <img th:src="@{/clothesImg/{imgName}.jpg( imgName=${item.imgName})}">
                 </div>
                 <div class="item-name" th:text="${item.itemName}">
                     아이템이름자리
