@@ -33,40 +33,29 @@
             </li>
 
             <hr>
-            <div id="item-totalPrice-info">
-            </div>
+
+            <div class="cart-or-buy">
+                <form id="cart-form" th:action="@{/cart/{itemId}(itemId=${item.itemId})}" method="post">
+                    <div class="item-quantity-container">
+                        <div class="item-quantity">수량
+                            <input type="number" name="amount" id="amount" value="0" min="0" onclick="calculatePrice()">
+                            <!--                            <button class="item-quantity-button" onclick="order()">test</button>-->
+                        </div>
+                    </div>
+                    <input type="hidden" name="username" th:value="${#authentication.name}">
+                    <div class="item-cartOrBuy">
+                        <button type="button" onclick="addToCart()">장바구니</button>
+                        <input class="item-buy" type="button" value="상품 구매">
+                    </div>
+
+            <div id="item-totalPrice-info"></div>
+
             <div class="item-totalPrice">
                 <div class="item-totalPrice-text">총 결제 금액</div>
                 <div class="totalPrice">0</div>
                 <div class="Price">원</div>
             </div>
 
-            <div class="cart-or-buy">
-
-                <form th:action="@{/cart/{itemId}(itemId=${item.itemId})}" method="post">
-
-                    <div class="item-quantity">수량
-                    <input type="number" name="amount" id="amount" value="1" min="1">
-                    </div>
-<!--                    <div class="item-size">-->
-<!--                    <label>사이즈 선택</label>-->
-<!--                    <select  onchange="order()" class="form-select">-->
-<!--                        <option value = "" disabled selected>=사이즈 선택=</option>-->
-<!--                        <option th:each="size : ${itemSize}" th:value="${size.key}"-->
-<!--                                th:text="${size.value}">S</option>-->
-<!--                    </select>-->
-<!--                    </div>-->
-
-
-                    <input type="hidden" name="username" th:value="${#authentication.name}" />
-                    <button type="submit">장바구니</button>
-                </form>
-                <input type="button" value="상품 구매">
-
-                <!--                <input type="button" value="장바구니"  th:href="@{/cart/{itemId}(itemId=${item.itemId})}"  th:data-username="${#authentication.name}" />-->
-                <!--                th:href="@{/cart/pick/{itemId}(itemId=${item.itemId})}"-->
-
-            </div>
         </ul>
     </section>
 
@@ -148,7 +137,7 @@
         </tr>
         <tr>
             <td>반품/교환지 주소</td>
-            <td>나중에 쓰자</td>
+            <td>서울 구로구 디지털로34길 43 (코오롱싸이언스밸리1차)</td>
         </tr>
         <tr>
             <td>반품/교환 안내</td>

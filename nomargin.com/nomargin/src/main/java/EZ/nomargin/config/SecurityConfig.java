@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 모든 권한(USER, ADMIN)에게 스태틱 리소스가 적용될 수 있도록 함
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/CSS/**", "/JS/**", "/clothesImg/**", "/asset/**");
+        web.ignoring().antMatchers("/CSS/**", "/JS/**", "/clothesImg/**", "/asset/**","/error");
     }
 
 

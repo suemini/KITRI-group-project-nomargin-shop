@@ -110,17 +110,24 @@ hr {
 .item-quantity {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100px;
     left: 0;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+    padding-right: 50px; /* 추가 */
+}
+
+.item-quantity input {
+    margin-top: 10px; /* 추가 */
 }
 
 .item-quantity-text {
     font-size: 12pt;
     font-weight: normal;
+    margin-bottom: 5px;
 }
 
 .item-quantity input[type="number"] {
@@ -241,11 +248,26 @@ input[type=number]::-webkit-inner-spin-button {
 
 .cart-or-buy {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
 }
 
-.cart-or-buy input {
+.item-quantity-container {
+    background-color: white;
+}
+
+.item-buy {
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+.cart-or-buy button {
     width: 200px;
     height: 50px;
     background-color: black;
