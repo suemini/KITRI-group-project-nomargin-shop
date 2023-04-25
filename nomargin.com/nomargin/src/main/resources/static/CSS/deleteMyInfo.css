@@ -1,0 +1,98 @@
+.delete-info-container {
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    width: 100%;
+    height: 600px;
+    background-color: white;
+}
+
+.delete-info {
+    background-color: #e8e8e8;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    width: 700px;
+    padding: 15px;
+}
+
+.delete-info-title {
+    margin: 50px 30px 30px 30px;
+    font-size : 23pt;
+    font-weight: bold;
+    }
+
+.delete-info-title p {
+    margin: 5px 0 0 0;
+    font-weight: normal;
+    font-size: 11pt;
+}
+
+.delete-info-list {
+    margin: 20px 0 20px 0;
+}
+
+.delete-info-item-title {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.delete-info-item {
+    font-weight: normal;
+    font-size: 11pt;
+}
+
+.delete-info-list li {
+    margin-bottom: 10px;
+}
+
+.delete-info-agree-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.delete-info-agree-form input[type="submit"] {
+    border: 0;
+    background-color: black;
+    font-size: 16pt;
+    color: white;
+    width: 120px;
+    height: 50px;
+}
+
+.delete-info-agree-form input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+.delete-info-agree-box {
+    margin-bottom: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-info-agree-box input {
+    border: 0;
+    background-color: inherit;
+    font-size: 15pt;
+
+}
+
+.delete-info-agree-box input:focus {
+    outline: 0;
+}
+
+.delete-info-agree-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-info-agree-input input {
+    display: inline-block;
+    text-align: center;
+    width: 150px;
+    font-size: 25pt;
+}

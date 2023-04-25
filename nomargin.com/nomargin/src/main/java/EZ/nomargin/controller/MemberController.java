@@ -91,15 +91,15 @@ public class MemberController {
 
         memberService.joinMember(member);
 
-//        Member member1 = new Member();
-//        member1.setName("USER");
-//        member1.setPassword(passwordEncoder.encode("user"));
-//        member1.setLoginId("user");
-//        member1.setRole(Role.USER);
-//        member1.setPhoneNumber("010-0000-0000");
-//        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
-//
-//        memberService.joinMember(member1);
+        Member member1 = new Member();
+        member1.setName("USER");
+        member1.setPassword(passwordEncoder.encode("user"));
+        member1.setLoginId("user");
+        member1.setRole(Role.USER);
+        member1.setPhoneNumber("010-0000-0000");
+        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
+
+        memberService.joinMember(member1);
 //
 //
 //        Member member2 = new Member();

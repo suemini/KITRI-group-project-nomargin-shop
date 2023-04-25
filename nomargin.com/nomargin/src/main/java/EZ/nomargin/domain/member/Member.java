@@ -35,6 +35,16 @@ public class Member {
 
     private String fullAddr;
 
+    //--------------04.24 추가(마이페이지 수정용)
+    private String postcode;
+
+    private String address;
+
+    private String extraAddress;
+
+    private String detailAddress;
+    //--------------
+
     private String phoneNumber;
 
 

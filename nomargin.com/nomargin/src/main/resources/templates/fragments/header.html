@@ -27,6 +27,7 @@
       <input type="checkbox" id="welcome-button">
       <label for="welcome-button"><a th:text="${#authentication.principal.username} + '님'"></a></label>
       <ul class="login-user-tab">
+        <li><a class="" href="/member/me">마이페이지</a></li>
         <li><a class="" href="/cart">Cart</a></li>
         <li><a class="" href="/orders">Order</a></li>
         <li><a class="" href="/members/logout">Logout</a></li>

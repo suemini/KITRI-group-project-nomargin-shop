@@ -1,0 +1,123 @@
+.edit-title {
+    margin: 50px 30px 30px 30px;
+    text-align: center;
+    font-size : 18pt;
+}
+
+.myPage-main {
+    margin-bottom: 30px;
+}
+
+.myPage-main label {
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+
+.myPage-main input {
+    font-size: 11pt;
+    font-weight: normal;
+    height: 30px;
+    border: 0;
+    margin-bottom: 1px;
+    padding-left: 5px;
+}
+
+.myPage-main input:focus {
+    outline: 0;
+    background-color: #e8e8e8;
+}
+
+.edit-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 15px 0 15px 0;
+}
+
+.edit-items {
+    width: 700px;
+    padding: 20px 95px;
+    margin: auto;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+.form-group {
+    padding-bottom: 15px;
+}
+
+.name-group, .id-group, .pw-group {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.name-group input, .id-group input, .pw-group input {
+    width: 90%;
+}
+
+.phone-group input {
+    padding: 2px;
+    text-align: center;
+    width: 140px;
+}
+
+@keyframes blink-effect {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.fieldError {
+    word-break: keep-all;
+    font-size: 11pt;
+    font-weight: bold;
+    color: red;
+    animation: blink-effect 0.3s step-end 3;
+}
+
+.address-postal-code {
+    justify-content: center;
+    text-align: left;
+}
+
+.address-postal-code input[value="우편번호찾기"] {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    width: 110px;
+}
+
+.address-postal-code input[readonly]:focus , .address-info input[readonly]:focus {
+    background-color: white;
+}
+
+.address-info {
+    margin-top: 15px;
+}
+
+.address-info input {
+    margin-bottom: 7px;
+    width: 500px;
+}
+
+.submit-button {
+    text-align: center;
+}
+
+.submit-button button {
+    width: 130px;
+    height: 50px;
+    font-size: 13pt;
+    background-color: #000000;
+    color: white;
+    border: 0;
+}
+
+.submit-button button:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    color: gray;
+}

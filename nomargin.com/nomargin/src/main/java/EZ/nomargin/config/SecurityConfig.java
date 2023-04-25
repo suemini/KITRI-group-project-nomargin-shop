@@ -29,6 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        //23.04.24 추가 - 회원이 회원수정 시 403에러 해결(권한없다고 자꾸 떠서)
+        http.csrf().disable();
+
 
         // 권한 설정
         http.authorizeRequests()
@@ -70,7 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // 모든 권한(USER, ADMIN)에게 스태틱 리소스가 적용될 수 있도록 함
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/CSS/**", "/JS/**", "/clothesImg/**", "/asset/**","/error");
+        web.ignoring().antMatchers("/CSS/**", "/JS/**", "/clothesImg/**", "/asset/**","/favicon.ico", "/resources/**", "/error");
     }
 
 
