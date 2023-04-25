@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface ItemRepository {
     Item save(Item item);
-    Optional<Item> findById(Long itemId);
+    Item findById(Long itemId);
     List<Item> findAll();
     void update(Long itemId, Item updateItem);
     void delete(Long itemId);

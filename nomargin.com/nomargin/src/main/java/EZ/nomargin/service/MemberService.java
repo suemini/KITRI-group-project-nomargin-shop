@@ -4,17 +4,14 @@ import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.repository.JpaMemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +19,14 @@ import java.util.Optional;
 public class MemberService implements UserDetailsService , Validator {
 
     private final JpaMemberRepository jpaMemberRepository;
+
+
+
+    public Member findByLoginId(String loginId) {
+        return jpaMemberRepository.findByLoginId(loginId).get();
+    }
+
+
 
 
     // 중복 회원 검증 TEST

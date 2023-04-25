@@ -34,6 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/", "/members/**","/form/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .mvcMatchers("/cart/**").authenticated()
                 .anyRequest().authenticated();
 
         http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());

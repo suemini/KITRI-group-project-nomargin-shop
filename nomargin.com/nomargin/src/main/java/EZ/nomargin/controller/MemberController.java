@@ -1,13 +1,11 @@
 package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.member.Member;
-
 import EZ.nomargin.domain.member.Role;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,26 +91,26 @@ public class MemberController {
 
         memberService.joinMember(member);
 
-        Member member1 = new Member();
-        member1.setName("USER");
-        member1.setPassword(passwordEncoder.encode("user"));
-        member1.setLoginId("user");
-        member1.setRole(Role.USER);
-        member1.setPhoneNumber("010-0000-0000");
-        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
-
-        memberService.joinMember(member1);
-
-
-        Member member2 = new Member();
-        member2.setName("test");
-        member2.setPassword(passwordEncoder.encode("use1"));
-        member2.setLoginId("user1");
-        member2.setRole(Role.USER);
-        member2.setPhoneNumber("010-0000-0000");
-        member2.setFullAddr("서울특별시 동대문구 천호대로 129");
-
-        memberService.joinMember(member2);
+//        Member member1 = new Member();
+//        member1.setName("USER");
+//        member1.setPassword(passwordEncoder.encode("user"));
+//        member1.setLoginId("user");
+//        member1.setRole(Role.USER);
+//        member1.setPhoneNumber("010-0000-0000");
+//        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
+//
+//        memberService.joinMember(member1);
+//
+//
+//        Member member2 = new Member();
+//        member2.setName("test");
+//        member2.setPassword(passwordEncoder.encode("use1"));
+//        member2.setLoginId("user1");
+//        member2.setRole(Role.USER);
+//        member2.setPhoneNumber("010-0000-0000");
+//        member2.setFullAddr("서울특별시 동대문구 천호대로 129");
+//
+//        memberService.joinMember(member2);
 
 
     }

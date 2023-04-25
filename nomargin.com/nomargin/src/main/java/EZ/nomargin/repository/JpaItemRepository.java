@@ -24,9 +24,9 @@ public class JpaItemRepository implements ItemRepository {
     }
 
     @Override
-    public Optional<Item> findById(Long itemId) {
+    public Item findById(Long itemId) {
         Item item = em.find(Item.class, itemId);
-        return Optional.ofNullable(item);
+        return item;
     }
 
     @Override
@@ -64,6 +64,6 @@ public class JpaItemRepository implements ItemRepository {
 
     @Override
     public void delete(Long itemId) {
-        em.remove(findById(itemId).get());
+        em.remove(findById(itemId));
     }
 }

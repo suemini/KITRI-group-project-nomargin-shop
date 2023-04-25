@@ -1,32 +1,48 @@
 package EZ.nomargin.domain.cart;
 
 import EZ.nomargin.domain.item.Item;
-import EZ.nomargin.domain.member.Member;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
-import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Getter
 @Setter
 @RequiredArgsConstructor
 public class CartItem {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CART_ITEM_ID")
     private Long id;
-    @OneToMany
-    @JoinColumn(name = "FK_CART_ID")
-    private List<Cart> carts = new ArrayList<>();
-    @OneToMany
-    @JoinColumn(name = "FK_ITEM_ID")
-    private List<Item> items = new ArrayList<>();
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CART_ID")
+    private Cart cart;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ITEM_ID")
+    private Item item;
+
     private int count;
 
+    private String size;
+
+
+    public static CartItem createCartItem(Cart cart, Item item, int amount) {
+        CartItem cartItem = new CartItem();
+        cartItem.setCart(cart);
+        cartItem.setItem(item);
+        cartItem.setCount(amount);
+        return cartItem;
+    }
+
+    public void addCount(int count) {
+        this.count += count;
+
+    }
 
 }

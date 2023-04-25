@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7646d8bd-3de1-4d21-b8c2-40c6ff061362" name="Changes" comment="23-04-19 18:53 by 경진">
-      <change beforePath="$PROJECT_DIR$/../../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="7646d8bd-3de1-4d21-b8c2-40c6ff061362" name="Changes" comment="23-04-24 19:07 by 수민">
       <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.6.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -15,269 +13,38 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/adminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/adminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/ItemController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/ItemController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/cartController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/cartController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/memberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/controller/memberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/Cart.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/Cart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/CartItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/cart/CartItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/item/ItemMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/10.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/10.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/10.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/10.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/11.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/12.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/12.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/12.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/12.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/13.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/13.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/13.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/13.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/14.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/15.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/16.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/16.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/16.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/16.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/9.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/9.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/9.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/9.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Bottom/bottomSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/17.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/17.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/17.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/17.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/18.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/18.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/18.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/18.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/19.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/19.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/19.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/19.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/20.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/20.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/20.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/20.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/21.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/21.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/21.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/21.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/22.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/22.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/22.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/22.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/23.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/23.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/23.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/23.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/24.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/24.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/24.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/24.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/25.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/25.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/25.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/25.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Outer/outerSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/1.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/1.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/1.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/1.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/2.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/3.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/3.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/3.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/4.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/5.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/5.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/5.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/5.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/5.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/6.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/6.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/6.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/6.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/7.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/7.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/7.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/7.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/8.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/8.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/8.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/8.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/static/clothesImg/Top/topSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/addForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/addForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/editForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/editForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/admin/memberManagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/admin/memberManagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/domain/member/Member.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/CartRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/CartRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/ItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/ItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaItemRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/repository/JpaItemRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/CartService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/CartService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/EZ/nomargin/service/MemberService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/form/itemList.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/form/itemList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminController.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminService.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ItemController.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/JpaMemberRepository.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MemberController.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MemberRepository.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MemberService.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SecurityConfig.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/AdminController.class.uniqueId0" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/cart/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/cart/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/cart/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/cart/CartItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/item/ItemMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/item/ItemMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/10.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/10.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/10.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/10.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/11.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/12.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/12.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/12.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/12.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/13.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/13.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/13.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/13.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/14.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/15.Main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/16.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/16.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/16.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/16.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/9.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/9.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/9.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/9.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Bottom/bottomSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/17.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/17.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/17.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/17.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/18.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/18.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/18.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/18.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/19.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/19.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/19.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/19.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/20.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/20.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/20.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/20.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/21.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/21.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/21.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/21.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/22.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/22.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/22.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/22.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/23.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/23.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/23.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/23.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/24.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/24.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/24.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/24.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/25.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/25.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/25.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/25.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Outer/outerSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/1.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/1.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/1.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/1.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/2.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/3.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/3.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/3.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/3.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/3.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/4.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/5.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/5.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/5.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/5.4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/5.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/6.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/6.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/6.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/6.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/7.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/7.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/7.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/7.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/8.1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/8.2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/8.3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/8.main.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/clothesImg/Top/topSize.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/addForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/addForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/editForm.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/editForm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/items.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/items.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/memberManagement.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/memberManagement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/domain/member/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/CartRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/JpaItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/repository/JpaItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EZ/nomargin/service/MemberService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/item.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/form/itemList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/form/itemList.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,32 +81,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/kitri/Desktop/nomargin.com/nomargin.com/nomargin/src/main/resources/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "spring.configuration.checksum": "b96b92cf4bb9e60fd0ec5846b8e1a91f",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kitri/Desktop/nomargin.com/nomargin.com/nomargin/src/main/resources/templates/form&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;b96b92cf4bb9e60fd0ec5846b8e1a91f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\templates\form" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\templates\members" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\CSS" />
       <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\JS" />
-      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static\asset" />
+      <recent name="C:\Users\kitri\Desktop\nomargin.com\nomargin.com\nomargin\src\main\resources\static" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="EZ.nomargin.service" />
+      <recent name="EZ.nomargin.controller" />
+      <recent name="EZ.nomargin.repository" />
+      <recent name="EZ.nomargin.domain.member" />
+      <recent name="EZ.nomargin.domain.cart" />
     </key>
   </component>
   <component name="RunManager">
@@ -361,7 +137,8 @@
       <updated>1681887849021</updated>
       <workItem from="1681887850009" duration="10405000" />
       <workItem from="1682329147151" duration="989000" />
-      <workItem from="1682330321863" duration="357000" />
+      <workItem from="1682330321863" duration="4544000" />
+      <workItem from="1682385124905" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="23-04-19 16:11 회원목록 by 현덕">
       <created>1681888305623</created>
@@ -398,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681984453596</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="23-04-24 19:07 by 수민">
+      <created>1682330867585</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682330867585</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +193,7 @@
     <MESSAGE value="23-04-19 16:32 확인" />
     <MESSAGE value="23-04-19 18:29 by 정은" />
     <MESSAGE value="23-04-19 18:53 by 경진" />
-    <option name="LAST_COMMIT_MESSAGE" value="23-04-19 18:53 by 경진" />
+    <MESSAGE value="23-04-24 19:07 by 수민" />
+    <option name="LAST_COMMIT_MESSAGE" value="23-04-24 19:07 by 수민" />
   </component>
 </project>

@@ -1,29 +1,26 @@
 package EZ.nomargin.domain.member;
 
+import EZ.nomargin.domain.cart.Cart;
 import EZ.nomargin.dto.JoinDto;
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-
-import java.util.Collection;
-
-import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @RequiredArgsConstructor
 public class Member {
 
 
-    @Id @GeneratedValue(strategy = IDENTITY)
+    @Column(name ="MEMBER_ID")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
@@ -39,6 +36,11 @@ public class Member {
     private String fullAddr;
 
     private String phoneNumber;
+
+
+    @OneToOne(mappedBy = "member")
+    private Cart cart;
+
 
 
     public static Member createMember(JoinDto joinDto, PasswordEncoder passwordEncoder) {
