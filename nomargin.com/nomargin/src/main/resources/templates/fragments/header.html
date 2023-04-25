@@ -7,9 +7,9 @@
   <!--  container class 밑에서부터 include (꼭!!!)-->
   <div class="logo"><a href="/members/index">Nomarjin</a></div>
   <div class="search-box">
-    <form action="/form/itemList/search" method="get">
-      <input type="text" name="keyword" placeholder="Enter Here..." autocomplete="off">
-      <input type="submit" value="Search">
+    <form id="search-form" th:action='@{/form/itemList/search}' method="GET">
+      <input type="text" id="keyword-input" name="keyword" placeholder="Enter Here..." autocomplete="off">
+      <input type="submit" id="search-button" value="Search">
     </form>
   </div>
   <a href="/cart" class="cart"><img src="/asset/shopping_cart.png" alt="cart"></a>

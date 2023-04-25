@@ -1,7 +1,6 @@
 package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.item.Item;
-import EZ.nomargin.domain.item.ItemSize;
 import EZ.nomargin.domain.item.ItemType;
 import EZ.nomargin.file.FileStore;
 import EZ.nomargin.service.ItemService;
@@ -81,7 +80,11 @@ public class ItemController {
     @GetMapping("/form/itemList/search")
     public String itemList(@RequestParam("keyword") String keyword, Model model) {
         List<Item> items = itemService.searchItems(keyword);
-        model.addAttribute("items", items);
+        if(items.isEmpty()) {
+            model.addAttribute("message", "검색 결과가 없습니다.");
+        } else {
+            model.addAttribute("items", items);
+        }
         return "/form/itemList";
     }
 

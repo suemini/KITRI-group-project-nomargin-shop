@@ -25,6 +25,9 @@
 <!--                        <img th:src="@{'/images/' + ${imageFile.storeFileName}}" width="100" height="100">-->
 <!--                    </div>-->
                     <img th:src="@{/clothesImg/{imgName}.jpg( imgName=${item.imgName})}">
+                    <div th:if="${item.attachFile}">
+                        <img th:src="@{'/images/' + ${item.attachFile.storeFileName}}" width="100" height="100">
+                    </div>
                 </div>
                 <div class="item-name" th:text="${item.itemName}">
                     아이템이름자리
@@ -34,15 +37,19 @@
                 </div>
                 </a>
             </div>
+            <div th:if="${not #strings.isEmpty(message)}" class="no-result-message" th:text="${message}"></div>
         </div>
     </section>
 
 
     <div id="search-results">
         <!-- 검색 결과가 이곳에 표시됩니다 -->
+        <p id="searching-for"></p>
+        <section id="search-list"></section>
     </div>
 </div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-<script src="/JS/search.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JS/search_itemList.js"></script>
 </body>
 </html>
