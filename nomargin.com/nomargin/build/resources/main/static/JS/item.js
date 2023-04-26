@@ -105,15 +105,8 @@
 
 // 가격 계산 함수
 function calculatePrice() {
-    // 개수를 가져옵니다.
-    var quantity = document.getElementById("amount").value;
-
-    // 가격을 가져옵니다.
-    var price = document.getElementById("price").value;
-
-    // 개수와 가격을 곱해서 총 가격을 계산합니다.
+    var quantity = parseInt(document.getElementById("amount").value);
+    var price = parseInt(document.getElementById("price").value.replace(",", ""));
     var totalPrice = quantity * price;
-
-    // 총 가격을 화면에 표시합니다.
-    document.querySelector('.totalPrice').innerHTML = totalPrice;
+    document.querySelector(".totalPrice").textContent = totalPrice.toLocaleString();
 }

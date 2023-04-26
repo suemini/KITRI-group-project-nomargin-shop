@@ -24,7 +24,7 @@
             <li class="item-price">
                 <label for="price">가격</label>
                 <input type="text" id="price" name="price" class="form-control"
-                       th:value="${item.price}" value="10000" readonly>
+                       th:value="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}" value="10000" readonly>
             </li>
             <li class="item-store">
                 <label for="store">판매처</label>
@@ -33,12 +33,12 @@
             </li>
 
             <hr>
+
             <div class="cart-or-buy">
                 <form id="cart-form" th:action="@{/cart/{itemId}(itemId=${item.itemId})}" method="post">
                     <div class="item-quantity-container">
                         <div class="item-quantity">수량
-                            <input type="number" name="amount" id="amount" value="0" min="0" onclick="calculatePrice()">
-                            <!--                            <button class="item-quantity-button" onclick="order()">test</button>-->
+                            <input type="number" name="amount" id="amount" value="0" min="0" onchange="calculatePrice()">
                         </div>
                     </div>
                     <input type="hidden" name="username" th:value="${#authentication.name}">
@@ -190,7 +190,7 @@
 <script src="/JS/addToCart.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/JS/tab.js"></script>
-<script src="/JS/searchitem.js"></script>
+<script src="/JS/search_item.js"></script>
 <script src="/JS/itemInfo.js"></script>
 </body>
 </html>

@@ -27,25 +27,7 @@
 </div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 <script src="/JS/main.js"></script>
-<script>
-    function search(event) {
-        event.preventDefault();
-
-        const keyword = document.getElementById('search').value;
-
-        const form = document.createElement('form');
-        form.method = 'get';
-        form.action = '/form/itemList/search';
-
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'keyword';
-        input.value = keyword;
-        form.appendChild(input);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JS/search_item.js"></script>
 </body>
 </html>
