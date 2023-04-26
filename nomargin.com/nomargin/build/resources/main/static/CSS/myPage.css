@@ -1,0 +1,29 @@
+.myPage-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPage-list {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.myPage-list li {
+    border-radius: 5px;
+    background-color: black;
+    width: 150px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPage-list li a {
+    display: inline-block;
+    color: white;
+}

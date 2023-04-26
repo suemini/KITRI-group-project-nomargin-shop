@@ -3,11 +3,11 @@ package EZ.nomargin.dto;
 import EZ.nomargin.domain.item.ItemType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class ItemDto {
     private Long itemId;
@@ -16,11 +16,10 @@ public class ItemDto {
     private Integer price;
     private Integer stock;
     private ItemType itemType;
-    private String imgName;
-    private String imgDetail1;
-    private String imgDetail2;
-    private String imgDetail3;
-    private String imgSize;
-    private MultipartFile attachFile;
-    private List<MultipartFile> imageFiles;
+    private MultipartFile mainImg;
+    private MultipartFile detailImg1;
+    private MultipartFile detailImg2;
+    private MultipartFile detailImg3;
+    private MultipartFile sizeImg;
+
 }

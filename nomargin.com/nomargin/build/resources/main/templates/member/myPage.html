@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/myPage.css">
+  <th:block th:replace="fragments/head :: headFragment"></th:block>
+  <body>
+    <div class="container" id="'wrapper">
+        <th:block th:replace="fragments/header :: headerFragment"></th:block>
+        <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
+    <section class="myPage-main">
+      <ul class="myPage-list">
+        <li><a href="">주문내역 조회</a></li>
+        <li><a href="/member/edit-my-info">회원정보 수정</a></li>
+        <li><a href="/member/delete">회원탈퇴</a></li>
+      </ul>
+    </section>
+    </div>
+    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+  </body>
+</html>

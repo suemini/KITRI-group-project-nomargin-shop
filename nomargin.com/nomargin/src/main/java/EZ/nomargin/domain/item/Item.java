@@ -19,33 +19,27 @@ public class Item {
     private Integer price;
     private Integer stock;
     private ItemType itemType;
-    private String imgName;
-    private String imgDetail1;
-    private String imgDetail2;
-    private String imgDetail3;
+    private String mainImg;
+    private String detailImg1;
+    private String detailImg2;
+    private String detailImg3;
     private String sizeImg;
-
-    @Embedded
-    private UploadFile attachFile;
-    @ElementCollection
-    private List<UploadFile> imageFiles;
 
 
     public Item() {
     }
 
-    public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType ,String imgName,
-                String imgDetail1, String imgDetail2, String imgDetail3, String sizeImg ) {
+    public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType , String mainImg,
+                String detailImg1, String detailImg2, String detailImg3, String sizeImg ) {
         this.itemName = itemName;
         this.itemStore = itemStore;
         this.price = price;
         this.stock = stock;
         this.itemType = itemType;
-        this.imgName = imgName;
-        this.imgDetail1 = imgDetail1;
-        this.imgDetail2 = imgDetail2;
-        this.imgDetail3 = imgDetail3;
+        this.mainImg = mainImg;
+        this.detailImg1 = detailImg1;
+        this.detailImg2 = detailImg2;
+        this.detailImg3 = detailImg3;
         this.sizeImg = sizeImg;
-
     }
 }

@@ -11,8 +11,8 @@
     <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
     <section>
         <div class="image-table">
-            <div class="item-mainImage" th:each="item : ${item}">
-                <img th:src="@{/clothesImg/{imgName}.jpg(imgName=${item.imgName})}" alt="Image">
+            <div class="item-mainImage" >
+                <img name="file1" id="file1" th:src="|/item/images/${item.mainImg}|"/>
             </div>
         </div>
 
@@ -33,7 +33,6 @@
             </li>
 
             <hr>
-
             <div class="cart-or-buy">
                 <form id="cart-form" th:action="@{/cart/{itemId}(itemId=${item.itemId})}" method="post">
                     <div class="item-quantity-container">
@@ -48,13 +47,13 @@
                         <input class="item-buy" type="button" value="상품 구매">
                     </div>
 
-            <div id="item-totalPrice-info"></div>
+                    <div id="item-totalPrice-info"></div>
 
-            <div class="item-totalPrice">
-                <div class="item-totalPrice-text">총 결제 금액</div>
-                <div class="totalPrice">0</div>
-                <div class="Price">원</div>
-            </div>
+                    <div class="item-totalPrice">
+                        <div class="item-totalPrice-text">총 결제 금액</div>
+                        <div class="totalPrice">0</div>
+                        <div class="Price">원</div>
+                    </div>
 
         </ul>
     </section>
@@ -75,13 +74,10 @@
 </div>
 
 <div class="item-subImages">
-    <img th:src="@{/clothesImg/{imgDetail1}.jpg( imgDetail1=${item.imgDetail1})}"
-         alt="Image">
-    <img th:src="@{/clothesImg/{imgDetail2}.jpg( imgDetail2=${item.imgDetail2})}"
-         alt="Image">
-    <img th:src="@{/clothesImg/{imgDetail3}.jpg( imgDetail3=${item.imgDetail3})}"
-         alt="Image">
-    <img class="item-size" th:src="@{/clothesImg/{itemSize}.jpg( itemSize=${item.getSizeImg})}">
+    <img name="file2" id="file2" th:src="|/item/images/${item.getDetailImg1}|"/>
+    <img name="file3" id="file3" th:src="|/item/images/${item.getDetailImg2}|"/>
+    <img name="file4" id="file4" th:src="|/item/images/${item.getDetailImg3}|"/>
+    <img name="file5" id="file5" th:src="|/item/images/${item.getSizeImg()}|"/>
 </div>
 </div>
 
@@ -99,11 +95,21 @@
     <div class="table-ratings">
         <table class="rating-info">
             <tr class="rating-number">
-                <td><div>5점<br> (100%)</div></td>
-                <td><div>4점<br> (0%)</div></td>
-                <td><div>3점<br> (0%)</div></td>
-                <td><div>2점<br> (0%)</div></td>
-                <td><div>1점<br> (0%)</div></td>
+                <td>
+                    <div>5점<br> (100%)</div>
+                </td>
+                <td>
+                    <div>4점<br> (0%)</div>
+                </td>
+                <td>
+                    <div>3점<br> (0%)</div>
+                </td>
+                <td>
+                    <div>2점<br> (0%)</div>
+                </td>
+                <td>
+                    <div>1점<br> (0%)</div>
+                </td>
             </tr>
         </table>
     </div>
@@ -154,12 +160,18 @@
                 <td><span class="ico"></span>미성년자가 물품을 구매하는 경우, 법정대리인이 동의하지 않으면 미성년자 본인 또는 법정대리인이 구매를 취소할 수 있습니다.</td>
             </tr>
             <tr>
-                <td><span class="ico"></span>공산품, 전기용품 등 인증대상 상품을 구매하실 경우 '전기용품 및 생활용품 안전관리법' 등 관련 법률에 따라 허가 받은 상품인지 확인하시기 바랍니다.</td>
+                <td><span class="ico"></span>공산품, 전기용품 등 인증대상 상품을 구매하실 경우 '전기용품 및 생활용품 안전관리법' 등 관련 법률에 따라 허가 받은 상품인지
+                    확인하시기 바랍니다.
+                </td>
             </tr>
             <tr>
-                <td><span class="ico"></span>NoMarGin의 결제시스템을 이용하지 않고 판매자와 직접거래 하실 경우 상품을 받지 못하거나. 구매한 상품과 상이한 상품을 받는 등 피해가 발생 할 수 있으니 유의하시기 바랍니다.</td></tr>
+                <td><span class="ico"></span>NoMarGin의 결제시스템을 이용하지 않고 판매자와 직접거래 하실 경우 상품을 받지 못하거나. 구매한 상품과 상이한 상품을 받는 등
+                    피해가 발생 할 수 있으니 유의하시기 바랍니다.
+                </td>
+            </tr>
             <tr>
-                <td><span class="ico"></span>등록된 판매물품과 내용은 판매자가 등록한 것으로 11번가(주)가 운영하는 11번가에 등록된 내용에 대하여 일체의 책임을 지지 않습니다.</td>
+                <td><span class="ico"></span>등록된 판매물품과 내용은 판매자가 등록한 것으로 11번가(주)가 운영하는 11번가에 등록된 내용에 대하여 일체의 책임을 지지 않습니다.
+                </td>
             </tr>
         </table>
     </div>

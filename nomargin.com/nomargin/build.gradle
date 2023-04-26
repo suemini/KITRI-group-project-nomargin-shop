@@ -41,6 +41,8 @@ dependencies {
 	 * mysql 연동 gradle
 	 */
 	runtimeOnly 'com.mysql:mysql-connector-j'
+
+
 }
 
 tasks.named('test') {
