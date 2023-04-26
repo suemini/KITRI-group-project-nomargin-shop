@@ -78,29 +78,27 @@ public class MemberController {
 
 
 
-
-
-    @PostConstruct
-    @Transactional
-    public void init() {
-        Member member = new Member();
-        member.setName("현덕");
-        member.setPassword(passwordEncoder.encode("kitri"));
-        member.setLoginId("kitri");
-        member.setRole(Role.ADMIN);
-
-        memberService.joinMember(member);
-
-        Member member1 = new Member();
-        member1.setName("USER");
-        member1.setPassword(passwordEncoder.encode("user"));
-        member1.setLoginId("user");
-        member1.setRole(Role.USER);
-        member1.setPhoneNumber("010-0000-0000");
-        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
-
-        memberService.joinMember(member1);
+//    @PostConstruct
+//    @Transactional
+//    public void init() {
+//        Member member = new Member();
+//        member.setName("현덕");
+//        member.setPassword(passwordEncoder.encode("kitri"));
+//        member.setLoginId("kitri");
+//        member.setRole(Role.ADMIN);
 //
+//        memberService.joinMember(member);
+//
+//        Member member1 = new Member();
+//        member1.setName("USER");
+//        member1.setPassword(passwordEncoder.encode("user"));
+//        member1.setLoginId("user");
+//        member1.setRole(Role.USER);
+//        member1.setPhoneNumber("010-0000-0000");
+//        member1.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
+//
+//        memberService.joinMember(member1);
+////
 //
 //        Member member2 = new Member();
 //        member2.setName("test");
@@ -111,9 +109,9 @@ public class MemberController {
 //        member2.setFullAddr("서울특별시 동대문구 천호대로 129");
 //
 //        memberService.joinMember(member2);
-
-
-    }
+//
+//
+//    }
 
     // 로그인이 성공되면 메인으로 이동
     @GetMapping("/index")

@@ -33,15 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
 
-        // 권한 설정
-        http.authorizeRequests()
-                .mvcMatchers("/", "/members/**","/form/**").permitAll()
-                .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .mvcMatchers("/cart/**").authenticated()
-                .anyRequest().authenticated();
-
-        http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
-
         // 인증 후에 로그인, 로그아웃 시 경로 설정
         http.formLogin()
                 .loginPage("/members/loginFrom") // 로그인 기능이 있는 html파일 지정
@@ -53,6 +44,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
                 .logoutSuccessUrl("/");
+
+
+        // 권한 설정
+        http.authorizeRequests()
+                .mvcMatchers("/","/item/images/**", "/members/**","/form/**").permitAll()
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .mvcMatchers("/cart/**").authenticated()
+                .anyRequest().authenticated();
+
+        http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+
+
 
     }
 
