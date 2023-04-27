@@ -17,7 +17,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Member {
-
+//    IDENTITY
 
     @Column(name ="MEMBER_ID")
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,29 +1,54 @@
-.myPage-main {
+.myPage-container {
+    margin-bottom: 8px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.myPage-main {
+    position: sticky;
+    top: 80px;
+    padding: 30px 20px 0 5px;
+    display: flex;
+    flex-direction: row;
+    height: 600px;
+    background: linear-gradient(to bottom, black 65%, white);
 }
 
 .myPage-list {
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 600px;
+    padding-left: 30px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    color: white;
+    font-weight: bold;
+}
+
+.myPage-list h2 {
+    margin-bottom: 30px;
 }
 
 .myPage-list li {
-    border-radius: 5px;
-    background-color: black;
-    width: 150px;
-    height: 60px;
+    padding-top: 10px;
+    border-top: 1px solid white;
+    width: 120px;
+    height: 50px;
     justify-content: center;
     align-items: center;
 }
 
 .myPage-list li a {
+    display: inline-block;
+    color: white;
+    font-weight: 300;
+}
+
+.myPage-list li a:hover {
+    font-size: 12.5pt;
     display: inline-block;
     color: white;
 }

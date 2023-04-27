@@ -21,7 +21,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ID")
     private Long id;
 

@@ -1,19 +1,25 @@
-.edit-title {
-    margin: 50px 30px 30px 30px;
-    text-align: center;
-    font-size : 18pt;
-}
-
-.myPage-main {
+.myPageEdit-main {
+    margin-left: 20px;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.myPage-main label {
+.edit-title {
+    width: 200px;
+    margin-top: 50px;
+    text-align: center;
+    font-size : 20pt;
+}
+
+.myPageEdit-main label {
     font-size: 12pt;
     margin-bottom: 3px;
 }
 
-.myPage-main input {
+.myPageEdit-main input {
     font-size: 11pt;
     font-weight: normal;
     height: 30px;
@@ -22,7 +28,7 @@
     padding-left: 5px;
 }
 
-.myPage-main input:focus {
+.myPageEdit-main input:focus {
     outline: 0;
     background-color: #e8e8e8;
 }
@@ -55,6 +61,16 @@
 
 .name-group input, .id-group input, .pw-group input {
     width: 90%;
+}
+
+.id-group input, .name-group input {
+    background-color: #666666;
+    color: white;
+}
+
+.id-group input:focus, .name-group input:focus {
+    background-color: #666666;
+    color: white;
 }
 
 .phone-group input {

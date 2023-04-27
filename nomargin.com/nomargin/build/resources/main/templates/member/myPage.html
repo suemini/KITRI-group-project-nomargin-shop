@@ -1,19 +1,97 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <link rel="stylesheet" href="/CSS/myPage.css">
-  <th:block th:replace="fragments/head :: headFragment"></th:block>
-  <body>
-    <div class="container" id="'wrapper">
-        <th:block th:replace="fragments/header :: headerFragment"></th:block>
-        <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
-    <section class="myPage-main">
+<link rel="stylesheet" href="/CSS/editMyInfo.css">
+<th:block th:replace="fragments/head :: headFragment"></th:block>
+<body>
+<div class="container" id="'wrapper">
+  <header>
+    <div class="logo"><a href="/members/index">Nomarjin</a></div>
+  </header>
+  <hr>
+
+  <div class="myPage-container">
+
+    <div class="myPage-main">
       <ul class="myPage-list">
+        <h2>마이페이지</h2>
         <li><a href="">주문내역 조회</a></li>
         <li><a href="/member/edit-my-info">회원정보 수정</a></li>
         <li><a href="/member/delete">회원탈퇴</a></li>
       </ul>
-    </section>
     </div>
-    <th:block th:replace="fragments/footer :: footerFragment"></th:block>
-  </body>
+
+
+
+    <section class="myPageEdit-main">
+      <div class="edit-title">
+        회원정보 수정
+      </div>
+      <div class="edit-container">
+        <div class="edit-items">
+          <form role="form" method="post" action="/member/me" th:object="${member}">
+
+            <div class="form-group id-group">
+              <label th:for="loginId">ID (수정불가)</label>
+              <input type="text" th:field="*{loginId}"  class="form-control" readonly>
+            </div>
+
+            <div class="form-group pw-group">
+              <label th:for="password">비밀번호</label>
+              <input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호를 입력해주세요">
+
+              <label th:for="password">비밀번호 확인</label>
+              <input type="password" id="password_check" name="password_check" class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요">
+              <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError">Incorrect data</p>
+            </div>
+
+
+            <div class="form-group name-group">
+              <label th:for="name">이름 (수정불가)</label>
+              <input type="text" th:field="*{name}" class="form-control" readonly>
+            </div>
+
+
+            <div class="form-group phone-group">
+              <label th:for="phoneNumber">휴대폰 번호</label>
+              <input type="text" th:field="*{phoneNumber}" class="form-control" placeholder="' - ' 포함">
+              <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="fieldError">Incorrect data</p>
+            </div>
+
+
+            <div class="form-group">
+              <div class="address-postal-code">
+                <label>주소</label>
+                <div>
+                  <input type="text" th:field="*{postcode}" id="sample6_postcode" name="zipcode" size="7" placeholder="우편번호" readonly>
+                  <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
+                  <p th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}" class="fieldError">Incorrect data</p>
+                </div>
+              </div>
+              <div class="address-info">
+                <input type="text" th:field="*{address}" id="sample6_address" size="70" placeholder="주소" readonly>
+                <input type="text" th:field="*{extraAddress}" id="sample6_extraAddress" size="70" readonly>
+                <input type="text" th:field="*{detailAddress}" id="sample6_detailAddress" size="70" placeholder="상세주소 입력">
+                <p th:if="${#fields.hasErrors('detailAddress')}" th:errors="*{detailAddress}" class="fieldError">Incorrect data</p>
+              </div>
+            </div>
+
+            <div class="submit-button">
+              <button type="submit" class="btn btn-primary" onclick="showMessage()">수정</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script>
+  function showMessage() {
+    alert("회원정보가 수정되었습니다.");
+  }
+</script>
+</body>
 </html>

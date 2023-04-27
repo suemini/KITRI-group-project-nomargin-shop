@@ -13,7 +13,7 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 public class CartItem {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CART_ITEM_ID")
     private Long id;
 

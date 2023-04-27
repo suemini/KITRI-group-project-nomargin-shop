@@ -12,6 +12,7 @@ import javax.persistence.criteria.Order;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -20,7 +21,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @RequiredArgsConstructor
 public class Board {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BOARD_ID")
     private Long id;
     @OneToMany

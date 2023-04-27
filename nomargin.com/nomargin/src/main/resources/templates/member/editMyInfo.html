@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/myPage.css">
 <link rel="stylesheet" href="/CSS/editMyInfo.css">
 <script src="/JS/joinForm.js" th:inline="javascript"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <th:block th:replace="fragments/head :: headFragment"></th:block>
 <body>
 <div class="container" id="'wrapper">
-  <th:block th:replace="fragments/header :: headerFragment"></th:block>
-  <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
-  <div class="edit-title">
-    회원정보 수정
-  </div>
+  <header>
+    <div class="logo"><a href="/members/index">Nomarjin</a></div>
+  </header>
+  <hr>
 
-  <section class="myPage-main">
+  <div class="myPage-container">
+
+    <div class="myPage-main">
+      <ul class="myPage-list">
+        <h2>마이페이지</h2>
+        <li><a href="">주문내역 조회</a></li>
+        <li><a href="/member/edit-my-info">회원정보 수정</a></li>
+        <li><a href="/member/delete">회원탈퇴</a></li>
+      </ul>
+    </div>
+
+  <section class="myPageEdit-main">
+    <div class="edit-title">
+      회원정보 수정
+    </div>
     <div class="edit-container">
       <div class="edit-items">
         <form role="form" method="post" action="/member/edit-my-info" th:object="${member}">
 
           <div class="form-group id-group">
-            <label th:for="loginId">ID</label>
+            <label th:for="loginId">ID (수정불가)</label>
             <input type="text" th:field="*{loginId}"  class="form-control" readonly>
           </div>
 
@@ -33,7 +47,7 @@
 
 
           <div class="form-group name-group">
-            <label th:for="name">이름</label>
+            <label th:for="name">이름 (수정불가)</label>
             <input type="text" th:field="*{name}" class="form-control" readonly>
           </div>
 
@@ -47,9 +61,9 @@
 
           <div class="form-group">
             <div class="address-postal-code">
-              <label>우편번호</label>
+              <label>주소</label>
               <div>
-                <input type="text" th:field="*{postcode}" id="sample6_postcode" name="zipcode" size="7" readonly>
+                <input type="text" th:field="*{postcode}" id="sample6_postcode" name="zipcode" size="7"  placeholder="우편번호" readonly>
                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호찾기">
                 <p th:if="${#fields.hasErrors('postcode')}" th:errors="*{postcode}" class="fieldError">Incorrect data</p>
               </div>
@@ -63,13 +77,19 @@
           </div>
 
           <div class="submit-button">
-            <button type="submit" class="btn btn-primary">수정</button>
+            <button type="submit" class="btn btn-primary" onclick="showMessage()">수정</button>
           </div>
         </form>
       </div>
     </div>
   </section>
 </div>
+</div>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script>
+  function showMessage() {
+    alert("회원정보가 수정되었습니다.");
+  }
+</script>
 </body>
 </html>

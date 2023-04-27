@@ -3,7 +3,8 @@ package EZ.nomargin.service;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.dto.MemberManagementDto;
-import EZ.nomargin.repository.JpaMemberRepository;
+import EZ.nomargin.repository.MemberRepository;
+import EZ.nomargin.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminService {
 
-    private final JpaMemberRepository jpaMemberRepository;
+    private final MemberRepository jpaMemberRepository;
 
     public Member findByLoginId(String loginId) {
         return jpaMemberRepository.findByLoginId(loginId).get();
     }
 
     public Member findById(Long id) {
-        return jpaMemberRepository.findById(id);}
+        return jpaMemberRepository.findById(id).get();}
 
 
     public void deleteById(Long id) {
-        jpaMemberRepository.delete(id);}
+        jpaMemberRepository.delete(findById(id));}
 
 
     public List<MemberManagementDto> findByMmDto() {
@@ -49,7 +50,7 @@ public class AdminService {
 
     public void editByMmDto(Long memberId, MemberManagementDto memberManagementDto) {
 
-        Member member = jpaMemberRepository.findById(memberId);
+        Member member = jpaMemberRepository.findById(memberId).get();
         member.setName(memberManagementDto.getName());
         member.setRole(memberManagementDto.getRole());
         member.setPhoneNumber(memberManagementDto.getPhoneNumber());

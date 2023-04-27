@@ -27,7 +27,14 @@ public class MyPageController {
 
     //마이페이지 메인
     @GetMapping("/me")
-    public String myPage() {
+    public String myPage(Principal principal, Model model) {
+        Member member = myPageService.findByLoginId(principal.getName());
+        model.addAttribute("member", member);
+        return "member/myPage";
+    }
+    @PostMapping("/me")
+    public String editMyInfoInMyPage(@ModelAttribute Member member) {
+        myPageService.updateAccount(member.getLoginId(), member);
         return "member/myPage";
     }
 

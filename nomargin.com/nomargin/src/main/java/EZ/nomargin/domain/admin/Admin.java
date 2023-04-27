@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
 
@@ -19,7 +20,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @RequiredArgsConstructor
 public class Admin {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ADMIN_ID")
     private Long id;
 

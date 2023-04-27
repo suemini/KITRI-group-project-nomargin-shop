@@ -23,12 +23,12 @@ public class JoinDto {
     private String name; //사용자 이름
 
 //    @NotBlank(message = "비밀번호를 입력하세요!")
-    @Pattern( regexp= "^.*(?=^.{8,16}$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$", message = "비밀번호는 특수문자 포함 8자 이상, 16자 이하로 입력해주세요")
+    //@Pattern( regexp= "^.*(?=^.{8,16}$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$", message = "비밀번호는 특수문자 포함 8자 이상, 16자 이하로 입력해주세요")
     private String password;
 
     private String password_check;
 
-    @NotBlank(message = "주소를 입력해 주세요")
+//    @NotBlank(message = "주소를 입력해 주세요")
     private String postcode;
 
     private String address;

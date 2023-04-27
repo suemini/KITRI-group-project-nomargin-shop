@@ -36,7 +36,10 @@ public class CartService {
     public void addCart(Member member, Item newItem, int amount) {
 
         // 유저 id로 해당 유저의 장바구니 찾기
-        Cart cart = cartRepository.findCartById(member.getId());
+        //
+        //
+        // Cart cart = cartRepository.findCartByMemberId(member.getId());
+        Cart cart = cartRepository.findCartByMember(member);
 
         // 장바구니가 존재하지 않는다면
         if (cart == null) {
@@ -70,9 +73,9 @@ public class CartService {
     }
 
 
-    public Cart findMemberCart(Long id) {
+    public Cart findMemberCart(Member member) {
 
-        return cartRepository.findCartByMemberId(id);
+        return cartRepository.findCartByMember(member);
 
     }
 

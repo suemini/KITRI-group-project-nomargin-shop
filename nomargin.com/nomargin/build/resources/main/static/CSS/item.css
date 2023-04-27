@@ -31,24 +31,6 @@ hr {
     gap: 1rem;
 }
 
-.item-subImages {
-    display: flex;
-    flex-direction: column; /* 추가 */
-    justify-content: center;
-    align-items: center; /* 수정 */
-    gap: 1rem;
-    margin: 0 50px 0 50px;
-}
-
-.item-subImages img {
-    max-width: 786px;
-    height: 800px;
-}
-
-.item-subImages img, .item-size {
-    width: 786px;
-    height: auto;
-}
 
 
 .item-info {
@@ -68,7 +50,6 @@ hr {
     font-weight: 900;
     width: 500px;
     height: 55px;
-    overflow: clip;
 }
 
 /*.item-name .scrolled {*/
@@ -281,6 +262,36 @@ input[type=number]::-webkit-inner-spin-button {
     color: black;
 }
 
+/*04.26 추가 및 속성 위치 변경*/
+.item-detail-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.item-subImages {
+    display: flex;
+    flex-direction: column; /* 추가 */
+    justify-content: center;
+    align-items: center; /* 수정 */
+    gap: 1rem;
+    margin: 30px 50px 30px 50px;
+}
+
+.item-subImages img {
+    max-width: 786px;
+    height: 800px;
+}
+
+.item-subImages img, .item-size {
+    width: 786px;
+    height: auto;
+}
+/*----------------------*/
+
+
 /* 판매자 정보 CSS*/
 
 .item-return-warp h4 {
@@ -297,8 +308,7 @@ input[type=number]::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.item-return-warp th,
-.item-return-warp td {
+.item-return-warp th, .item-return-warp td {
     padding: 10px;
     border: 1px solid #ccc;
 }
@@ -381,71 +391,75 @@ ul.cautions li:before {
 /* 4/24 */
 
 .item-comments {
-    display: table;
-    margin: 0 auto;
     text-align: center;
-    width: fit-content;
+    width: 900px;
+
+    margin-top: 30px;
+    border-bottom: 2px solid black;
 }
 
 .comments {
-    font-size: 15pt;
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
+    font-size: 20pt;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .review-info {
-    display: table-row-group;
+    padding: 0;
 }
 
 .review {
-    display: table-cell;
-    border-top: 1px solid #ddd;
+    background-color: #e8e8e8;
+    height: 100px;
+    text-align: left;
+    font-weight: normal;
     padding: 10px;
     margin: 5px 0;
 }
 
-.item-rating {
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
-}
+/*.item-rating {*/
+/*    text-align: center;*/
+/*    font-size: 20px;*/
+/*    font-weight: bold;*/
+/*}*/
 
-.rating {
-    text-align: center;
-    margin: 20px;
-}
+/*.rating {*/
+/*    text-align: center;*/
+/*    margin: 20px;*/
+/*}*/
 
-.table-ratings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+/*.table-ratings {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: center;*/
+/*}*/
 
-.rating-info {
-    border-collapse: collapse;
-    margin: 0 auto;
-}
+/*.rating-info {*/
+/*    border-collapse: collapse;*/
+/*    margin: 0 auto;*/
+/*}*/
 
-.rating-number td {
-    border-top: 1px solid black;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 20px;
-    text-align: center;
-    vertical-align: middle;
-}
+/*.rating-number td {*/
+/*    border-top: 1px solid black;*/
+/*    font-size: 15px;*/
+/*    font-weight: bold;*/
+/*    padding: 20px;*/
+/*    text-align: center;*/
+/*    vertical-align: middle;*/
+/*}*/
 
-.rating-number td div {
-    padding-right: 20px;
-    display: inline-block;
-}
+/*.rating-number td div {*/
+/*    padding-right: 20px;*/
+/*    display: inline-block;*/
+/*}*/
 
-@media (min-width: 768px) {
-    .nav-tabs {
-        justify-content: flex-start;
-    }
-}
+/*@media (min-width: 768px) {*/
+/*    .nav-tabs {*/
+/*        justify-content: flex-start;*/
+/*    }*/
+/*}*/
 
 .item-return-warp th,
 .item-return-warp td {
@@ -466,14 +480,30 @@ ul.cautions li:before {
 }
 
 /* 탭 + 탭 결과값 가운데 정렬 */
+/*04.26 수정*/
+.mt-4 {
+    position: sticky;
+    top: 80px;
+}
+
+.w-100 {
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    background-color: white;
+    opacity: 0.7;
+}
+
 .nav-tabs {
     display: flex;
     border: none;
+    /*04.26 정렬수정*/
     justify-content: center;
 }
 
 .nav-item {
-    margin-right: 10px;
+    /*04.26 가로길이 수정*/
+    width: 180px;
     margin-bottom: -1px;
 }
 
@@ -482,18 +512,27 @@ ul.cautions li:before {
     padding: 0.3rem 0.3rem;
     border: 1px solid transparent;
     min-width: 60px;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /*04.26 링크 폰트색 수정*/
+    color: black;
+}
+
+/*04.26 호버, 액티브 관련 디자인액션 첨삭*/
+.nav-item:hover {
+    background-color: black;
 }
 
 .nav-link:hover {
-    border-color: #ddd #ddd #fff #ddd;
+    color: white;
 }
 
-.nav-link.active,
-.nav-link:focus,
-.nav-link:hover {
-    border-color: #ddd #ddd transparent #ddd;
+.nav-link:focus, .nav-item:focus {
+    border: 0;
+    background-color: black;
+    color: white;
 }
+/*--------*/
 
 .row {
     text-align: center;
@@ -503,7 +542,5 @@ ul.cautions li:before {
 
 .item-comments,
 .item-rating {
-    margin: 0 auto;
     text-align: center;
 }
-
