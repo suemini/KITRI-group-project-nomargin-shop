@@ -27,7 +27,9 @@ public class MemberService implements UserDetailsService , Validator {
         return jpaMemberRepository.findByLoginId(loginId).get();
     }
 
-
+//    public Member findById(Long id) {
+//        return jpaMemberRepository.findById(id);
+//    }
 
 
     // 중복 회원 검증 TEST

@@ -38,5 +38,19 @@ public class Cart {
         return cart;
 
     }
+
+    public void removeCartItem(CartItem cartItem) {
+        cartItem.getCart().getCartItems().remove(cartItem);
+        cartItem.setItem(null);
+        cartItem.setCart(null);
+    }
+
+
+
+    public void updateCount(List<Integer> counts) {
+        for (int i = 0; i < cartItems.size(); i++) {
+            cartItems.get(i).setCount(counts.get(i));
+        }
+    }
 }
 

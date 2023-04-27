@@ -73,12 +73,6 @@ public class CartService {
     }
 
 
-    public Cart findMemberCart(Member member) {
-
-        return cartRepository.findCartByMember(member);
-
-    }
-
 
 
     // 카트 조회
@@ -103,31 +97,14 @@ public class CartService {
         return memberCartItems;
     }
 
-    public CartItem findCartItemByItemId(Long id) {
 
-        CartItem cartItems = cartItemRepository.findCartItemByItemId(id);
 
+
+    //카트에서 구매한 상품할 상품 찾기
+    public List<CartItem> getCartItemsByIds(List<Long> cartItemIds) {
+        List<CartItem> cartItems = cartItemRepository.findAllById(cartItemIds);
         return cartItems;
     }
-
-
-    public void cartItemDelete(Long id) {
-
-        cartItemRepository.deleteById(id);
-    }
-
-    // 장바구니 상품 수량 변경
-//    public void updateCartItemCount(Long id, int count) {
-//        CartItem cartItem = cartItemRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-//        cartItem.updateCount(count);
-//    }
-//
-//    // 장바구니 상품 삭제
-//    public void deleteCartItem(Long id) {
-//        CartItem cartItem = cartItemRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-//        cartItemRepository.delete(cartItem);
-//    }
-
 
 
 

@@ -3,6 +3,7 @@ package EZ.nomargin.controller;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.domain.member.Role;
 import EZ.nomargin.dto.JoinDto;
+import EZ.nomargin.service.ItemService;
 import EZ.nomargin.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +27,8 @@ public class MemberController {
 
     private final PasswordEncoder passwordEncoder;
     private final MemberService memberService;
+    private final ItemService itemService;
+
 
 
     // 회원 가입 버튼 눌렀을 때

@@ -1,64 +1,63 @@
+
 <!DOCTYPE html>
-<html lang="en" xmlns="">
-<head>
-  <meta charset="UTF-8">
-  <title>Shopping Cart</title>
-  <link rel="stylesheet" href="/CSS/cart.css">
-  <script src="/JS/cart.js" th:inline="javascript"></script>
-  <title th:text="|${member.getLoginId()}의 장바구니|">장바구니</title>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/cart.css">
+<script src="/JS/cart.js" th:inline="javascript"></script>
+<th:block th:replace="fragments/head :: headFragment"></th:block>
 
-</head>
 <body>
-<h1 th:text="|${member.getLoginId()}의 장바구니|">Shopping Cart</h1>
-<table>
-  <thead>
-  <tr>
-    <th>No</th>
-    <th>Select</th>
-    <th>Product Store</th>
-    <th>Product Type</th>
-    <th>Product Name</th>
-    <th>product Size</th>
-    <th>Product Price</th>
-    <th>Quantity</th>
-    <th>Total</th>
-    <th>Drop</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="cartItem, i: ${cartItems}">
-    <td><input type="checkbox" onchange="calculateTotal()"></td>
-    <td th:text="${i.count}"></td>
-    <td th:text="${cartItem.getItem().getItemStore()}"></td>
-    <td th:text="${cartItem.getItem().getItemType()}"></td>
-    <td th:text="${cartItem.getItem().getItemName()}"></td>
-<!--    <td>-->
-<!--      <select class="form-select" name="itemSize" onchange="calculateTotal()">-->
-<!--        <option value="" selected disabled>사이즈 선택</option>-->
-<!--        <option th:each="size : ${itemSize}" th:value="${size.name()}"-->
-<!--                th:text="${size.getDescription()}"></option>-->
-<!--      </select>-->
-<!--    </td>-->
-    <td class="price" th:text="${cartItem.getItem().getPrice()}"></td>
-    <td>
-      <input class="quantity" type="number" min="1" max="100000" th:value="${cartItem.getCount()}" onchange="calculateTotal()">
-    </td>
+<div class="container" id="'wrapper">
+  <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
-    <td class="subtotal" th:text="${cartItem.getItem().getPrice() * cartItem.getCount()}">가격</td>
-    <!--    <td th:text="${cartItem.getCart().getCreateDate()}">날짜</td>-->
-      <td>
-        <button class="btn btn-outline-dark" th:onclick="|location.href='@{/cart/delete/{cartItemId}/(cartItemId=${cartItem.getId()})}'|" type="button"> delete </button>
-      </td>
-  </tr>
-  <tr>
+  <h1 th:text="|${member.getLoginId()}의 장바구니|">Shopping Cart</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Check</th>
+      <th>No</th>
+      <th>Product Store</th>
+      <th>Product Type</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Quantity</th>
+      <!--    <th>Change Quantity</th>-->
+      <th>Total</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+
+    <tr th:each="cartItem, status: ${cartItemList}">
+      <td><input type="checkbox" onchange="calculateTotal()"></td>
+      <td th:text="${status.count}"></td>
+      <td th:text="${cartItem.getItem().getItemStore()}"></td>
+      <td th:text="${cartItem.getItem().getItemType()}"></td>
+      <td th:text="${cartItem.getItem().getItemName()}"></td>
+      <td class="price" th:text="${#numbers.formatInteger(cartItem.getItem().getPrice(),0,'COMMA')} + ' 원'"></td>
+      <td><input class="quantity" type="number" min="1" max="100000" name="amount" id="amount" th:value="${cartItem.getCount()}" onchange="calculateTotal()"></td>
+      <!--    <td><button class="btn btn-primary" type="submit">Update</button></td>-->
+      <td class="subtotal" th:text="${#numbers.formatInteger(cartItem.getItem().getPrice() * cartItem.getCount(),0 ,'COMMA')} + ' 원'"></td>
+      <td><a class="btn btn-outline-secondary" th:href="@{/cart/delete/{cartItemId}(cartItemId=${cartItem.getId()})}" type="button"> Delete </a></td>
+    </tr>
+
+
+
     <td colspan="6"></td>
     <td class="total"></td>
     <td></td>
     <td></td>
-  </tr>
-  </tbody>
-</table>
-<button class="Purchase">Purchase</button>
-
+    </tr>
+    </tbody>
+<!--    <input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>-->
+  </table>
+  <button class="btn btn-primary" onclick="purchase()">Purchase</button>
+<!--  <input type="hidden" th:name="_csrf" th:value="${_csrf.token}"/>-->
+</div>
 </body>
+
 </html>
+
+
+

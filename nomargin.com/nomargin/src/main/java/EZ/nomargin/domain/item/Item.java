@@ -1,9 +1,12 @@
 package EZ.nomargin.domain.item;
 
+import EZ.nomargin.domain.cart.CartItem;
+import EZ.nomargin.domain.member.Member;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.persistence.GenerationType;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,6 +27,16 @@ public class Item {
     private String detailImg2;
     private String detailImg3;
     private String sizeImg;
+
+
+    @OneToMany(mappedBy = "item")
+    private List<CartItem> cartItems = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ADMINMEMBER_ID")
+    private Member admin;
+
+    private Integer count;
 
 
     public Item() {
