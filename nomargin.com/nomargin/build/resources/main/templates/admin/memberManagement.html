@@ -7,6 +7,86 @@
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
           th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            list-style: none;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bg-dark {
+            background-color: black !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .col-md-9, table {
+            min-width: 1200px !important;
+        }
+
+        table th:nth-child(1) {
+            width: 80px;
+        }
+
+        table th:nth-child(3), th:nth-child(4) {
+            width: 120px;
+        }
+
+        input[type="button"] {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            border-radius: 3px;
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+        input[type="submit"] {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            border-radius: 3px;
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            color: #fff;
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -24,6 +104,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/items">상품 관리</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/order/adminList">판매 관리</a>
+            </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
@@ -36,7 +119,7 @@
 
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Member Management</h1>
+        <h1 class="h2">회원 관리</h1>
     </div>
     <table class="table table-bordered table-striped">
         <thead>

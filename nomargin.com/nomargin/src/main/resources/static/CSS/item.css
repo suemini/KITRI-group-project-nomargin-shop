@@ -295,17 +295,16 @@ input[type=number]::-webkit-inner-spin-button {
 
 /* 판매자 정보 CSS*/
 
-.item-return-warp h4 {
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    text-align: center;
-}
+/*.item-return-warp h4 {*/
+/*    margin-top: 3rem;*/
+/*    margin-bottom: 2rem;*/
+/*    text-align: center;*/
+/*}*/
 
 .item-return-warp table {
     border-collapse: collapse;
-    width: 100%;
     margin: 20px auto 0;
-    max-width: 600px;
+    max-width: 800px;
     text-align: center;
 }
 
@@ -322,12 +321,17 @@ input[type=number]::-webkit-inner-spin-button {
 
 .table-wrapper {
     overflow-x: auto;
+    top: 0;
+}
+
+.buy {
+    margin: 40px 0 0 0;
+    font-size: 21pt;
 }
 
 .cautions {
     border-collapse: collapse;
     width: 100%;
-    border: none;
 }
 
 .cautions td {
@@ -335,10 +339,8 @@ input[type=number]::-webkit-inner-spin-button {
     text-align: left;
     vertical-align: top;
     border-top: 1px solid #ccc;
-}
-
-.cautions td:first-child {
-    padding-left: 0;
+    font-size: 10pt;
+    word-break: keep-all;
 }
 
 .cautions td:last-child {
@@ -409,15 +411,22 @@ ul.cautions li:before {
 
 .review-info {
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
 .review {
     background-color: #e8e8e8;
-    height: 100px;
     text-align: left;
     font-weight: normal;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 15px;
+    margin: 5px 5px 0 0;
+    width: 250px;
+    height: 200px;
+    box-shadow: 0 2px 2px rgb(226, 226, 226);
 }
 
 /*.item-rating {*/
@@ -462,6 +471,13 @@ ul.cautions li:before {
 /*    }*/
 /*}*/
 
+.return {
+    font-size: 21pt;
+    text-align: left;
+    justify-content: left;
+    margin: 40px 0 0 0;
+}
+
 .item-return-warp th,
 .item-return-warp td {
     padding: 10px;
@@ -472,12 +488,18 @@ ul.cautions li:before {
 .item-return-warp td:first-child {
     font-weight: bold;
     background-color: #f7f7f7;
-    width: 50%;
+    width: 300px;
     border-left: none;
 }
 
 .item-return-warp td:last-child {
+    font-weight: normal;
     border-right: none;
+    width: 500px;
+}
+
+.return-info tr td {
+    width: 500px;
 }
 
 /* 탭 + 탭 결과값 가운데 정렬 */
@@ -504,7 +526,7 @@ ul.cautions li:before {
 
 .nav-item {
     /*04.26 가로길이 수정*/
-    width: 180px;
+    width: 200px;
     margin-bottom: -1px;
 }
 

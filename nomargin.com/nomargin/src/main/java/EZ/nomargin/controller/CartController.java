@@ -57,6 +57,10 @@ public class CartController {
 
         // 로그인한 사람의 개인 장바구니의 내용물들
         Cart privateCart = member.getCart();
+        if (privateCart == null) {
+            return "redirect:/";
+        }
+
         List<CartItem> cartItemList = cartService.memberCart(privateCart);
         model.addAttribute("cartItemList", cartItemList);
 

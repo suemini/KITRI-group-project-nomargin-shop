@@ -3,7 +3,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     align-items: flex-start;
+    height: 800px;
 }
 
 .myPage-main {
@@ -12,8 +14,8 @@
     padding: 30px 20px 0 5px;
     display: flex;
     flex-direction: row;
-    height: 600px;
-    background: linear-gradient(to bottom, black 65%, white);
+    /*background: linear-gradient(to bottom, black 65%, white);*/
+    background-color: black;
 }
 
 .myPage-list {

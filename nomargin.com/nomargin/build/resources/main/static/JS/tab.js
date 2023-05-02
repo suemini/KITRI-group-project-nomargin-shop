@@ -17,9 +17,9 @@ $(document).ready(function () {
     //     }, 1000);
     // });
 
-    $('a[href="#item-seller"]').click(function () {
+    $('a[href="#item-refund"]').click(function () {
         $('html, body').animate({
-            scrollTop: $(".seller").offset().top
+            scrollTop: $(".refund").offset().top
         }, 500);
     });
 });

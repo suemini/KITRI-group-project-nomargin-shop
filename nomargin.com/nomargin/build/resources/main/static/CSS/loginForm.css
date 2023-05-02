@@ -63,20 +63,29 @@ hr {
 /*    color: #D2D2D2;*/
 /*}*/
 
+.sign-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
 .sign-button button {
-    color: #fff;
+    border-top: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
     font-size: 16px;
-    background-color: #000000;
+    background-color: white;
     margin-top: 15px;
-    border: 0;
-    width: 80px;
-    height: 30px;
+    width: 90px;
+    height: 40px;
 }
 
 .sign-button button:hover {
     cursor: pointer;
-    background-color: lightgrey;
-    color: grey;
+    background-color: black;
+    color: white;
 }
 
 
