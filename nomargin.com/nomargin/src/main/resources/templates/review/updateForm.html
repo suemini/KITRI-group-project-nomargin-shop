@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        .form-group button[type="submit"] {
+            background-color: gray;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .form-group button[type="submit"]:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form action="/review/update" method="post" name="updateForm">
+        <div class="form-group">
+            <input type="hidden" name="id" th:value="${reviewUpdate.id}">
+        </div>
+        <div class="form-group">
+            <label for="reviewWriter">Writer:</label>
+            <input type="text" name="reviewWriter" id="reviewWriter" th:value="${reviewUpdate.reviewWriter}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="reviewPass">Password:</label>
+            <input type="text" name="reviewPass" id="reviewPass">
+        </div>
+        <div class="form-group">
+            <label for="reviewTitle">Title:</label>
+            <input type="text" name="reviewTitle" id="reviewTitle" th:value="${reviewUpdate.reviewTitle}">
+        </div>
+        <div class="form-group">
+            <label for="reviewContents">Contents:</label>
+            <textarea name="reviewContents" id="reviewContents" cols="30" rows="10" th:text="${reviewUpdate.reviewContents}"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="reviewHits"></label>
+            <input type="hidden" name="reviewHits" id="reviewHits" th:value="${reviewUpdate.reviewHits}">
+        </div>
+
+        <div class="form-group">
+            <label for="itemId">Item:</label>
+            <select name="itemId" id="itemId">
+                <option value="">Select an item</option>
+                <option th:each="item : ${items}"
+                        th:value="${item.itemId}"
+                        th:text="${item.itemName}"
+                        th:selected="${item.itemId == reviewUpdate.itemId}"
+                        th:attr="data-value=${reviewUpdate.itemId}"></option>
+            </select>
+        </div>
+        <input type="hidden" id="reviewItemId" th:value="${reviewUpdate.itemId}" />
+
+
+        <div class="form-group">
+            <button type="submit" onclick="reviewUpdate()">리뷰 수정</button>
+        </div>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+    </form>
+    <script th:inline="javascript">
+        const reviewUpdate = () => {
+            const pass = [[${reviewUpdate.reviewPass}]];
+            const inputPass = document.getElementById("reviewPass").value;
+            if (pass == inputPass) {
+                document.updateForm.submit();
+            } else {
+                alert("비밀번호가 일치하지 않습니다!");
+
+                // 뒤로가기를 방지하는 코드
+                window.history.pushState(null, null, window.location.href);
+                window.onpopstate = function() {
+                    window.history.go(1);
+                };
+
+                return false; // 이벤트의 기본 동작을 취소하여 뒤로가기를 방지합니다.
+
+            }
+        }
+
+        // select 요소 변경 시 value 속성 업데이트
+        document.getElementById('itemId').addEventListener('change', function() {
+            var reviewItemId = document.getElementById('reviewItemId');
+            var selectedOption = this.options[this.selectedIndex];
+            reviewItemId.value = selectedOption.getAttribute('data-value');
+        })
+
+
+    </script>
+</div>
+</body>
+</html>

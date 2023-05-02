@@ -83,31 +83,6 @@
     <img name="file5" id="file5" class="item-size" th:src="|/item/images/${item.getSizeImg()}|"/>
 </div>
 
-<br>
-<!--<div class="item-rating">-->
-<!--    <h4 class="rating">상품 평점</h4>-->
-<!--    <div class="table-ratings">-->
-<!--        <table class="rating-info">-->
-<!--            <tr class="rating-number">-->
-<!--                <td>-->
-<!--                    <div>5점<br> (100%)</div>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <div>4점<br> (0%)</div>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <div>3점<br> (0%)</div>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <div>2점<br> (0%)</div>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <div>1점<br> (0%)</div>-->
-<!--                </td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--    </div>-->
-<!--</div>-->
 
     <div class="item-return-warp refund">
 <!--    <h4 class="seller">판매자 정보</h4>-->
@@ -178,6 +153,22 @@
             <li class="review">ㄱㅊ은듯</li>
             <li class="review">Good</li>
         </ul>
+        <table>
+            <tr>
+                <th>Review id</th>
+                <th>writer</th>
+                <th>title</th>
+                <th>contents</th>
+                <th>hits</th>
+            </tr>
+            <tr th:each="review : ${reviewList}">
+                <td th:text="${review.id}"></td>
+                <td th:text="${review.reviewWriter}"></td>
+                <td><a th:href="@{/review/{id}(id=${review.id})}" th:text="${review.reviewTitle}"></a></td>
+                <td th:text="${review.reviewContents}"></td>
+                <td th:text="${review.reviewHits}"></td>
+            </tr>
+        </table>
     </div>
 
 <div id="search-results">

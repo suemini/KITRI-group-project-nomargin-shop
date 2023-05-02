@@ -2,8 +2,10 @@ package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.item.Item;
 import EZ.nomargin.domain.item.ItemType;
+import EZ.nomargin.domain.review.Review;
 import EZ.nomargin.file.FileStore;
 import EZ.nomargin.service.ItemService;
+import EZ.nomargin.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
@@ -25,11 +27,14 @@ import java.util.Map;
 public class ItemController {
     private final ItemService itemService;
     private final FileStore fileStore;
+    private final ReviewService reviewService;
 
     @GetMapping("/form/itemList/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
+        List<Review> reviewList = reviewService.getReviewsByItem(item);
+        model.addAttribute("reviewList", reviewList);
         return "/form/item";
     }
 

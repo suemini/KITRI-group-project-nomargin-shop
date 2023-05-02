@@ -2,6 +2,7 @@ package EZ.nomargin.domain.item;
 
 import EZ.nomargin.domain.cart.CartItem;
 import EZ.nomargin.domain.member.Member;
+import EZ.nomargin.domain.review.Review;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -32,6 +33,8 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<CartItem> cartItems = new ArrayList<>();
 
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
+    private List<Review> reviews = new ArrayList<>();
 
     private Integer count;
 

@@ -35,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // 권한 설정
         http.authorizeRequests()
-                .mvcMatchers("/","/item/images/**", "/members/**","/form/**").permitAll()
+                .mvcMatchers("/","/item/images/**", "/members/**","/form/**", "/review/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
                 .mvcMatchers("/cart/**","/order/**").authenticated()
                 .anyRequest().authenticated();
