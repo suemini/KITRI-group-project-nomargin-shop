@@ -32,9 +32,6 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<CartItem> cartItems = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ADMINMEMBER_ID")
-    private Member admin;
 
     private Integer count;
 
@@ -43,7 +40,7 @@ public class Item {
     }
 
     public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType , String mainImg,
-                String detailImg1, String detailImg2, String detailImg3, String sizeImg ) {
+                String detailImg1, String detailImg2, String detailImg3, String sizeImg, Integer count) {
         this.itemName = itemName;
         this.itemStore = itemStore;
         this.price = price;
@@ -54,5 +51,6 @@ public class Item {
         this.detailImg2 = detailImg2;
         this.detailImg3 = detailImg3;
         this.sizeImg = sizeImg;
+        this.count = count;
     }
 }

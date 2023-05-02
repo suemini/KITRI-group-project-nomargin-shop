@@ -29,8 +29,6 @@ public class CartItem {
 
     private int count;
 
-    private String size;
-
 
     public static CartItem createCartItem(Cart cart, Item item, int amount) {
         CartItem cartItem = new CartItem();

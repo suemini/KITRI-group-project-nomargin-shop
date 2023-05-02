@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/cart.css">
+<script src="/JS/orderList.js" th:inline="javascript"></script>
+
+<th:block th:replace="fragments/head :: headFragment"></th:block>
+
+<body>
+<div class="container" id="wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <h1 th:text="|${#authentication.principal.username} 의 주문내역|">Order List</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Order Date</th>
+            <th>Product Store</th>
+            <th>Product Type</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Order Cancel</th>
+        </tr>
+        </thead>
+        <tr th:classappend="${orderItem.isCancel()} ? 'cancelled' : '' " th:each="orderItem, status: ${orderItems}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${#temporals.format(orderItem.getOrders().getOrderDateTime(),'yy-MM-dd')}"></td>
+            <td th:text="${orderItem.getItemStore()}"></td>
+            <td th:text="${orderItem.getItemType()}"></td>
+            <td th:text="${orderItem.getOrderName()}"></td>
+            <td class="price" th:text="${#numbers.formatInteger(orderItem.getOrderPrice(),0,'COMMA')} + ' 원'"></td>
+            <td th:text="${orderItem.getOrderCount()}"></td>
+            <td class="subtotal" th:text="${#numbers.formatInteger(orderItem.getOrderPrice() * orderItem.getOrderCount(),0 ,'COMMA')} + ' 원'"></td>
+            <td th:if="${orderItem.isCancel()}">취소완료</a></td>
+            <td th:unless="${orderItem.isCancel()}">
+            <form onsubmit="return cancel();" th:action="@{/order/cancel/{orderItemId}(orderItemId=${orderItem.getId()})}" th:method="POST">
+                <button type="submit">cancel</button>
+            </form>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="6"></td>
+            <td th:text="| 총 결제 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">Total price</td>
+            <td class="total-amount"></td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+</body>
+</html>

@@ -1,6 +1,8 @@
 package EZ.nomargin.domain.member;
 
 import EZ.nomargin.domain.cart.Cart;
+import EZ.nomargin.domain.order.OrderItem;
+import EZ.nomargin.domain.order.Orders;
 import EZ.nomargin.dto.JoinDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +11,8 @@ import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -48,8 +52,19 @@ public class Member {
     private String phoneNumber;
 
 
+    //--------------05.02 추가(현덕)
+    // 구매자의 장바구니
     @OneToOne(mappedBy = "member")
     private Cart cart;
+
+    // 구매자의 주문
+    @OneToMany(mappedBy = "member")
+    private List<Orders> memberOrders = new ArrayList<>();
+
+    // 구매자의 주문상품들
+    @OneToMany(mappedBy = "member")
+    private List<OrderItem> memberOrderItem = new ArrayList<>();
+
 
 
 
@@ -64,5 +79,7 @@ public class Member {
         member.setPhoneNumber(joinDto.getPhoneNumber());
         return member;
     }
+
+
 
 }

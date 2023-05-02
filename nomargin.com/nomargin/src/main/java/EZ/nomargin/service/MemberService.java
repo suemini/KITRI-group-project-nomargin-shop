@@ -3,7 +3,6 @@ package EZ.nomargin.service;
 import EZ.nomargin.domain.member.Member;
 import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.repository.MemberRepository;
-import EZ.nomargin.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,31 +14,36 @@ import org.springframework.validation.Validator;
 
 import java.util.Optional;
 
+
+//--------------05.02 변경(현덕)
 @Service
 @RequiredArgsConstructor
 public class MemberService implements UserDetailsService , Validator {
 
-    private final MemberRepository jpaMemberRepository;
-
-
+    private final MemberRepository memberRepository;
 
     public Member findByLoginId(String loginId) {
-        return jpaMemberRepository.findByLoginId(loginId).get();
+        return memberRepository.findByLoginId(loginId).get();
     }
+    public Member findById(Long id) {
+
+        return memberRepository.findById(id).get();
+    }
+
 
 //    public Member findById(Long id) {
 //        return jpaMemberRepository.findById(id);
 //    }
-
-
+//
+//
     // 중복 회원 검증 TEST
     public Member joinMember(Member member) {
-//        validateDuplicateMember(member);
-        return jpaMemberRepository.save(member);
+        validateDuplicateMember(member);
+        return memberRepository.save(member);
     }
 
     private void validateDuplicateMember(Member member) {
-        Optional<Member> findMember = jpaMemberRepository.findByLoginId(member.getLoginId());
+        Optional<Member> findMember = memberRepository.findByLoginId(member.getLoginId());
         if (findMember.isPresent()) {
             throw new IllegalStateException("이미 존재하는 아이디입니다.");
         }
@@ -51,7 +55,7 @@ public class MemberService implements UserDetailsService , Validator {
     // DB에 저장된 것을 바탕으로 만들어 냄
     @Override
     public UserDetails loadUserByUsername(String loginId) throws UsernameNotFoundException {
-        Optional<Member> member = jpaMemberRepository.findByLoginId(loginId);
+        Optional<Member> member = memberRepository.findByLoginId(loginId);
 
         if (member.isEmpty()) {
             throw new UsernameNotFoundException(loginId);
@@ -79,7 +83,7 @@ public class MemberService implements UserDetailsService , Validator {
     @Override
     public void validate(Object target, Errors errors) {
         JoinDto joinDto = (JoinDto) target;
-        if (jpaMemberRepository.findByLoginId(joinDto.getLoginId()).isPresent()) {
+        if (memberRepository.findByLoginId(joinDto.getLoginId()).isPresent()) {
             errors.rejectValue("loginId", "duplicate.username", "이미 존재하는 ID입니다.");
         }
 

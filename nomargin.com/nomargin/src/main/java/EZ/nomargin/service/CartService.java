@@ -26,20 +26,13 @@ public class CartService {
 
 
 
-    public void createCart(Member member) {
-        Cart cart  = Cart.createCart(member);
-
-        cartRepository.save(cart);
-
-    }
-
     public void addCart(Member member, Item newItem, int amount) {
 
         // 유저 id로 해당 유저의 장바구니 찾기
         //
-        //
-        // Cart cart = cartRepository.findCartByMemberId(member.getId());
-        Cart cart = cartRepository.findCartByMember(member);
+        Cart cart = cartRepository.findCartById(member.getId());
+//         Cart cart = cartRepository.findCartByMemberId(member.getId()); //기존 버전
+//        Cart cart = cartRepository.findCartByMember(member);
 
         // 장바구니가 존재하지 않는다면
         if (cart == null) {
@@ -63,7 +56,6 @@ public class CartService {
             cartItem.setItem(cartItem.getItem());
             cartItem.addCount(amount);
             cartItem.setCount(cartItem.getCount());
-            cartItem.setSize(cartItem.getSize());
             cartItemRepository.save(cartItem);
         }
 
@@ -75,17 +67,14 @@ public class CartService {
 
 
 
+    //--------------05.02 변경(현덕)
     // 카트 조회
     @Transactional
     public List<CartItem> memberCart(Cart memberCart) {
 
         // 유저의 카트 id를 꺼냄
         Long memberCartId = memberCart.getId();
-
-        // id에 해당하는 유저가 담은 상품들 넣어둘 곳
         List<CartItem> memberCartItems = new ArrayList<>();
-
-        // 유저 상관 없이 카트에 있는 상품 모두 불러오기
         List<CartItem> CartItems = cartItemRepository.findAll();
 
         for(CartItem cartItem : CartItems) {
@@ -98,14 +87,33 @@ public class CartService {
     }
 
 
+    //--------------05.02 추가(현덕)
 
-
-    //카트에서 구매한 상품할 상품 찾기
-    public List<CartItem> getCartItemsByIds(List<Long> cartItemIds) {
-        List<CartItem> cartItems = cartItemRepository.findAllById(cartItemIds);
-        return cartItems;
+    public CartItem findCartItemById(Long Id) {
+        return cartItemRepository.findCartItemById(Id);
     }
 
+    public void deleteCartItem(CartItem cartItem) {
+        cartItemRepository.delete(cartItem);
+    }
+
+    public void save(CartItem cartItem){
+        cartItemRepository.save(cartItem);}
+
+
+
+
+    //--------------05.02 추가(현덕)
+    // 주문 결제가 끝나면 카트 비우기
+    public void allCartItemDelete(String id) {
+        List<CartItem> cartItems = cartItemRepository.findAll();
+        for(CartItem cartItem : cartItems){
+            if(cartItem.getCart().getMember().getLoginId() == id) {
+                cartItem.getCart().setCount(0);
+                cartItemRepository.deleteById(cartItem.getId());
+            }
+        }
+    }
 
 
 

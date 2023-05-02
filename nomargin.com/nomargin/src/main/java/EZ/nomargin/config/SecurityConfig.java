@@ -30,7 +30,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         //23.04.24 추가 - 회원이 회원수정 시 403에러 해결(권한없다고 자꾸 떠서)
-        http.csrf().disable();
+//        http.csrf().disable();
+
+
+        // 권한 설정
+        http.authorizeRequests()
+                .mvcMatchers("/","/item/images/**", "/members/**","/form/**").permitAll()
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .mvcMatchers("/cart/**","/order/**").authenticated()
+                .anyRequest().authenticated();
 
 
         // 인증 후에 로그인, 로그아웃 시 경로 설정
@@ -46,12 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
 
 
-        // 권한 설정
-        http.authorizeRequests()
-                .mvcMatchers("/","/item/images/**", "/members/**","/form/**").permitAll()
-                .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .mvcMatchers("/cart/**").authenticated()
-                .anyRequest().authenticated();
+
 
         http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
 

@@ -1,13 +1,9 @@
 package EZ.nomargin.service;
 
 import EZ.nomargin.domain.member.Member;
-import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.dto.MemberManagementDto;
 import EZ.nomargin.repository.MemberRepository;
-import EZ.nomargin.repository.MemberRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -21,22 +17,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminService {
 
-    private final MemberRepository jpaMemberRepository;
+    private final MemberRepository memberRepository;
 
     public Member findByLoginId(String loginId) {
-        return jpaMemberRepository.findByLoginId(loginId).get();
+        return memberRepository.findByLoginId(loginId).get();
     }
 
     public Member findById(Long id) {
-        return jpaMemberRepository.findById(id).get();}
+        return memberRepository.findById(id).get();}
 
 
     public void deleteById(Long id) {
-        jpaMemberRepository.delete(findById(id));}
+        memberRepository.delete(findById(id));}
 
 
     public List<MemberManagementDto> findByMmDto() {
-        List<Member> Members = jpaMemberRepository.findAll();
+        List<Member> Members = memberRepository.findAll();
         List<MemberManagementDto> memberManagementDtos = new ArrayList<>();
         for (Member member : Members) {
             MemberManagementDto memberManagementDto = new MemberManagementDto(
@@ -50,12 +46,12 @@ public class AdminService {
 
     public void editByMmDto(Long memberId, MemberManagementDto memberManagementDto) {
 
-        Member member = jpaMemberRepository.findById(memberId).get();
+        Member member = memberRepository.findById(memberId).get();
         member.setName(memberManagementDto.getName());
         member.setRole(memberManagementDto.getRole());
         member.setPhoneNumber(memberManagementDto.getPhoneNumber());
         member.setFullAddr(memberManagementDto.getFullAddr());
-        jpaMemberRepository.save(member);
+        memberRepository.save(member);
     }
 
 

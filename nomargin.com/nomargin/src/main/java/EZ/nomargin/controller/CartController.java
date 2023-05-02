@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,61 +35,117 @@ public class CartController {
     private final MemberService memberService;
     private final CartRepository cartRepository;
 
-    private final CartItemRepository cartItemRepository;
 
-
-
+    //--------------05.02 변경(현덕)
     @PostMapping("/cart/{itemId}")
     public String addCartItem(@PathVariable("itemId") Long itemId, @RequestParam String username, int amount) {
 
-
         Member member = memberService.findByLoginId(username);
         Item item = itemService.findById(itemId);
-
-
         cartService.addCart(member, item, amount);
-
         return "redirect:/form/itemList/{itemId}";
-
 
     }
 
 
+    // 카트로 버튼 클릭
     @GetMapping("/cart")
-    public String userCartPage(Model model, Authentication authentication) {
+    public String memberCart(Model model, Authentication authentication) {
 
         String loginId = authentication.getName();
-
         Member member = memberService.findByLoginId(loginId);
 
+        // 로그인한 사람의 개인 장바구니의 내용물들
         Cart privateCart = member.getCart();
-
-        //개별 장바구니
         List<CartItem> cartItemList = cartService.memberCart(privateCart);
-
-//        cartItemDtoLists
-
         model.addAttribute("cartItemList", cartItemList);
-//        model.addAttribute("cartItems", cartItemList);
-        model.addAttribute("member", member);
 
+
+        int totalPrice = 0;
+        for (CartItem item : cartItemList) {
+            totalPrice += item.getItem().getPrice() * item.getCount();
+        }
+        model.addAttribute("totalPrice", totalPrice);
         return "/members/cart";
     }
 
-    @PostMapping("/cart/purchase")
-    public String purchase(@RequestParam("cartItemIds") List<Long> cartItemIds,  Model model) {
-        // 선택한 카트 아이템들을 가져와서 모델에 추가합니다.
-        List<CartItem> cartItems = cartService.getCartItemsByIds(cartItemIds);
-        model.addAttribute("cartItems", cartItems);
 
-        // 총 가격을 계산합니다.
-        int totalPrice = cartItems.stream()
-                .mapToInt(item -> item.getItem().getPrice() * item.getCount())
-                .sum();
+    // 카트에서 구입 버튼
+    @PostMapping("/cart/purchase")
+    public String purchase(Authentication authentication ,Model model) {
+
+        String loginId = authentication.getName();
+        Member member = memberService.findByLoginId(loginId);
+        model.addAttribute("member",member);
+
+        // 결제 예정인 개인 카트의 물품들
+        Cart privateCart = member.getCart();
+        List<CartItem> selectedCartItems = new ArrayList<>(cartService.memberCart(privateCart));
+        model.addAttribute("cartItems", selectedCartItems);
+
+        // 결제 예정인 개인 아이템들의 총금액
+        int totalPrice = 0;
+        for (CartItem item : selectedCartItems) {
+            totalPrice += item.getItem().getPrice() * item.getCount();
+        }
         model.addAttribute("totalPrice", totalPrice);
-        return "/order/cartItemBuy";
+        return "/order/cartItems";
 
     }
+
+    // 카트에서 내가 삭제한 아이템을 주문 총량, 아이템 당 수량 변경
+    @Transactional
+    @GetMapping("/cart/delete/{cartItemId}")
+    public String deleteCartItem(@PathVariable Long cartItemId, Authentication authentication) {
+
+        String loginId = authentication.getName();
+        Member member = memberService.findByLoginId(loginId);
+        Cart cart = member.getCart();
+
+        // 카트에서 제거할 수량
+        CartItem cartItemToDelete = cartService.findCartItemById(cartItemId);
+        int deleteCount = cartItemToDelete.getCount();
+
+        // 카트에서 지우기
+        cart.removeCartItem(cartItemToDelete);
+        cartService.deleteCartItem(cartItemToDelete);
+
+        // 총 구매할 양 감소시키기
+        cart.setCount(cart.getCount() - deleteCount);
+        cartRepository.save(cart);
+
+        return "redirect:/cart";
+
+    }
+
+
+    //카트에서 수량 변경
+    @Transactional
+    @PostMapping("/cart/update/{cartItemId}")
+    public String updateCartItemQuantity(@PathVariable("cartItemId") Long cartItemId, @RequestParam int amount, Authentication authentication) {
+
+        String loginId = authentication.getName();
+        Member member = memberService.findByLoginId(loginId);
+        Cart cart = member.getCart();
+
+        // 카트에서 바꿀 수량
+        CartItem cartItemToUpdate = cartService.findCartItemById(cartItemId);
+
+        if (cartItemToUpdate.getCount() > amount) {
+
+            cart.setCount( cart.getCount() - (cartItemToUpdate.getCount() - amount));
+            cartItemToUpdate.setCount(amount);// 반드시 필요
+        } else {
+            cart.setCount(cart.getCount() + ( amount - cartItemToUpdate.getCount()));
+            cartItemToUpdate.setCount(amount);
+        }
+
+        cartRepository.save(cart);
+        return "redirect:/cart";
+    }
+
+
+
 
 
     @GetMapping("/itemBuy")
@@ -99,76 +157,6 @@ public class CartController {
         itemService.changeQuantity(item.getItemId(), amount);
         return "order/itemBuy";
     }
-
-
-
-
-
-
-
-
-
-    // 카트에서 내가 삭제한 아이템을 카트와 카트아이템에서 모두 제거
-    @GetMapping("/cart/delete/{cartItemId}")
-    public String deleteCartItem(@PathVariable Long cartItemId, Authentication authentication) {
-        String loginId = authentication.getName();
-        Member member = memberService.findByLoginId(loginId);
-        Cart cart = member.getCart();
-
-        // 카트에서 제거할 수량
-        CartItem cartItemToDelete = cartItemRepository.findById(cartItemId).orElseThrow();
-        int deletedQuantity = cartItemToDelete.getCount();
-
-        // 카드에서 지우기
-        cart.removeCartItem(cartItemToDelete);
-        cartItemRepository.delete(cartItemToDelete);
-
-        // 총 구매량 감소시키기
-        cart.setCount(cart.getCount() - deletedQuantity);
-        cartRepository.save(cart);
-        return "redirect:/cart";
-
-
-    }
-
-
-
-
-
-
-
-//    @GetMapping("/cart/delete/{cartItemId}")
-//    public String deleteCartItem(@PathVariable Long id, Model model, Authentication authentication) {
-//
-//        // itemId로 장바구니 상품 찾기
-//        CartItem cartItem = cartService.findCartItemByItemId(id);
-//
-//        // 해당 유저의 카트 찾기
-//        Cart userCart = cartService.findMemberCart();
-//
-//        // 장바구니 전체 수량 감소
-//        userCart.setCount(userCart.getCount()-cartItem.getCount());
-//
-//        // 장바구니 물건 삭제
-//        cartService.cartItemDelete(itemId);
-//
-//        // 해당 유저의 장바구니 상품들
-//        List<CartItem> cartItemList = cartService.allUserCartView(userCart);
-//
-//        // 총 가격 += 수량 * 가격
-//        int totalPrice = 0;
-//        for (CartItem cartitem : cartItemList) {
-//            totalPrice += cartitem.getCount() * cartitem.getItem().getPrice();
-//        }
-//
-//
-//        model.addAttribute("totalPrice", totalPrice);
-//        model.addAttribute("itemSize", ItemSize.values()); // 가짜
-//        model.addAttribute("totalCount", privateCart.getCount());
-//        model.addAttribute("cartItems", cartItemList);
-//        model.addAttribute("member", memberService.findByLoginId(loginId));
-//
-//    }
 }
 
 

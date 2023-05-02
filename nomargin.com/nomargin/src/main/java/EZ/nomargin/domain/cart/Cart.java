@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
@@ -25,12 +25,13 @@ public class Cart {
     private Member member;
 
 
+    //카트에 담긴 총 상품 개수
     private int count;
-
 
     @OneToMany(mappedBy = "cart")
     private List<CartItem> cartItems = new ArrayList<>();
 
+    //카트 생성
     public static Cart createCart(Member member) {
         Cart cart = new Cart();
         cart.setCount(0);
@@ -45,12 +46,5 @@ public class Cart {
         cartItem.setCart(null);
     }
 
-
-
-    public void updateCount(List<Integer> counts) {
-        for (int i = 0; i < cartItems.size(); i++) {
-            cartItems.get(i).setCount(counts.get(i));
-        }
-    }
 }
 
