@@ -145,18 +145,6 @@ public class CartController {
     }
 
 
-
-
-
-    @GetMapping("/itemBuy")
-    public String itemBuy(@RequestParam("itemId") Long itemId, @RequestParam("amount") int amount, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
-        model.addAttribute("amount", amount);
-        model.addAttribute("totalPrice", item.getPrice() * amount);
-        itemService.changeQuantity(item.getItemId(), amount);
-        return "order/itemBuy";
-    }
 }
 
 

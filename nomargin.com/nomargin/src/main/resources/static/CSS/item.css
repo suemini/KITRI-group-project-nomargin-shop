@@ -262,6 +262,7 @@ input[type=number]::-webkit-inner-spin-button {
     color: black;
 }
 
+
 /*04.26 추가 및 속성 위치 변경*/
 .item-detail-info-container {
     display: flex;

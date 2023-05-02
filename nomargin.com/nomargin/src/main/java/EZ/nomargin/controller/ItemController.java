@@ -90,6 +90,16 @@ public class ItemController {
         return new UrlResource("file:" + fileStore.getFullPath(filename));
     }
 
+    @GetMapping("/itemBuy")
+    public String itemBuy(@RequestParam("itemId") Long itemId, @RequestParam("amount") int amount, Model model) {
+        Item item = itemService.findById(itemId);
+        model.addAttribute("item", item);
+        model.addAttribute("amount", amount);
+        model.addAttribute("totalPrice", item.getPrice() * amount);
+        itemService.changeQuantity(item.getItemId(), amount);
+        return "order/itemBuy";
+    }
+
     @PostConstruct  // 생성 이후 얘를 실행
     public void initProducts() {
         itemService.save(new Item("탑 티셔츠", "Shop1102717919 Store", 19000, 100, ItemType.Top,"1.main", "1.1", "1.2", "1.3", "topSize",0));
