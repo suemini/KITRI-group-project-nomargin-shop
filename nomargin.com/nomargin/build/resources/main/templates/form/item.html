@@ -34,7 +34,7 @@
 
             <hr>
 
-            <div class="cart-or-buy">
+            <div class="cart-or-buy" sec:authorize="isAuthenticated()">
                 <form id="cart-form" th:action="@{/cart/{itemId}(itemId=${item.itemId})}" method="post">
                     <div class="item-quantity-container">
                         <div class="item-quantity">수량
