@@ -33,9 +33,19 @@
             border: 0;
         }
 
+        .cancel {
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
         .edit-product:hover, .edit-product:active, .edit-product:focus {
             background-color: #7e7e7e !important;
             border: 0;
+        }
+
+        img{
+            padding-top: 5px;
+            padding-bottom: 10px;
         }
     </style>
 
@@ -107,7 +117,7 @@
             </div>
         </div>
         <hr class="my-4">
-        <div>
+        <div class="item-images">
             <br>
             <a>메인 이미지</a>
             <br>
@@ -143,7 +153,7 @@
                 </button>
             </div>
             <div class="col">
-                <button class="w-100 btn btn-secondary btn-lg"
+                <button class="w-100 btn btn-secondary btn-lg cancel"
                         onclick="location.href='item.html'"
                         th:onclick="|location.href='@{|/admin/items/${item.getItemId()}|}'|"
                         type="button">취소

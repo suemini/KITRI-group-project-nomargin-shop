@@ -26,6 +26,31 @@
         h2 {
             font-weight: bold;
         }
+
+        .edit-product {
+            background-color: black;
+            border: 0;
+        }
+
+        .cancel {
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
+
+        .item-images a{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .item-images img#file1,
+        .item-images img#file2,
+        .item-images img#file3,
+        .item-images img#file4,
+        .item-images img#file5 {
+            padding-top: 10px;
+            padding-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -99,7 +124,7 @@
 
     <hr class="my-4">
 
-    <div>
+    <div class="item-images">
         <br>
         <a>메인 이미지</a><br>
         <img name="file1" id="file1" th:src="|/item/images/${item.mainImg}|"  width="300" height="300"/>
@@ -120,15 +145,16 @@
     <hr class="my-4">
     <div class="row">
         <div class="col">
-            <button class="w-100 btn btn-primary btn-lg"
+            <button class="w-100 btn btn-primary btn-lg edit-product"
                     onclick="location.href='editForm.html'"
                     th:onclick="|location.href='@{|/admin/edit/${item.getItemId()}|}'|"
                     type="button">상품 수정
             </button>
             <!--th:onclick="|location.href='@{/basic/products/{productId}/edit(productId=${product.getId()})}'|" 도 가능-->
+
         </div>
         <div class="col">
-            <button class="w-100 btn btn-danger btn-lg"
+            <button class="w-100 btn btn-danger btn-lg cancel"
                     onclick="location.href='/basic/products'"
                     th:onclick="|location.href='@{|/admin/delete/${item.getItemId()}|}'|"
                     type="button">상품 삭제
