@@ -1,31 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/CSS/list.css">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/CSS/review.css">
+<link rel="stylesheet" href="/CSS/myPage.css">
+<th:block th:replace="fragments/head :: headFragment">
+</th:block>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
-<table>
-    <tr>
-        <th>id</th>
-        <th>writer</th>
-        <th>title</th>
-        <th>date</th>
-        <th>hits</th>
-        <th>itemId</th>
-    </tr>
-    <tr th:each="review: ${reviewList}">
-        <td th:text="${review.id}"></td>
-        <td th:text="${review.reviewWriter}"></td>
-        <td><a th:href="@{|/review/${review.id}|}" th:text="${review.reviewTitle}"></a></td>
-        <td th:text="${review.reviewUpdatedTime != null ? #temporals.format(review.reviewUpdatedTime, 'yyyy-MM-dd HH:mm:ss') : #temporals.format(review.reviewCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
-        <td th:text="${review.reviewHits}"></td>
-        <td th:text="${review.getItemId()}"></td>
-    </tr>
-</table>
+<div class="container" id="wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
+    <div class="myPage-container">
 
-    <div class="col">
-        <button class="w-100 btn btn-primary btn-lg" onclick="location.href='saveForm.html'" th:onclick="|location.href='@{/review/save}'|" type="button">리뷰등록</button>
-        <button th:onclick="|location.href='@{/}'|" type="button" >홈으로</button>
+        <div class="myPage-main">
+            <ul class="myPage-list">
+                <h2>마이페이지</h2>
+                <li><a href="">주문내역 조회</a></li>
+                <li><a href="/member/reviews">나의 리뷰 조회</a></li>
+                <li><a href="/member/edit-my-info">회원정보 수정</a></li>
+                <li><a href="/member/delete">회원탈퇴</a></li>
+            </ul>
+        </div>
+
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>나의 리뷰 조회</strong>
+            <p>내가 작성한 리뷰에 대해 조회합니다.</p>
+        </div>
+        <div class="board_list_wrap">
+            <div class="board_list">
+                <div class="top">
+                    <div class="num">번호</div>
+                    <div class="title">제목</div>
+                    <div class="itemId">상품번호</div>
+                    <div class="writer">글쓴이</div>
+                    <div class="date">작성일</div>
+                    <div class="count">조회수</div>
+                </div>
+
+                <div class="review-contents" th:each="review: ${reviewList}" th:onclick="|location.href='@{|/review/${review.id}|}'|">
+                    <div class="num" th:text="${review.id}"></div>
+                    <div class="title" th:text="${review.reviewTitle}"></div>
+                    <div class="itemId" th:text="${review.getItemId()}"></div>
+                    <div class="writer" th:text="${review.reviewWriter}"></div>
+                    <div class="date" th:text="${review.reviewUpdatedTime != null ? #temporals.format(review.reviewUpdatedTime, 'yyyy-MM-dd HH:mm:ss') : #temporals.format(review.reviewCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></div>
+                    <div class="count" th:text="${review.reviewHits}"></div>
+                </div>
+
+                <div class="bt_wrap">
+                    <a th:href="@{/review/save}" class="on">등록</a>
+                    <a th:href="@{/}">홈으로</a>
+                </div>
+            </div>
+        </div>
     </div>
-
+</div>
+</div>
 </body>
 </html>

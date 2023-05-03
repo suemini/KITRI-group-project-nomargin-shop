@@ -150,26 +150,16 @@
     <div class="item-comments">
         <h4 class="comments">상품 리뷰</h4>
         <ul class="review-info">
-            <li class="review">착용감이 좋고 정말 가성비가 좋아요!</li>
-            <li class="review">ㄱㅊ은듯</li>
-            <li class="review">Good</li>
+            <li class="review" th:each="review : ${reviewList}">
+                <a class="review-click" th:href="@{/review/{id}(id=${review.id})}">
+                    <!--                    <div class="review-login-id" th:text="${review.id}"></div>-->
+                    <div class="review-writer" th:text="${review.reviewWriter}"></div>
+                    <div class="review-title" th:text="${review.reviewTitle}"></div>
+                    <div class="review-contents" th:text="${review.reviewContents}">asdf</div>
+                    <!--                    <div class="review-hits" th:text="${review.reviewHits}"></div>-->
+                </a>
+            </li>
         </ul>
-        <table>
-            <tr>
-                <th>Review id</th>
-                <th>writer</th>
-                <th>title</th>
-                <th>contents</th>
-                <th>hits</th>
-            </tr>
-            <tr th:each="review : ${reviewList}">
-                <td th:text="${review.id}"></td>
-                <td th:text="${review.reviewWriter}"></td>
-                <td><a th:href="@{/review/{id}(id=${review.id})}" th:text="${review.reviewTitle}"></a></td>
-                <td th:text="${review.reviewContents}"></td>
-                <td th:text="${review.reviewHits}"></td>
-            </tr>
-        </table>
     </div>
 
 <div id="search-results">
