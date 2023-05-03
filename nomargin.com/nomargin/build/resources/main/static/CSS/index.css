@@ -79,15 +79,16 @@ header {
     border: 0;
 }
 
-.cart {
-    margin-top: 10px;
+.cart, .review-icon {
+    margin: 14px 5px 0 5px;
     width: 25px;
     height: 25px;
 }
 
-.cart img[src] {
+.cart img[src], .review-icon img[src] {
     width: 25px;
 }
+
 
 .line {
     width: 100px;
@@ -177,12 +178,16 @@ footer ul {
     height: 80px;
     top: 0;
     font-size: 12pt;
-    padding: 15px 5px 0 8px;
+    padding: 12px 5px 0 5px;
     margin-top: 35px;
 }
 
 #welcome-button {
     display: none;
+}
+
+label[for="welcome-button"] a:hover {
+    cursor: pointer;
 }
 
 #welcome-button:checked ~ .login-user-tab  {
@@ -199,9 +204,7 @@ footer ul {
     align-content: center;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-
 }
-
 
 .login-user-tab {
     display: none;
