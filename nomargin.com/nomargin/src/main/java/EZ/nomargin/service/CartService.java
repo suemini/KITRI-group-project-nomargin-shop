@@ -11,9 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @Transactional
@@ -115,6 +113,28 @@ public class CartService {
         }
     }
 
+    // 05/03 추가(경진)
+    public List<CartItem> getCartItemList(Member member) {
+        Optional<Cart> optionalCart = cartRepository.findByMember(member);
+
+        if (optionalCart.isPresent()) {
+            Cart cart = optionalCart.get();
+            return cart.getCartItems();
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    public int getTotalPrice(Member member) {
+        List<CartItem> cartItemList = getCartItemList(member);
+        int totalPrice = 0;
+        for (CartItem cartItem : cartItemList) {
+            int itemPrice = cartItem.getItem().getPrice();
+            int itemCount = cartItem.getCount();
+            totalPrice += itemPrice * itemCount;
+        }
+        return totalPrice;
+    }
 
 
 }

@@ -3,10 +3,9 @@ package EZ.nomargin.controller;
 import EZ.nomargin.domain.cart.Cart;
 import EZ.nomargin.domain.cart.CartItem;
 import EZ.nomargin.domain.item.Item;
-import EZ.nomargin.domain.item.ItemSize;
 import EZ.nomargin.domain.member.Member;
-import EZ.nomargin.repository.CartItemRepository;
 import EZ.nomargin.repository.CartRepository;
+import EZ.nomargin.repository.MemberRepository;
 import EZ.nomargin.service.CartService;
 import EZ.nomargin.service.ItemService;
 import EZ.nomargin.service.MemberService;
@@ -34,17 +33,40 @@ public class CartController {
     private final CartService cartService;
     private final MemberService memberService;
     private final CartRepository cartRepository;
+    private final MemberRepository memberRepository;
 
 
     //--------------05.02 변경(현덕)
+    // 05/03 수정(경진)
     @PostMapping("/cart/{itemId}")
-    public String addCartItem(@PathVariable("itemId") Long itemId, @RequestParam String username, int amount) {
+    public String addCartItem(@PathVariable("itemId") Long itemId, @RequestParam String username, int amount,
+                              Integer isGoingCart, Model model) {
 
         Member member = memberService.findByLoginId(username);
+
+        Cart cart = member.getCart();
+        if (cart == null) {
+            cart = new Cart();
+            cart.setMember(member);
+            cartRepository.save(cart);
+            member.setCart(cart);
+            memberRepository.save(member);
+        } // <-  Member 객체에 연결된 Cart 객체가 없는 경우 Cart 객체를 생성하는 메소드다.
+
         Item item = itemService.findById(itemId);
         cartService.addCart(member, item, amount);
-        return "redirect:/form/itemList/{itemId}";
 
+        List<CartItem> cartItemList = cartService.getCartItemList(member);
+        int totalPrice = cartService.getTotalPrice(member);
+
+        model.addAttribute("cartItemList", cartItemList);
+        model.addAttribute("totalPrice", totalPrice);
+
+        if (isGoingCart != null && isGoingCart == 0) {
+            return "redirect:/form/itemList/{itemId}";
+        }
+
+        return "members/cart";
     }
 
 

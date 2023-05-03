@@ -35,6 +35,9 @@ public class CartItem {
         cartItem.setCart(cart);
         cartItem.setItem(item);
         cartItem.setCount(amount);
+
+        // 05/03 추가(경진)
+        cart.getCartItems().add(cartItem);
         return cartItem;
     }
 

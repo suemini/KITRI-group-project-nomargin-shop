@@ -41,6 +41,7 @@
                             <input type="number" name="amount" id="amount" value="0" min="1" onchange="calculatePrice()">
                         </div>
                     </div>
+                    <input type="hidden" name="isGoingCart" id="isGoingCart" value="0">
                     <input type="hidden" name="username" th:value="${#authentication.name}">
                     <div class="item-cartOrBuy">
                         <button type="button" onclick="addToCart()">장바구니</button>

@@ -64,10 +64,6 @@ public class ItemService {
         return searchedItems;
     }
 
-//    public void update(Long itemId, Item updateItem) {
-//        itemRepository.update(itemId, updateItem);
-//    }
-
     public void delete(Long itemId) {
         itemRepository.delete(itemId);
     }
@@ -133,6 +129,11 @@ public class ItemService {
 
 //    public void delete(Long itemId) {
 //        itemRepository.delete(itemId);
+//    }
+
+
+//    public void update(Long itemId, Item updateItem) {
+//        itemRepository.update(itemId, updateItem);
 //    }
 
 
