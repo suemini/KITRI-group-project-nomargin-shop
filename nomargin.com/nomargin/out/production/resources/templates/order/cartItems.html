@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="/CSS/itemOrderBuy.css">
+<head>
+  <meta charset="UTF-8">
+  <title>NoMarGin</title>
+</head>
+<body>
+<form method="POST" action="/order/checkout">
+  <div class="item-image">
+  </div>
+
+  <table>
+    <thead class="item-menu">
+    <tr>
+      <th>Item Name</th>
+      <th>Item Price</th>
+      <th>Item Store</th>
+      <th>Item amount</th>
+      <th>Item TotalPrice</th>
+    </tr>
+    </thead>
+
+    <h2>구매 완료!</h2>
+    <ul>
+      <th:block th:each="item : ${cartItems}">
+        <li>
+          <span th:text="${item.getItem().getItemStore()}"></span>
+          <span th:text="${item.getItem().getItemType()}"></span>
+          <span th:text="${item.getItem().getItemName()}"></span>
+          <span th:text="${item.getCount()} + ' 개'"></span>
+          <span th:text="${#numbers.formatInteger(item.getItem().getPrice() * item.getCount(), 0, 'COMMA')} + ' 원'"></span>
+        </li>
+      </th:block>
+    </ul>
+    <p>총 가격: <span th:text="${#numbers.formatInteger(totalPrice, 0, 'COMMA')} + ' 원'"></span></p>
+  </table>
+  <table>
+  <div class="item-order-buy">
+    <th></th>
+    <button id="buy-button" class="cartItems" type="submit">구매</button>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <button class="cartItems" onclick="alert('상품 주문이 취소되었습니다.'); window.location.href = document.referrer;">주문 취소</button>
+  </div>
+  </table>
+  </div>
+</form>
+</body>
+</html>

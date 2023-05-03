@@ -1,72 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="CSS/index.css">
-        <link rel="stylesheet" href="CSS/main.css">
-        <title>NOMARGIN</title>
-    </head>
-    <body>
-        <div class="container" id="'wrapper">
-            <header>
-                <div class="logo"><a href="index.html">Nomarjin</a></div>
-                <div class="search-box">
-                    <form action="../templates/form/itemList.html" method="get">
-                        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-                <div class="login-btn">
-                    <li><a href="/members/login">Login</a></li>
+<link rel="stylesheet" href="/CSS/main.css">
+<script src="/JS/index.js" th:inline="javascript"></script>
+<th:block th:replace="fragments/head :: headFragment">
+</th:block>
+<body>
+<div class="container" id="'wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
+    <div id="search-results">
+        <!-- 검색 결과가 이곳에 표시됩니다 -->
+    </div>
+    <div class="main-slider-container">
+        <div class="slider fade"><img src="asset/slide_0.png" alt="slide0" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_1.jpg" alt="slide1" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_2.jpg" alt="slide2" style="width:100%"></div>
+        <div class="slider fade"><img src="asset/slide_3.jpg" alt="slide3" style="width:100%"></div>
+    </div>
+    <section class="item-list">
+        <article><a href="/form/itemList/8"><img src="/asset/6fd49a1b-b951-4297-b9cc-5c33e6b596e1.jpg" alt=""></a></article>
+        <article><a href="/form/itemList/14"><img src="/asset/bdefe133-b00c-4ccc-bab6-c2e0dd2988ce.jpg" alt=""></a></article>
+        <article><a href="/form/itemList/22"><img src="/asset/af580f71-b2d6-4807-bcf9-684be248a596.jpg" alt=""></a></article>
+    </section>
 
-                    <li><a sec:authorize="hasRole('ADMIN')">Has admin Role</a></li>
-                    <li><a sec:authorize="hasRole('USER')">Has USER Role</a></li>
-
-                    <sec:authorize access="isAnonymous()">
-
-                        <a href="/login" target="_self">Login</a>
-
-                    </sec:authorize>
-
-                    <sec:authorize access="isAuthenticated()">
-
-                        <a href="/logout" target="_self">Logout</a>
-
-
-                </div>
-
-
-            </header>
-            <nav>
-                <ul class="nav-icon">
-                    <li class="top"><a href="/form/itemList/type/top">TOP</a></li>
-                    <li class="bottom"><a href="/form/itemList/type/bottom">BOTTOM</a></li>
-                    <li class="outer"><a href="/form/itemList/type/outer">OUTER</a></li>
-                </ul>
-            </nav>
-            <div class="main-slider"><img src="asset/016.jpg" alt=""></div>
-            <section class="item-list">
-                <article><img src="asset/045.jpg" alt=""></article>
-                <article><img src="asset/045.jpg" alt=""></article>
-                <article><img src="asset/045.jpg" alt=""></article>
-            </section>
-        </div>
-            <footer>
-                <ul class="company-info">
-                    <li>ⓒNomarjin company</li>
-                    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
-                    <li>김씨 권씨 이씨 임씨 최씨</li>
-                    <li>02-869-8301</li>
-                    <li>000-00-00000</li>
-                </ul>
-                <ul class="company-etc">
-                    <li>healuhen@gmail.com</li>
-                    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
-                </ul>
-            </footer>
-    </body>
+</div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script src="/JS/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JS/search_item.js"></script>
+</body>
 </html>

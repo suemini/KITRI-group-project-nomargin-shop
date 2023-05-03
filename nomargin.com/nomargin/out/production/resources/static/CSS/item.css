@@ -1,0 +1,562 @@
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 40px 0 40px 0;
+}
+
+hr {
+    border: 0;
+    background-color: #e8e8e8;
+    height: 1px;
+}
+
+.image-table {
+    width: 500px;
+    margin: 40px 100px 0 0;
+}
+
+
+.item-mainImage img {
+    width: 90%;
+    margin-bottom: 2rem; /* margin-top 대신 margin-bottom을 추가하여 아래쪽으로 정렬 */
+}
+
+.item-images {
+    display: flex;
+    flex-direction: row; /* 수평 방향으로 정렬 */
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+
+
+.item-info {
+    width: 500px;
+    border-top : 2px solid grey;
+    border-bottom: 2px solid grey;
+    padding: 10px 0 30px 0;
+}
+
+.item-info li {
+    margin: 0;
+}
+
+.item-name .form-control {
+    padding-top: 20px;
+    font-size: 21pt;
+    font-weight: 900;
+    width: 500px;
+    height: 55px;
+}
+
+/*.item-name .scrolled {*/
+/*    animation: scroll-rtl 15s linear forwards;*/
+/*}*/
+
+/*@keyframes scroll-rtl {*/
+/*    0% {*/
+/*        transform: translate(0);*/
+/*    }*/
+/*    100% {*/
+/*        transform: translate(-100%);*/
+/*    }*/
+/*}*/
+
+.item-info li input {
+    width: 400px;
+    height: 30px;
+    font-size: 15pt;
+    font-weight: bold;
+    border: 0;
+}
+
+.item-info li input:focus {
+    outline: none;
+}
+
+.item-info li label {
+    font-size: 13pt;
+    font-weight: normal;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.item-quantity {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    left: 0;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    padding-right: 50px; /* 추가 */
+}
+
+.item-quantity input {
+    margin-top: 10px; /* 추가 */
+}
+
+.item-quantity-text {
+    font-size: 12pt;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.item-quantity input[type="number"] {
+    width: 50px;
+    height: 40px;
+    border:1px solid lightgray;
+    font-size: 13pt;
+
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+    height: 40px;
+}
+
+.item-size {
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.item-size select {
+    width: 140px;
+    height: 40px;
+    margin-top: 4px;
+    font-size: 13pt;
+    cursor: pointer;
+}
+
+.item-size select option[value=""][disabled] {
+    display: none;
+}
+
+.form-control {
+    margin: 0 0 30px 0;
+
+}
+
+#item-totalPrice-info {
+    width: 500px;
+}
+
+#order-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 10px 10px 0;
+    padding: 0 15px 0 15px;
+    width: 500px;
+    height: 90px;
+    border-bottom: 1px solid lightgray;
+    box-shadow: 0 2px 2px rgb(226, 226, 226);
+}
+
+#order-cancel-button {
+    margin-left: 95%;
+}
+
+#order-cancel-button input[type="button"] {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    font-size: 10px;
+    color: gray;
+    border: none;
+    border-radius: 3px;
+}
+
+#order-cancel-button input[type="button"]:hover {
+    color: white;
+    background-color: black;
+}
+
+#show-ItemList {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+#show-ItemList input {
+    width: 65px;
+    border : none;
+}
+
+
+#show-ItemList input:focus {
+    outline: none;
+}
+
+#name.form-itemName {
+    width: 100%;
+}
+
+.item-totalPrice-text {
+    position: relative;
+    margin-right: 10%;
+}
+
+.item-totalPrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items:first baseline;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.totalPrice {
+    font-size: 30pt;
+    margin-right: 10px;
+}
+
+.cart-or-buy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-quantity-container {
+    background-color: white;
+}
+
+.item-buy {
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 60px;
+}
+
+.cart-or-buy button {
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-or-buy input[value="장바구니"] {
+    background-color: lightgrey;
+    color: black;
+}
+
+
+/*04.26 추가 및 속성 위치 변경*/
+.item-detail-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.item-subImages {
+    display: flex;
+    flex-direction: column; /* 추가 */
+    justify-content: center;
+    align-items: center; /* 수정 */
+    gap: 1rem;
+    margin: 30px 50px 30px 50px;
+}
+
+.item-subImages img {
+    max-width: 786px;
+    height: 800px;
+}
+
+.item-subImages img, .item-size {
+    width: 786px;
+    height: auto;
+}
+/*----------------------*/
+
+
+/* 판매자 정보 CSS*/
+
+/*.item-return-warp h4 {*/
+/*    margin-top: 3rem;*/
+/*    margin-bottom: 2rem;*/
+/*    text-align: center;*/
+/*}*/
+
+.item-return-warp table {
+    border-collapse: collapse;
+    margin: 20px auto 0;
+    max-width: 800px;
+    text-align: center;
+}
+
+.item-return-warp th, .item-return-warp td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.item-return-warp td:first-child {
+    font-weight: bold;
+    background-color: #f7f7f7;
+    width: 50%;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    top: 0;
+}
+
+.buy {
+    margin: 40px 0 0 0;
+    font-size: 21pt;
+}
+
+.cautions {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.cautions td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #ccc;
+    font-size: 10pt;
+    word-break: keep-all;
+}
+
+.cautions td:last-child {
+    border-right: none;
+}
+
+.cautions .ico {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.cautions::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: black;
+}
+
+/* 04/21 */
+
+ul.cautions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.cautions li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul.cautions li:before {
+    content: "●";
+    font-size: 12px;
+    color: #666;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 15px;
+}
+
+.return {
+    font-size: 21pt;
+    text-align: left;
+    justify-content: left;
+    margin: 40px 0 0 0;
+}
+
+.item-return-warp th,
+.item-return-warp td {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.item-return-warp td:first-child {
+    font-weight: bold;
+    background-color: #f7f7f7;
+    width: 300px;
+    border-left: none;
+}
+
+.item-return-warp td:last-child {
+    font-weight: normal;
+    border-right: none;
+    width: 500px;
+}
+
+.return-info tr td {
+    width: 500px;
+}
+
+/* 탭 + 탭 결과값 가운데 정렬 */
+/*04.26 수정*/
+.mt-4 {
+    position: sticky;
+    top: 80px;
+}
+
+.w-100 {
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    background-color: white;
+    opacity: 0.7;
+}
+
+.nav-tabs {
+    display: flex;
+    border: none;
+    /*04.26 정렬수정*/
+    justify-content: center;
+}
+
+.nav-item {
+    /*04.26 가로길이 수정*/
+    width: 200px;
+    margin-bottom: -1px;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.3rem 0.3rem;
+    border: 1px solid transparent;
+    min-width: 60px;
+    justify-content: center;
+    align-items: center;
+    /*04.26 링크 폰트색 수정*/
+    color: black;
+}
+
+/*04.26 호버, 액티브 관련 디자인액션 첨삭*/
+.nav-item:hover {
+    background-color: black;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link:focus, .nav-item:focus {
+    border: 0;
+    background-color: black;
+    color: white;
+}
+.row {
+    text-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+/*05.02 (상단에 있던 item-comments 구간 다갖고내려옴 + 속성 추가*/
+
+.item-comments {
+    text-align: center;
+    width: 900px;
+
+    margin-top: 30px;
+    border-bottom: 2px solid black;
+}
+
+.comments {
+    font-size: 20pt;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.review-info {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.review {
+    box-sizing: border-box;
+    background-color: white;
+    text-align: left;
+    font-weight: normal;
+    padding: 10px;
+    margin: 7px;
+    width: 400px;
+    height: 120px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.19), 0 2px 2px rgba(0,0,0,0.23);
+}
+
+.review:hover {
+    transition: all 0.4s;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+}
+
+.review:active {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.review-click {
+    color: black;
+    width: 400px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.review-writer {
+    color: #9b9b9b;
+    font-size: 10pt;
+
+}
+
+.review-title {
+    color: #3b3b3b;
+    font-size: 23pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.review-contents {
+    color: #797979;
+    padding-top: 3px;
+    font-size: 12pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

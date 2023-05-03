@@ -12,14 +12,11 @@
 }
 
 .item-table {
-    position: relative;
-    text-align: left;
-    width: 100%;
-}
-
-.item-table tbody {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    text-align: left;
     width: 100%;
 }
 
@@ -27,16 +24,18 @@
     display: flex;
     flex-direction: column;
     width: 300px;
-    margin-bottom: 20px;
+    text-align : center;
+    margin: 40px;
 }
 
 .item-image img {
-    width: 100%;
+    width: 300px;
+    height: 300px;
 }
 
-.item-name a {
+.item-name {
     font-weight: bold;
-    font-size: 20pt;
+    font-size: 14pt;
     color: black;
     margin: 0;
 }

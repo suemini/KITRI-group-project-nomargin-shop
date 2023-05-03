@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/cart.css">
+<script src="/JS/cart.js" th:inline="javascript"></script>
+<th:block th:replace="fragments/head :: headFragment"></th:block>
+
+<body>
+<div class="container" id="wrapper">
+  <th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+  <h1 th:text="|${#authentication.principal.username} 의 장바구니|">Shopping Cart</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Product Store</th>
+      <th>Product Type</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Delete</th>
+    </tr>
+    </thead>
+    <tr th:each="cartItem, status: ${cartItemList}">
+      <td th:text="${status.count}"></td>
+      <td th:text="${cartItem.getItem().getItemStore()}"></td>
+      <td th:text="${cartItem.getItem().getItemType()}"></td>
+      <td th:text="${cartItem.getItem().getItemName()}"></td>
+      <td class="price" th:text="${#numbers.formatInteger(cartItem.getItem().getPrice(),0,'COMMA')} + ' 원'"></td>
+
+      <td>
+          <form th:action="@{/cart/update/{cartItemId}(cartItemId=${cartItem.getId()})}" method="post">
+              <input class="quantity" type="number" min="1" max="100000" name="amount" th:value="${cartItem.getCount()}">
+              <button class="btn btn-primary" type="submit">수량 변경</button>
+          </form>
+      </td>
+
+      <td class="subtotal" th:text="${#numbers.formatInteger(cartItem.getItem().getPrice() * cartItem.getCount(),0 ,'COMMA')} + ' 원'"></td>
+      <td>
+        <button class="btn btn-outline-secondary" th:onclick="|location.href='@{/cart/delete/{cartItemId}/(cartItemId=${cartItem.getId()})}'|" type="button"> Delete </button>
+      </td>
+  </table>
+
+    <form th:action="@{/cart/purchase}" method="post" id="cart-form">
+        <td colspan="6"></td>
+        <td th:text="| 총 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">Total price</td>
+        <td class="total-amount"></td>
+        <td><button class="btn btn-primary" type="submit" >구매하기</button></td>
+    </form>
+
+</div>
+</body>
+</html>

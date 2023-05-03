@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/CSS/memberManagement.css">
+<script src="/JS/memberManagement.js" th:inline="javascript"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+          th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            list-style: none;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .bg-dark {
+            background-color: black !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .col-md-9, table {
+            min-width: 1200px !important;
+        }
+
+        table th:nth-child(1) {
+            width: 80px;
+        }
+
+        table th:nth-child(3), th:nth-child(4) {
+            width: 120px;
+        }
+
+        input[type="button"] {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            border-radius: 3px;
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+        input[type="submit"] {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            border-radius: 3px;
+            padding: 5px 10px;
+            transition: all 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            color: #fff;
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin/items">관리자 페이지</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/members">회원 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/items">상품 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/order/adminList">판매 관리</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" onclick="location.href='addForm.html'"
+                   th:onclick="|location.href='/'|" style="cursor: pointer;">홈으로</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">회원 관리</h1>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Login ID</th>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Search Address</th>
+            <th>Address</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="memberManagementDto, status : ${memberManagementDto}">
+            <form th:action="@{/admin/editMember/{id}(id=${memberManagementDto.id})}" method="post">
+                <td><input type="text" id="id" name="id" class="form-control" th:value="${memberManagementDto.getId()}" readonly></td>
+                <td><input type="text" id="LoginId" name="LoginId" class="form-control" th:value="${memberManagementDto.getLoginId()}" readonly></td>
+                <td><input type="text" id="role" name="role" class="form-control" th:value="${memberManagementDto.getRole()}" readonly></td>
+                <td><input type="text" id="name" name="name" class="form-control" th:value="${memberManagementDto.getName()}" readonly></td>
+                <td><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" th:value="${memberManagementDto.getPhoneNumber()}"></td>
+                <td><input type="button" th:onclick="'sample6_execDaumPostcode(' + ${status.index} + ')'" value="Search Address"></td>
+                <td><input type="text" th:id="'sample6_address_'+${status.index}" name="fullAddr" class="form-control" th:value="${memberManagementDto.getFullAddr()}"></td>
+                <td><button class="btn btn-primary" type="submit">Update</button></td>
+                <td>
+                    <button class="btn btn-danger" th:onclick="|location.href='@{/admin/deleteMember/{id}/(id=${memberManagementDto.id})}'|" type="button">Delete</button>
+                </td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+

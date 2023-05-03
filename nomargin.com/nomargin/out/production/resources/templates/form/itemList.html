@@ -1,73 +1,45 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/itemList.css">
-        <title>NOMARGIN</title>
-    </head>
-    <body>
-        <div class="container" id="'wrapper">
-            <header>
-                <div class="logo"><a href="../../static/index.html">Nomarjin</a></div>
-                <div class="search-box">
-                    <form action="../form/itemList.html" method="get">
-                        <input type="text" name="search" id="search" placeholder="Enter Here..." autocomplete="off">
-                        <input type="submit" value="Search">
-                    </form>
-                </div>
-                <div class="login-btn"><a href="/members/login"></a>Login</div>
-            </header>
-            <nav>
-                <ul class="nav-icon">
-
-<!--                    '@{/basic/products/{productId}/edit(productId=${product.id})}'-->
-                    <li class="top"><a href="/form/itemList/type/top">TOP</a></li>
-                    <li class="bottom"><a href="/form/itemList/type/bottom">BOTTOM</a></li>
-                    <li class="outer"><a href="/form/itemList/type/outer">OUTER</a></li>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/itemList.css">
+<th:block th:replace="fragments/head :: headFragment">
+</th:block>
+<body>
+<div class="container" id="'wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+    <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
+    <div class="list-title" th:each="item : ${items}"></div>
+    <div class="list-title" th:text="${type}">TOP</div>
 
 
-<!--                    <li class="top"><a th:href='@"/form/itemList/${item}"'>TOP</a></li>-->
-<!--                    <li class="bottom"><a href="/form/itemList/bottom">BOTTOM</a></li>-->
-<!--                    <li class="outer"><a href="/form/itemList/outer">OUTER</a></li>-->
-                </ul>
-            </nav>
-            <div class="list-title" th:each="item : ${items}"></div>
+    <section class="item-list">
+        <div class="item-table">
+            <div class="items" th:each="item : ${items}">
+                <a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}">
+                    <div class="item-image">
+                        <img name="file1" id="file1" th:src="|/item/images/${item.mainImg}|"/>
+                    </div>
+                    <div class="item-name" th:text="${item.itemName}">
+                        아이템이름자리
+                    </div>
+                    <div class="item-price" th:text="${#numbers.formatInteger(item.price, 3, 'COMMA') + '원'}">
+                        아이템 가격
+                    </div>
+                </a>
             </div>
-            <div class="list-title" th:text="${type}">TOP</div>
-
-
-            <section class="item-list">
-                    <table class="item-table">
-                        <tbody>
-                        <!--      each : 반복분 -->
-                        <tr class="items" th:each="item : ${items}">
-                            <td class="item-image"><img th:src="@{/clothesImg/{itemType}/{imgName}.jpg(itemType=${item.itemType}, imgName=${item.imgName})}" alt="Image"></td>
-<!--                            <td class="item-image"><img src="../../static/asset/045.jpg" alt="Image"></td>-->
-                            <td class="item-name"><a href="product.html" th:href="@{|/form/itemList/${item.itemId}|}" th:text="${item.itemName}">아이템이름자리</a></td>
-                            <td class="item-price" th:text="${item.price}">아이템 가격</td>
-                        </tr>
-                    </tbody>
-                    </table>
-            </section>
+            <div th:if="${not #strings.isEmpty(message)}" class="no-result-message" th:text="${message}"></div>
         </div>
-            <footer>
-                <ul class="company-info">
-                    <li>Nomarjin company</li>
-                    <li>서울 구로구 디지털로 34길 코오롱 싸이언스밸리 1차 4층 8강의실 구석</li>
-                    <li>김씨 권씨 이씨 임씨 최씨</li>
-                    <li>02-869-8301</li>
-                    <li>000-00-00000</li>
-                </ul>
-                <ul class="company-etc">
-                    <li>healuhen@gmail.com</li>
-                    <li><a href="https://programmers.co.kr/">사이트 바로가기</a></li>
-                </ul>
-            </footer>
-    </body>
-</html>
+    </section>
 
-abc
+
+    <div id="search-results">
+        <!-- 검색 결과가 이곳에 표시됩니다 -->
+        <p id="searching-for"></p>
+        <section id="search-list"></section>
+    </div>
+</div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/JS/search_item.js"></script>
+</body>
+</html>

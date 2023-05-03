@@ -1,4 +1,9 @@
+hr {
+    min-width: 1244px;
+}
+
 .myPage-container {
+    min-width: 1244px;
     margin-bottom: 8px;
     display: flex;
     flex-direction: row;

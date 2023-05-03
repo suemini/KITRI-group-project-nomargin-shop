@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/cart.css">
+<script src="/JS/orderList.js" th:inline="javascript"></script>
+
+<th:block th:replace="fragments/head :: headFragment"></th:block>
+
+<body>
+<div class="container" id="wrapper">
+  <th:block th:replace="fragments/header :: headerFragment"></th:block>
+  <h1 th:text="|전체 주문 내역|">Order List</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>Order Date</th>
+      <th>User Name</th>
+      <th>Product Store</th>
+      <th>Product Type</th>
+      <th>Product Name</th>
+      <th>Product Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Order Cancel</th>
+    </tr>
+    </thead>
+    <tr th:classappend="${allOrderItem.isCancel()} ? 'cancelled' : '' " th:each="allOrderItem, status: ${allOrderItems}">
+      <td th:text="${status.count}"></td>
+      <td th:text="${#temporals.format(allOrderItem.getOrders().getOrderDateTime(), 'yy-MM-dd HH:mm:ss')}"></td>
+      <td th:text="${allOrderItem.getMember().loginId}"></td>
+      <td th:text="${allOrderItem.getItemStore()}"></td>
+      <td th:text="${allOrderItem.getItemType()}"></td>
+      <td th:text="${allOrderItem.getOrderName()}"></td>
+      <td class="price" th:text="${#numbers.formatInteger(allOrderItem.getOrderPrice(),0,'COMMA')} + ' 원'"></td>
+      <td th:text="${allOrderItem.getOrderCount()}"></td>
+      <td class="subtotal" th:text="${#numbers.formatInteger(allOrderItem.getOrderPrice() * allOrderItem.getOrderCount(),0 ,'COMMA')} + ' 원'"></td>
+      <td th:if="${allOrderItem.isCancel()}">주문 취소</a></td>
+      <td th:unless="${allOrderItem.isCancel()}">
+        <form onsubmit="return cancel();" th:action="@{/order/adminCancel/{orderItemId}(orderItemId=${allOrderItem.getId})}" th:method="POST">
+          <button type="submit">cancel</button>
+        </form>
+    </tr>
+    <tfoot>
+    <tr>
+      <td colspan="6"></td>
+      <td th:text="| 총 판매 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">Total price</td>
+      <td class="total-amount"></td>
+
+    </tr>
+    </tfoot>
+  </table>
+</div>
+</body>
+</html>

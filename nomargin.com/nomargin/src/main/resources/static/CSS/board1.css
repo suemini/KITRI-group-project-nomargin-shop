@@ -1,7 +1,6 @@
 .board_wrap {
-    width: 1200px;
-    margin: 100px auto;
-    font-size: 10pt;
+    min-width: 1000px;
+    margin: 70px 20px 0 20px;
 }
 
 .board_title {
@@ -9,12 +8,12 @@
 }
 
 .board_title strong {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .board_title p {
     margin-top: 5px;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .bt_wrap {
@@ -30,8 +29,9 @@
     margin-left: 10px;
     padding: 10px;
     border: 1px solid #000;
+    color: black;
     border-radius: 2px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .bt_wrap a:first-child {
@@ -41,6 +41,29 @@
 .bt_wrap a.on {
     background: #000;
     color: #fff;
+}
+
+.bt_wrap .white {
+    cursor: pointer;
+    min-width: 80px;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid #000;
+    border-radius: 2px;
+    font-size: 1.2rem;
+    margin: 0 10px 0 10px;
+}
+
+.bt_wrap .on {
+    cursor: pointer;
+    min-width: 80px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 0;
+    border-radius: 2px;
+    font-size: 1.2rem;
 }
 
 .board_list {
@@ -83,7 +106,7 @@
     display: inline-block;
     padding: 15px 0;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .board_list > div.top > div {
@@ -117,6 +140,11 @@
 
 .board_list .itemId {
     width: 10%;
+}
+
+.review-contents div {
+    font-weight: normal;
+    font-size: 1.1rem;
 }
 
 .board_page {
@@ -165,7 +193,7 @@
 .board_view .title {
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .board_view .info {
@@ -202,11 +230,7 @@
 .board_view .info dl dt,
 .board_view .info dl dd {
     display: inline-block;
-    font-size: 1.4rem;
-}
-
-.board_view .info dl dt {
-
+    font-size: 1rem;
 }
 
 .board_view .info dl dd {
@@ -218,7 +242,7 @@
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .board_write {
@@ -227,7 +251,7 @@
 
 .board_write .title,
 .board_write .info {
-    padding: 15px;
+    padding: 5px;
 }
 
 .board_write .info {
@@ -242,8 +266,8 @@
 
 .board_write .info dl {
     display: inline-block;
-    width: 50%;
     vertical-align: middle;
+    align-content: center;
 }
 
 .board_write .title dt,
@@ -252,7 +276,12 @@
 .board_write .info dd {
     display: inline-block;
     vertical-align: middle;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+}
+
+.board_write .info dt:nth-child(2),
+.board_write .info dt:nth-child(3) {
+    margin-left: 15px;
 }
 
 .board_write .title dt,
@@ -264,16 +293,58 @@
     width: calc(100% - 100px);
 }
 
+.board_write .info dd {
+    margin: 0;
+}
+
 .board_write .title input[type="text"],
-.board_write .info input[type="text"],
-.board_write .info input[type="password"] {
+.board_write .info dl:nth-child(1) input[type="text"] {
     padding: 10px;
     box-sizing: border-box;
+    font-size: 17px;
+    width: 200px;
+    border: 0;
+}
+
+.board_write .info input[name="reviewPass"] {
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 17px;
+    width: 200px;
 }
 
 .board_write .title input[type="text"] {
-    width: 80%;
+    font-size: 17px;
+    width: 800px;
+    border: 0;
 }
+
+.board_write .title input[type="text"]:focus,
+.board_write .info dl:nth-child(1) input[type="text"]:focus {
+    outline: 0;
+}
+
+.board_write .info select {
+    width: 200px;
+    height: 45px;
+}
+
+.board_write .info select option {
+    font-size: 11pt;
+}
+
+.board_write .info dl:nth-child(2) dt {
+    margin-bottom: 11px;
+}
+
+.board_write .info dl:nth-child(2) dt,
+.board_write .info dl:nth-child(3) dt,
+.updatePass-only dt {
+    margin-left: 15px;
+}
+
+
+
 
 .board_write .cont {
     border-bottom: 1px solid #000;
@@ -287,4 +358,5 @@
     box-sizing: border-box;
     border: 0;
     resize: vertical;
+    font-size: 15pt;
 }

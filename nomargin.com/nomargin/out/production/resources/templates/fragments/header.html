@@ -1,0 +1,52 @@
+<!-- 결제 작성 시에만 씀 (=Navigation 없는 레이아웃) -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<header th:fragment="headerFragment">
+  <!--  container class 밑에서부터 include (꼭!!!)-->
+  <div class="logo"><a href="/members/index">Nomarjin</a></div>
+  <div class="search-box">
+    <form id="search-form" th:action='@{/form/itemList/search}' method="GET">
+      <input type="text" id="keyword-input" name="keyword" placeholder="Enter Here..." autocomplete="off">
+      <input type="submit" id="search-button" value="Search">
+    </form>
+  </div>
+  <a href="/cart" class="cart"><img src="/asset/shopping_cart.png" alt="cart"></a>
+  <a href="/review" class="review-icon"><img src="/asset/review.png" alt="cart"></a>
+
+
+
+  <div class="line">
+    <!--                    로그인안한 사람 보기-->
+    <div sec:authorize="isAnonymous()">
+      <a href="/members/login" class="login-btn">Login</a>
+    </div>
+
+
+    <!--                    로그인한 사람 전부(ADMIN, USER) -->
+    <div sec:authorize="isAuthenticated()" class="login-all-tab">
+      <input type="checkbox" id="welcome-button">
+      <label for="welcome-button"><a th:text="${#authentication.principal.username} + '님'"></a></label>
+      <ul class="login-user-tab">
+        <li><a class="" href="/member/me">MyPage</a></li>
+        <li><a class="" href="/cart">Cart</a></li>
+        <li><a class="" href="/order/list">Order</a></li>
+        <li><a class="" href="/members/logout">Logout</a></li>
+        <!--      &lt;!&ndash;관리자 설정(ADMIN)&ndash;&gt;-->
+        <div sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="login-admin-tab">
+<!--          <li><a class="nav-link" href="/admin/members">회원 관리</a></li>-->
+          <li><a class="nav-link" href="/admin/items">Admin</a></li>
+        </div>
+      </ul>
+    </div>
+
+
+    <!--      <div sec:authorize="hasAnyAuthority('ROLE_ADMIN')" class="login-admin-tab">-->
+    <!--        <a class="nav-link" href="/admin/members">회원 관리</a>-->
+    <!--        <a class="nav-link" href="/admin/">상품 관리</a>-->
+    <!--      </div>-->
+
+  </div>
+</header>
+</html>

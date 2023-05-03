@@ -1,0 +1,154 @@
+label {
+    font-size: 12pt;
+    margin-bottom: 3px;
+}
+
+input {
+    font-size: 11pt;
+    font-weight: normal;
+    height: 30px;
+    border: 0;
+    margin-bottom: 1px;
+    padding-left: 5px;
+}
+
+input:focus {
+    outline: 0;
+    background-color: #e8e8e8;
+}
+
+.join-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 15px 0 15px 0;
+}
+
+.join-items {
+    width: 700px;
+    padding: 20px 95px;
+    margin: auto;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+.form-group {
+    padding-bottom: 15px;
+}
+
+.name-group, .id-group, .pw-group {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.name-group input, .id-group input, .pw-group input {
+    width: 90%;
+}
+
+.phone-group input {
+    text-align: center;
+    width: 140px;
+}
+
+@keyframes blink-effect {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.fieldError {
+    word-break: keep-all;
+    font-size: 11pt;
+    font-weight: bold;
+    color: red;
+    animation: blink-effect 0.3s step-end 3;
+}
+
+.address-postal-code {
+    justify-content: center;
+    text-align: left;
+}
+
+.address-postal-code input[value="우편번호찾기"] {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    width: 110px;
+}
+
+.address-postal-code input[readonly]:focus , .address-info input[readonly]:focus {
+    background-color: white;
+}
+
+.address-info {
+    margin-top: 15px;
+}
+
+.address-info input {
+    margin-bottom: 7px;
+    width: 500px;
+}
+
+.policy-container {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.policy-container h3 {
+    font-size: 14pt;
+    margin: 0;
+}
+
+.policy-text {
+    margin: 7px 0 15px 0;
+    height: 150px;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 10pt;
+    font-weight: normal;
+    word-break: keep-all;
+    color: #5a6268;
+}
+
+.check-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 8px;
+}
+
+label[for="agree"] {
+    padding-top: 6px;
+    text-align: center;
+}
+
+.submit-button {
+    text-align: center;
+}
+
+.submit-button input {
+    width: 130px;
+    height: 50px;
+    font-size: 13pt;
+    background-color: #000000;
+    color: white;
+    border: 0;
+}
+
+.submit-button input:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    color: gray;
+}
+

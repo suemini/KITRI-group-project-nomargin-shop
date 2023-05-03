@@ -1,0 +1,91 @@
+body {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: lightgrey;
+}
+
+.login-container {
+    margin: 150px 0 150px 0;
+    text-align: center;
+}
+
+.login-wrapper{
+    width: 350px;
+    height: 270px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid lightgrey;
+}
+
+.login-wrapper > h2{
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+.form-group{
+    display: inline-block;
+    width: 250px;
+    height: 45px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 13px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+.login-label {
+    margin-right: 10px;
+}
+
+.form-control {
+    height: 95%;
+    border: 0;
+    font-size: 12pt;
+    width: 160px;
+}
+
+.form-control:focus {
+    outline: 0;
+}
+
+.error {
+    margin: 0;
+    color: red;
+}
+
+/*#login-form > input::placeholder{*/
+/*    color: #D2D2D2;*/
+/*}*/
+
+.sign-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.sign-button button {
+    border-top: 1px solid black;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    background-color: white;
+    margin-top: 15px;
+    width: 90px;
+    height: 40px;
+}
+
+.sign-button button:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
+

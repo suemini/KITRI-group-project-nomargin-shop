@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/item.css">
+<link rel="stylesheet" href="/CSS/itemOrderBuy.css">
+<th:block th:replace="fragments/head :: headFragment">
+</th:block>
+<body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+<h1 th:text="|${item.itemName}의 주문이 완료 되었습니다.|"></h1>
+
+<div class="item-image">
+  <div class="item-showImage" th:each="item : ${item}">
+    <img th:src="@{/clothesImg/{imgName}.jpg(imgName=${item.imgName})}" alt="Image">
+  </div>
+</div>
+
+<table>
+  <thead class="item-menu">
+  <tr>
+    <th>Item Name</th>
+    <th>Item Price</th>
+    <th>Item Store</th>
+    <th>Item amount</th>
+    <th>Item TotalPrice</th>
+  </tr>
+  </thead>
+  <tbody class="item-menuValue">
+  <tr th:each="item : ${item}">
+    <td th:text="${item.itemName}"></td>
+    <td th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 0, 'POINT')}"></td>
+    <td th:text="${item.itemStore}"></td>
+    <td th:text="${amount}"></td>
+    <td th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT')}"></td>
+  </tr>
+  </tbody>
+</table>
+<div class="item-order-buy">
+  <button id="buy-button" class="item-buy" onclick="location.href='/'; alert('상품이 주문되었습니다.');">Home</button>
+  <button class="item-buy" onclick="alert('상품 주문이 취소되었습니다.'); window.location.href = document.referrer;">Cancellation</button>
+</div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+</html>

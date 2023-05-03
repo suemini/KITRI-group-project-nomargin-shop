@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
+          th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <script src="/JS/editForm.js" th:inline="javascript"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            list-style: none;
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .bg-dark {
+            background-color: black !important;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .edit-product {
+            background-color: black;
+            border: 0;
+        }
+
+        .cancel {
+            background-color: white;
+            border: 1px solid black;
+            color: black;
+        }
+        .edit-product:hover, .edit-product:active, .edit-product:focus {
+            background-color: #7e7e7e !important;
+            border: 0;
+        }
+
+        img{
+            padding-top: 5px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin/items">관리자 페이지</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/members">회원 관리</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/items">상품 관리</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" onclick="location.href='addForm.html'"
+                   th:onclick="|location.href='/'|" style="cursor: pointer;">홈으로</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>상품 수정</h2>
+    </div>
+    <form action="item.html" th:action th:object="${item}" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="id">상품 ID</label>
+            <input type="text" id="id" name="id" class="form-control"
+                   th:value="${item.getItemId()}" value="1" readonly>
+        </div>
+        <div>
+            <label for="itemName">상품명</label>
+            <input type="text" id="itemName" name="itemName" class="form-control"
+                   th:value="${item.getItemName()}" value="상품A">
+        </div>
+
+        <div>
+            <label for="itemStore">판매처</label>
+            <input type="text" id="itemStore" name="itemStore" class="form-control"
+                   th:value="${item.getItemStore()}" value="판매처A">
+        </div>
+        <div>
+            <label for="price">가격</label>
+            <input type="text" id="price" name="price" class="form-control"
+                   th:value="${item.getPrice()}" value="10000">
+        </div>
+        <div>
+            <label for="stock">수량</label>
+            <input type="text" id="stock" name="stock" class="form-control"
+                   th:value="${item.getStock()}" value="10">
+        </div>
+        <br>
+        <div>
+            <div>상품 종류</div>
+            <div th:each="type : ${ItemType}" class="form-check form-check-inline">
+                <input type="radio" th:field="*{itemType}" th:value="${type.name()}" class="form-check-input">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}" class="form-check-label">
+                    BOOK
+                </label>
+            </div>
+        </div>
+        <hr class="my-4">
+        <div class="item-images">
+            <br>
+            <a>메인 이미지</a>
+            <br>
+            <input type="file" name="mainImg" id="file1">
+            <img id="img1" th:src="|/item/images/${item.mainImg}|" value="사진1" width="300" height="300"/>
+            <br>
+            <a>디테일이미지1</a>
+            <br>
+            <input type="file" name="detailImg1" id="file2">
+            <img id="img2" th:src="|/item/images/${item.getDetailImg1}|" value="사진1" width="300" height="300"/>
+            <br>
+            <a>디테일이미지2</a>
+            <br>
+            <input type="file" name="detailImg2" id="file3">
+            <img id="img3" th:src="|/item/images/${item.getDetailImg2}|" value="사진1" width="300" height="300"/>
+            <br>
+            <a>디테일이미지3</a>
+            <br>
+            <input type="file" name="detailImg3" id="file4">
+            <img id="img4" th:src="|/item/images/${item.getDetailImg3}|" value="사진1" width="300" height="300"/>
+            <br>
+            <a>사이즈 이미지</a>
+            <br>
+            <input type="file" name="sizeImg" id="file5">
+            <img id="img5" th:src="|/item/images/${item.getSizeImg}|" value="사진1" width="300" height="300"/>
+        </div>
+
+
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-lg edit-product" type="submit">저장
+                </button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-lg cancel"
+                        onclick="location.href='item.html'"
+                        th:onclick="|location.href='@{|/admin/items/${item.getItemId()}|}'|"
+                        type="button">취소
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

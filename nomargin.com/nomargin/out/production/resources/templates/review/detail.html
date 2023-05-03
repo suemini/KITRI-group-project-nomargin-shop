@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<link rel="stylesheet" href="/CSS/review.css">
+<th:block th:replace="fragments/head :: headFragment">
+</th:block>
+<body>
+<div class="container" id="wrapper">
+    <th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>후기</strong>
+            <p>고객님들이 작성해주신 후기입니다.</p>
+        </div>
+        <div class="board_view_wrap">
+            <div class="board_view">
+                <div class="title" th:text="${review.getReviewTitle()}"></div>
+                <div class="info">
+                    <dl>
+                        <dt>번호</dt>
+                        <dd th:text="${review.id}"></dd>
+                    </dl>
+                    <dl>
+                        <dt>상품번호</dt>
+                        <dd th:text="${review.getItemId()}"></dd>
+                    </dl>
+                    <dl>
+                        <dt>작성자</dt>
+                        <dd th:text="${review.getReviewWriter()}"></dd>
+                    </dl>
+                    <dl>
+                        <dt>작성일</dt>
+                        <dd th:text="${review.reviewUpdatedTime != null ? #temporals.format(review.reviewUpdatedTime, 'yyyy-MM-dd HH:mm:ss') : #temporals.format(review.reviewCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></dd>
+                    </dl>
+                    <dl>
+                        <dt>조회수</dt>
+                        <dd th:text="${review.getReviewHits()}"></dd>
+                    </dl>
+
+                </div>
+                <div class="cont" th:text="${review.getReviewContents()}"></div>
+            </div>
+            <div class="bt_wrap">
+                <button onclick="listReq()" class="white">목록</button>
+                <button sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:if="${#authentication.principal.username} == ${review.getReviewWriter()}" onclick="updateReq()" class="on">수정</button>
+                <button sec:authorize="hasAnyAuthority('ROLE_ADMIN')" th:if="${#authentication.principal.username} == ${review.getReviewWriter()}" onclick="deleteReq()" class="white">삭제</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script th:inline="javascript">
+    const listReq = () => {
+        console.log("목록 요청");
+        location.href = "/review";
+    }
+    const updateReq = () => {
+        console.log("수정 요청");
+        const id = [[${review.id}]];
+        location.href = "/review/update/" + id;
+    }
+    const deleteReq = () => {
+        console.log("삭제 요청");
+        const id = [[${review.id}]];
+        location.href = "/review/delete/" + id;
+    }
+</script>
+
+</html>
