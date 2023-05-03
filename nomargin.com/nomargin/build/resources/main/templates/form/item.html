@@ -45,7 +45,7 @@
                     <input type="hidden" name="username" th:value="${#authentication.name}">
                     <div class="item-cartOrBuy">
                         <button type="button" onclick="addToCart()">장바구니</button>
-                        <input class="item-buy" type="button" value="상품 구매">
+                        <button type="button" onclick="directPurchase()">상품구매</button>
                     </div>
 
 
@@ -179,6 +179,7 @@
 <script src="/JS/tab.js"></script>
 <script src="/JS/search_item.js"></script>
 <script src="/JS/itemInfo.js"></script>
+<script src="/JS/directPurchase.js"></script>
 </body>
 </html>
 <!--test-->

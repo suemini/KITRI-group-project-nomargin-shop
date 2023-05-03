@@ -66,6 +66,10 @@ public class CartController {
             return "redirect:/form/itemList/{itemId}";
         }
 
+        if (isGoingCart == 2) {
+            return "redirect:/cart/purchase";
+        }
+
         return "members/cart";
     }
 
@@ -98,6 +102,7 @@ public class CartController {
 
 
     // 카트에서 구입 버튼
+    @GetMapping("/cart/purchase")
     @PostMapping("/cart/purchase")
     public String purchase(Authentication authentication ,Model model) {
 
