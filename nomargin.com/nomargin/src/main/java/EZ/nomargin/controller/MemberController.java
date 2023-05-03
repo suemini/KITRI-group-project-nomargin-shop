@@ -122,10 +122,10 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @GetMapping("/test")
-    public String test(){
-        return "members/test";
-    }
 
+    @GetMapping("/denied")
+    public String showAccessDeniedPage() {
+        return "/members/loginForm";
+    }
 
 }
