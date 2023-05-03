@@ -25,7 +25,7 @@ public class ReviewService {
     private final ItemRepository itemRepository;
 
     public Review save(ReviewDto reviewDto) {
-        Review review = Review.toSave(reviewDto);
+        Review review = Review.toSaveEntity(reviewDto);
         // 현재 인증된 사용자 정보를 가져옵니다.
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userId = ((UserDetails) authentication.getPrincipal()).getUsername();
@@ -75,16 +75,10 @@ public class ReviewService {
         return reviewRepository.findByItem(item);
     }
 
-    // 되는 버전 1
-    public ReviewDto update(ReviewDto reviewDto) {
-        Review review = Review.toUpdateEntity(reviewDto);
-        reviewRepository.save(review);
-        return findById(reviewDto.getId());
-    }
 
-    public ReviewDto updateItem(ReviewDto reviewDto) {
+    public ReviewDto updateReview(ReviewDto reviewDto) {
         Review originalReview = reviewRepository.findById(reviewDto.getId()).get();
-        Review review = Review.toUpdate(originalReview, reviewDto, itemRepository);
+        Review review = Review.toUpdateEntity(originalReview, reviewDto, itemRepository);
         reviewRepository.save(review);
         return findById(reviewDto.getId());
     }

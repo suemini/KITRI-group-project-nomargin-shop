@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/CSS/list.css">
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>writer</th>
+        <th>title</th>
+        <th>date</th>
+        <th>hits</th>
+        <th>itemId</th>
+    </tr>
+    <tr th:each="review: ${reviewList}">
+        <td th:text="${review.id}"></td>
+        <td th:text="${review.reviewWriter}"></td>
+        <td><a th:href="@{|/review/${review.id}|}" th:text="${review.reviewTitle}"></a></td>
+        <td th:text="${review.reviewUpdatedTime != null ? #temporals.format(review.reviewUpdatedTime, 'yyyy-MM-dd HH:mm:ss') : #temporals.format(review.reviewCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:text="${review.reviewHits}"></td>
+        <td th:text="${review.getItemId()}"></td>
+    </tr>
+</table>
+
+
+    <div class="col">
+        <button class="w-100 btn btn-primary btn-lg" onclick="location.href='saveForm.html'" th:onclick="|location.href='@{/review/save}'|" type="button">리뷰등록</button>
+        <button th:onclick="|location.href='@{/}'|" type="button" >홈으로</button>
+    </div>
+
+</body>
+</html>

@@ -74,7 +74,7 @@ public class ReviewController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute ReviewDto reviewDto, Model model) {
-        ReviewDto review = reviewService.updateItem(reviewDto);
+        ReviewDto review = reviewService.updateReview(reviewDto);
         model.addAttribute("review", review);
         return "review/detail";
     }

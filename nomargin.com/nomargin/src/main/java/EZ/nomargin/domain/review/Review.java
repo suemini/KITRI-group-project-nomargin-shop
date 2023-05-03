@@ -49,7 +49,7 @@ public class Review {
     private Item item;
 
 
-    public static Review toSave(ReviewDto reviewDto) {
+    public static Review toSaveEntity(ReviewDto reviewDto) {
         Review review = new Review();
         review.setReviewPass(reviewDto.getReviewPass());
         review.setReviewTitle(reviewDto.getReviewTitle());
@@ -63,19 +63,7 @@ public class Review {
         return review;
     }
 
-    public static Review toUpdateEntity(ReviewDto reviewDto) {
-        Review review = new Review();
-        review.setId(reviewDto.getId());
-        review.setReviewWriter(reviewDto.getReviewWriter());
-        review.setReviewPass(reviewDto.getReviewPass());
-        review.setReviewTitle(reviewDto.getReviewTitle());
-        review.setReviewContents(reviewDto.getReviewContents());
-        review.setReviewHits(reviewDto.getReviewHits());
-        review.setUpdatedTime(reviewDto.getReviewUpdatedTime());
-        return review;
-    }
-
-    public static Review toUpdate(Review review, ReviewDto reviewDto, ItemRepository itemRepository) {
+    public static Review toUpdateEntity(Review review, ReviewDto reviewDto, ItemRepository itemRepository) {
         review.setReviewTitle(reviewDto.getReviewTitle());
         review.setReviewContents(reviewDto.getReviewContents());
         review.setReviewHits(reviewDto.getReviewHits());
