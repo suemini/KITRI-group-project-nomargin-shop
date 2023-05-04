@@ -1,49 +1,114 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7f7f7;
 }
 
-h1 {
+.order-list-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.order-list-title {
     text-align: center;
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 27px;
     color: #333;
     text-shadow: 1px 1px #fff;
     margin: 30px 0;
 }
 
-table {
+.order-list-table {
     border-collapse: collapse;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    width: 80%;
     background-color: #fff;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 5px;
     overflow: hidden;
 }
+
+.order-list-table thead th{
+    background-color: black;
+    color: white;
+}
+
+.order-list-table thead th:nth-child(7) {
+    width: 100px;
+}
+
+/*.order-list-table thead th:last-child {*/
+/*    width: 140px;*/
+/*}*/
 
 th, td {
     text-align: center;
     padding: 12px;
     border: none;
     border-bottom: 1px solid #ddd;
+    word-break: keep-all;
 }
 
-th {
-    background-color: #f7f7f7;
-    color: #555;
-    text-shadow: none;
+tbody td {
+    text-align: center;
 }
 
-td:first-child {
-    text-align: left;
-    font-weight: bold;
+tbody td:first-child {
+    font-weight: normal;
     color: #555;
 }
 
-td:last-child {
+tbody td:last-child {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    width: 60px;
+    height: 30px;
     font-weight: bold;
-    color: #4caf50;
+    font-size: 10pt;
+    color: #da0000;
+}
+
+tbody td:last-child form {
+
+    width: 60px;
+}
+
+tbody td:last-child form button {
+    cursor: pointer;
+    display: flex;
+    width: 60px;
+    height: 40px;
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 4px;
+    background-color: darkred;
+    color: white;
+}
+
+tbody td:last-child form button:hover {
+    background-color: #ee0000;
+}
+
+.total-container {
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 200px;
+    text-align: right;
+}
+
+.total-result {
+    font-size: 20pt;
+}
+
+.total-text {
+    font-size: 20px;
 }
 
 .quantity {

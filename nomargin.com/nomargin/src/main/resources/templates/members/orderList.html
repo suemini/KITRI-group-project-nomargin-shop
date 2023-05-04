@@ -8,8 +8,10 @@
 <body>
 <div class="container" id="wrapper">
     <th:block th:replace="fragments/header :: headerFragment"></th:block>
-    <h1 th:text="|${#authentication.principal.username} 의 주문내역|">Order List</h1>
-    <table>
+    <section class="order-list-section">
+
+        <h1 class="order-list-title" th:text="|${#authentication.principal.username}님의 주문내역|">Order List</h1>
+        <table class="order-list-table">
         <thead>
         <tr>
             <th>No</th>
@@ -23,6 +25,7 @@
             <th>Order Cancel</th>
         </tr>
         </thead>
+        <tbody>
         <tr th:classappend="${orderItem.isCancel()} ? 'cancelled' : '' " th:each="orderItem, status: ${orderItems}">
             <td th:text="${status.count}"></td>
             <td th:text="${#temporals.format(orderItem.getOrders().getOrderDateTime(),'yy-MM-dd')}"></td>
@@ -38,14 +41,19 @@
                 <button type="submit">cancel</button>
             </form>
         </tr>
-        <tfoot>
-        <tr>
-            <td colspan="6"></td>
-            <td th:text="| 총 결제 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">Total price</td>
-            <td class="total-amount"></td>
-        </tr>
-        </tfoot>
+        </tbody>
+        <!--        <tfoot>-->
+        <!--        <tr>-->
+        <!--            <td colspan="5"></td>-->
+        <!--            <td colspan="3" class="total-text" th:text="| 총 결제 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">Total price</td>-->
+        <!--            <td class="total-amount"></td>-->
+        <!--        </tr>-->
+        <!--        </tfoot>-->
     </table>
+    <div class="total-container">
+        <div class="total-result" th:text="| 총 결제 금액: ${#numbers.formatInteger(totalPrice,0,'COMMA')} 원|">결제 금액</div>
+    </div>
+    </section>
 </div>
 </body>
 </html>
