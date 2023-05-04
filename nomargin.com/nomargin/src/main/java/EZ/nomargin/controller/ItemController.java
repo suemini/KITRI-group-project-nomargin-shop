@@ -34,6 +34,7 @@ public class ItemController {
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
         model.addAttribute("item", item);
+        model.addAttribute("stock", item.getStock());
         List<Review> reviewList = reviewService.getReviewsByItem(item);
         model.addAttribute("reviewList", reviewList);
         return "/form/item";
