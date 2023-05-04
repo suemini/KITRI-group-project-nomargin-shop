@@ -14,10 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -37,7 +34,7 @@ public class CartController {
 
 
     //--------------05.02 변경(현덕)
-    // 05/03 수정(경진)
+    // 05/04 수정(재연)
     @PostMapping("/cart/{itemId}")
     public String addCartItem(@PathVariable("itemId") Long itemId, @RequestParam String username, int amount,
                               Integer isGoingCart, Model model) {
@@ -62,7 +59,7 @@ public class CartController {
         model.addAttribute("cartItemList", cartItemList);
         model.addAttribute("totalPrice", totalPrice);
 
-        if (isGoingCart != null && isGoingCart == 0) {
+        if (isGoingCart == 0) {
             return "redirect:/form/itemList/{itemId}";
         }
 
@@ -102,8 +99,7 @@ public class CartController {
 
 
     // 카트에서 구입 버튼
-    @GetMapping("/cart/purchase")
-    @PostMapping("/cart/purchase")
+    @RequestMapping(value="/cart/purchase" , method = {RequestMethod.GET, RequestMethod.POST})
     public String purchase(Authentication authentication ,Model model) {
 
         String loginId = authentication.getName();

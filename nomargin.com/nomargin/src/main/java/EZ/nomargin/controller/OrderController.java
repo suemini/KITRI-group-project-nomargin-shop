@@ -35,26 +35,30 @@ public class OrderController {
     // 주문 페이지에서 구매
     @Transactional
     @PostMapping("/order/checkout")
-    public String purchaseCartItems(Authentication authentication) {
+    public String purchaseCartItems(Authentication authentication, Model model) {
 
         String loginId = authentication.getName();
         Member member = memberService.findByLoginId(loginId);
         Cart privateCart = member.getCart();
+        model.addAttribute("member", member);
 
         List<CartItem> selectedCartItems = new ArrayList<>(cartService.memberCart(privateCart));
         List<OrderItem> orderItemList = new ArrayList<>();
 
+        int purchasePrice = 0;
         for (CartItem cartItem : selectedCartItems) {
             cartItem.getItem().setStock(cartItem.getItem().getStock() - cartItem.getCount()); // 재고 변화
-            OrderItem orderItem = orderService.addCartOrder(cartItem.getItem().getItemId(),member.getId(), cartItem);
+            OrderItem orderItem = orderService.addCartOrder(cartItem.getItem().getItemId(), member.getId(), cartItem);
             orderItemList.add(orderItem);
+            purchasePrice += cartItem.getItem().getPrice() * cartItem.getCount();
         }
+        model.addAttribute("purchasePrice", purchasePrice);
 
         // 주문 추가 & 카트 비우기
         orderService.addOrders(member, orderItemList);
         cartService.allCartItemDelete(loginId);
 
-        return "redirect:/";
+        return "/order/purchase";
     }
 
 

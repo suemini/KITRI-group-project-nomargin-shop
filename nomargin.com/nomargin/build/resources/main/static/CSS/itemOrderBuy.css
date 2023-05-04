@@ -1,38 +1,16 @@
-.item-buy {
-    width: 200px;
-    height: 50px;
-    background-color: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 0 25px 0 30px;
-}
-
-.item-showImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.item-showImage img {
-    max-width: 15%;
-    max-height: 15%;
-    margin-bottom: 100px;
-}
-
-h1 {
+h2 {
     text-align: center;
-    margin-bottom: 150px;
+    font-size: 30pt;
 }
 
 table {
     border-collapse: collapse;
-    width: fit-content;
+    width: 80%;
     margin: 0 auto;
 }
 
 th, td {
-    border: 1px solid black;
+    border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
 }
@@ -41,22 +19,39 @@ th {
     background-color: #f2f2f2;
 }
 
-.item-menu th {
-    background-color: #4CAF50;
-    color: white;
+tfoot {
+    font-weight: bold;
+    background-color: #f2f2f2;
 }
 
-.item-menuValue td {
+.item-totalPrice {
     font-weight: bold;
+    text-align: right;
+    padding: 30px 0;
+    white-space: pre-wrap;
     background-color: white;
+    border: none;
 }
 
 .item-order-buy {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 20px;
 }
 
-body {
-    background-color: #E2E2E2;
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
 }
