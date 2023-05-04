@@ -99,7 +99,6 @@ public class CartController {
 
 
     // 카트에서 구입 버튼
-
     @RequestMapping(value="/cart/purchase" , method = {RequestMethod.GET, RequestMethod.POST})
     public String purchase(Authentication authentication ,Model model) {
 
@@ -146,7 +145,6 @@ public class CartController {
         return "redirect:/cart";
 
     }
-
 
     //카트에서 수량 변경
     @Transactional

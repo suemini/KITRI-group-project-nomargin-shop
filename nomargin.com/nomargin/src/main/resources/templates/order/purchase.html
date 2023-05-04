@@ -1,83 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"></html>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="format-detection" content="telephone=no">
-<title>NoMarGin</title>
-<th:block th:replace="fragments/head :: headFragment">
-</th:block>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="/CSS/purchase.css">
+<meta charset="UTF-8">
+<th:block th:replace="fragments/head :: headFragment"></th:block>
 <body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
 <form method="POST" action="/order/checkout">
-<div class="container" id="wrapper">
-  <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
-  ((여기에 내용))
-  <!-- Generic Pod Left Aligned with Price breakdown Start -->
-  <table align="center" cellpadding="0" cellspacing="0" cols="3" bgcolor="white" class="bordered-left-right" style="border-left: 10px solid #d7d7d7; border-right: 10px solid #d7d7d7; max-width: 600px; width: 100%;">
-    <tr height="50"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
-    <tr align="center">
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td class="text-primary" style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
-        <img src="http://dgtlmrktng.s3.amazonaws.com/go/emails/generic-email-template/tick.png" alt="GO" width="50" style="border: 0; font-size: 0; margin: 0; max-width: 100%; padding: 0;">
-      </td>
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
-    <tr height="17"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
-    <tr align="center">
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td class="text-primary" style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
-        <h1 style="color: #F16522; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 40px; font-weight: 700; line-height: 34px; margin-bottom: 0; margin-top: 0;">주문 완료</h1>
-      </td>
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
-    <tr height="30"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
-    <tr align="left">
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
-        <p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 22px; margin: 0;">
-          <span th:text="${member.getLoginId()} + ' 님'"></span>
-        </p>
-      </td>
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
-    <tr height="10"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
-    <tr align="left">
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
-        <p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 25px; line-height: 22px; margin: 0;">주문이 완료되었습니다.!</p>
-        <br>
 
-        <p>결제 금액: <span th:text="${#numbers.formatDecimal(purchasePrice, 0, 'COMMA', 0, 'POINT')} + ' 원'"></span></p> <br/>
-          입 금 계 좌: 000-000-000000<br/></p>
-        <br>
-        <p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;">We advise to keep this email for future reference.&nbsp;&nbsp;&nbsp;&nbsp;<br/></p>
-      </td>
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
-    <tr height="30">
-      <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td style="border-bottom: 1px solid #D3D1D1; color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
-    <tr height="30"><td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td></tr>
-    <tr align="center">
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-      <td style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;">
 
-        <button id="buy-button" class="item-buy" onclick="location.href='/';">메인 페이지로 이동</button>
+  <div class="purchase-image">
+    <img src="http://dgtlmrktng.s3.amazonaws.com/go/emails/generic-email-template/tick.png" alt="GO" width="50" style="border: 0; font-size: 0; margin: 0; max-width: 100%; padding: 0;">
+  </div>
 
-        <p style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22px; margin: 0;"></p>
-      </td>
-      <td width="36" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
+  <h1>주문 완료</h1>
 
-    <tr height="50">
-      <td colspan="3" style="color: #464646; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 16px; vertical-align: top;"></td>
-    </tr>
+  <table class="purchase-info">
+
+    <span th:text="${member.getLoginId()} + ' 님'"></span>
+    <p>주문이 완료되었습니다.!</p>
+
+    <p>결제 금액: <span th:text="${#numbers.formatDecimal(purchasePrice, 0, 'COMMA', 0, 'POINT')} + ' 원'"></span></p> <br/>
+    입 금 계 좌: [OO은행] 000-000-000000<br/></p>
 
   </table>
-  <!-- Generic Pod Left Aligned with Price breakdown End -->
 
-</div>
+
+  <button id="buy-button" class="item-buy" onclick="location.href='/';">메인 페이지로 이동</button>
+
+
+  <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </form>
+</body>
+</html>

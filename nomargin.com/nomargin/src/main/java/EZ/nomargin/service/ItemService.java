@@ -127,27 +127,4 @@ public class ItemService {
         itemRepository.save(item);
     }
 
-//    public void delete(Long itemId) {
-//        itemRepository.delete(itemId);
-//    }
-
-
-//    public void update(Long itemId, Item updateItem) {
-//        itemRepository.update(itemId, updateItem);
-//    }
-
-
-
-    //////////
-    public void changeQuantity(Long itemId, int quantity) {
-        // DB에 저장된 개수에서 클라가 고른 수량을 산 만큼 뺴서 저장
-        Item item = itemRepository.findById(itemId);
-
-        int stock = item.getStock();
-        item.setStock(stock - quantity);
-
-        itemRepository.save(item);
-    }
-
-
 }

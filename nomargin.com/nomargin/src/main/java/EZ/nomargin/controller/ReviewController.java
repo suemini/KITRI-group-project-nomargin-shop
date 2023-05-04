@@ -30,7 +30,7 @@ public class ReviewController {
         return "review/saveForm";
     }
 
-
+    // 리뷰 저장
     @PostMapping("/save")
     public String save(@ModelAttribute ReviewDto reviewDto,
                        RedirectAttributes redirectAttributes, Model model) {
@@ -45,6 +45,7 @@ public class ReviewController {
         return "redirect:/review/{id}";
     }
 
+    // 리뷰 목록
     @GetMapping("")
     public String findAll(Model model) {
         List<ReviewDto> reviewDtoList = reviewService.findAll();
@@ -54,6 +55,7 @@ public class ReviewController {
         return "review/list";
     }
 
+    // 리뷰 상세
     @GetMapping("/{id}")
     public String findById(@PathVariable Long id, Model model) {
         reviewService.updateHits(id);
@@ -61,7 +63,6 @@ public class ReviewController {
         model.addAttribute("review", reviewDto);
         return "review/detail";
     }
-
 
     @GetMapping("/update/{id}")
     public String updateForm(@PathVariable Long id, Model model) {
@@ -71,6 +72,7 @@ public class ReviewController {
         model.addAttribute("items", items);
         return "review/updateForm";
     }
+
 
     @PostMapping("/update")
     public String update(@ModelAttribute ReviewDto reviewDto, Model model) {

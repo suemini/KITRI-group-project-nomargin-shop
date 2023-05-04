@@ -18,14 +18,14 @@ import java.time.LocalDateTime;
 @Setter
 @RequiredArgsConstructor
 public class Review {
-    @Id
+    @Id // 리뷰번호
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 20, nullable = false)
+    @Column(length = 20, nullable = false)  // 작성자
     private String reviewWriter;
 
-    @Column
+    @Column // 비밀번호
     private String reviewPass;
 
     @Column
@@ -33,14 +33,14 @@ public class Review {
 
     @Column(length = 500)
     private String reviewContents;
-    @Column
+    @Column // 조회수
     private int reviewHits;
 
-    @CreationTimestamp
+    @CreationTimestamp  // 작성시간
     @Column(updatable = false)
     private LocalDateTime createdTime;
 
-    @UpdateTimestamp
+    @UpdateTimestamp    // 수정시간
     @Column(insertable = false)
     private LocalDateTime updatedTime;
 

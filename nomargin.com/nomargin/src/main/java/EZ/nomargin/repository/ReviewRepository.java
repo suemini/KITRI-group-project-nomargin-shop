@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
+    // 조회수 추가
     @Modifying
     @Query(value = "update Review r set r.reviewHits=r.reviewHits+1 where r.id=:id")
     void updateHits(@Param("id") Long id);

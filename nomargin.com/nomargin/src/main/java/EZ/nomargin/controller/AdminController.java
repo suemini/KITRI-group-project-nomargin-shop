@@ -62,6 +62,7 @@ public class AdminController {
         return "/admin/addForm";
     }
 
+    // 상품 추가 (사진 업로드 포함)
     @RequestMapping(path = "/add", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public String reviewPostPro(@ModelAttribute ItemDto itemDto, RedirectAttributes redirectAttributes) throws Exception{
         Item item = itemService.post(itemDto);
@@ -76,6 +77,7 @@ public class AdminController {
         return "/admin/editForm";
     }
 
+    // 상품 수정 (사진 이미지 포함)
     @RequestMapping(path = "/edit/{itemId}", method = POST, consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
     public String update(@PathVariable("itemId") Long itemId,
                          @ModelAttribute ItemDto itemDto,
@@ -100,6 +102,7 @@ public class AdminController {
         return  "redirect:/admin/items";
     }
 
+    // 상품 목록
     @GetMapping("/items")
     public ModelAndView items() {
         List<Item> items = itemService.findAll();

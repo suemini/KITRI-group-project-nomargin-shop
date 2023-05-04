@@ -29,6 +29,7 @@ public class ItemController {
     private final FileStore fileStore;
     private final ReviewService reviewService;
 
+    // 상품 상세페이지(해당하는 리뷰 추가)
     @GetMapping("/form/itemList/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemService.findById(itemId);
@@ -89,20 +90,11 @@ public class ItemController {
         return "/form/itemList";
     }
 
+    // 상품 이미지 등록
     @ResponseBody
     @GetMapping("/item/images/{filename}")
     public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {
         return new UrlResource("file:" + fileStore.getFullPath(filename));
-    }
-
-    @GetMapping("/itemBuy")
-    public String itemBuy(@RequestParam("itemId") Long itemId, @RequestParam("amount") int amount, Model model) {
-        Item item = itemService.findById(itemId);
-        model.addAttribute("item", item);
-        model.addAttribute("amount", amount);
-        model.addAttribute("totalPrice", item.getPrice() * amount);
-        itemService.changeQuantity(item.getItemId(), amount);
-        return "order/itemBuy";
     }
 
     @PostConstruct  // 생성 이후 얘를 실행
