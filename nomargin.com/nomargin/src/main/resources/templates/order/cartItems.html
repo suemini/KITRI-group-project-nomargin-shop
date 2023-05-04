@@ -24,9 +24,9 @@
 
     <tbody  class="item-list" th:each="item : ${cartItems}">
     <tr class="item-itemInfo">
-      <td th:text="${item.getItem().getItemStore()}"></td>
-      <td th:text="${item.getItem().getItemType()}"></td>
       <td th:text="${item.getItem().getItemName()}"></td>
+      <td th:text="${item.getItem().getPrice()}"></td>
+      <td th:text="${item.getItem().getItemStore()}"></td>
       <td th:text="${item.getCount()} + ' 개'"></td>
       <td th:text="${#numbers.formatInteger(item.getItem().getPrice() * item.getCount(), 0, 'COMMA')} + ' 원'"></td>
 

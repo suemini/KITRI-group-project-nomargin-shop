@@ -58,7 +58,7 @@ public class OrderController {
         orderService.addOrders(member, orderItemList);
         cartService.allCartItemDelete(loginId);
 
-        return "/order/purchase";
+        return "order/purchase";
     }
 
 

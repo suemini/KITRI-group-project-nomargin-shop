@@ -67,7 +67,7 @@ public class CartController {
             return "redirect:/cart/purchase";
         }
 
-        return "members/cart";
+        return "/members/cart";
     }
 
 

@@ -99,14 +99,13 @@ public class CartService {
         cartItemRepository.save(cartItem);}
 
 
-
-
     //--------------05.02 추가(현덕)
     // 주문 결제가 끝나면 카트 비우기
     public void allCartItemDelete(String id) {
         List<CartItem> cartItems = cartItemRepository.findAll();
         for(CartItem cartItem : cartItems){
-            if(cartItem.getCart().getMember().getLoginId() == id) {
+            System.out.println(cartItem.getCart().getMember().getLoginId());
+            if(cartItem.getCart().getMember().getLoginId().equals(id)) {
                 cartItem.getCart().setCount(0);
                 cartItemRepository.deleteById(cartItem.getId());
             }

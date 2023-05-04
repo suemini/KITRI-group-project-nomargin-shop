@@ -18,6 +18,7 @@ import java.util.List;
 //--------------05.02 추가(현덕)
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class OrderService {
 

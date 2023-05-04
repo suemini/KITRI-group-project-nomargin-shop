@@ -1,3 +1,38 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns="http://www.w3.org/1999/html">-->
+<!--<link rel="stylesheet" href="/CSS/purchase.css">-->
+<!--<meta charset="UTF-8">-->
+<!--<th:block th:replace="fragments/head :: headFragment"></th:block>-->
+<!--<body>-->
+<!--<th:block th:replace="fragments/header :: headerFragment"></th:block>-->
+<!--<form class="item-order" method="POST" action="/order/checkout">-->
+<!--  <div class="purchase-image">-->
+<!--    <img src="http://dgtlmrktng.s3.amazonaws.com/go/emails/generic-email-template/tick.png" alt="GO" width="50" style="border: 0; font-size: 0; margin: 0; max-width: 100%; padding: 0;">-->
+<!--  </div>-->
+
+<!--  <h1>주문 완료</h1>-->
+
+<!--  <table class="purchase-info">-->
+<!--    <tr >-->
+<!--      <td colspan="2" class="item_man"><span th:text="${member.getLoginId()} + ' 님'"></span> 상품 구매를 완료하셨습니다!</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td><span>결제 금액:</span></td>-->
+<!--      <td><span th:text="${#numbers.formatDecimal(purchasePrice, 0, 'COMMA', 0, 'POINT')} + ' 원'"></span></td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--      <td><span>입금 계좌:</span></td>-->
+<!--      <td>[OO은행] 000-000-000000</td>-->
+<!--    </tr>-->
+<!--  </table>-->
+
+<!--  <button id="buy-button" class="item-buy" onclick="location.href='/';">메인 페이지로 이동</button>-->
+<!--  -->
+<!--</form>-->
+<!--<th:block th:replace="fragments/footer :: footerFragment"></th:block>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <link rel="stylesheet" href="/CSS/purchase.css">
@@ -5,31 +40,31 @@
 <th:block th:replace="fragments/head :: headFragment"></th:block>
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
-<form method="POST" action="/order/checkout">
 
 
 
-  <div class="purchase-image">
-    <img src="http://dgtlmrktng.s3.amazonaws.com/go/emails/generic-email-template/tick.png" alt="GO" width="50" style="border: 0; font-size: 0; margin: 0; max-width: 100%; padding: 0;">
-  </div>
 
-  <h1>주문 완료</h1>
+<div class="purchase-image">
+  <img src="http://dgtlmrktng.s3.amazonaws.com/go/emails/generic-email-template/tick.png" alt="GO" width="50" style="border: 0; font-size: 0; margin: 0; max-width: 100%; padding: 0;">
+</div>
 
-  <table class="purchase-info">
+<h1>주문 완료</h1>
 
-    <span th:text="${member.getLoginId()} + ' 님'"></span>
-    <p>주문이 완료되었습니다.!</p>
+<table class="purchase-info">
 
-    <p>결제 금액: <span th:text="${#numbers.formatDecimal(purchasePrice, 0, 'COMMA', 0, 'POINT')} + ' 원'"></span></p> <br/>
-    입 금 계 좌: [OO은행] 000-000-000000<br/></p>
+  <span th:text="${member.getLoginId()} + ' 님'"></span>
+  <p>주문이 완료되었습니다.!</p>
 
-  </table>
+  <p>결제 금액: <span th:text="${#numbers.formatDecimal(purchasePrice, 0, 'COMMA', 0, 'POINT')} + ' 원'"></span></p> <br/>
+  입 금 계 좌: [OO은행] 000-000-000000<br/></p>
 
-
-  <button id="buy-button" class="item-buy" onclick="location.href='/';">메인 페이지로 이동</button>
+</table>
 
 
-  <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+<button id="buy-button" class="item-buy" onclick="location.href='/';">메인 페이지로 이동</button>
+
+
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </form>
 </body>
 </html>
