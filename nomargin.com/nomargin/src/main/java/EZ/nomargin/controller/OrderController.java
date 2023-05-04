@@ -48,6 +48,8 @@ public class OrderController {
         int purchasePrice = 0;
         for (CartItem cartItem : selectedCartItems) {
             cartItem.getItem().setStock(cartItem.getItem().getStock() - cartItem.getCount()); // 재고 변화
+            cartItem.getItem().setCount(cartItem.getCount());
+
             OrderItem orderItem = orderService.addCartOrder(cartItem.getItem().getItemId(), member.getId(), cartItem);
             orderItemList.add(orderItem);
             purchasePrice += cartItem.getItem().getPrice() * cartItem.getCount();

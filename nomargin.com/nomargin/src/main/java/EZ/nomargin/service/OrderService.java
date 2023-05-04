@@ -58,7 +58,10 @@ public class OrderService {
     public void orderCancel(OrderItem cancelItem) {
         Item item = itemService.findById(cancelItem.getOrderId());
         item.setStock(item.getStock()+ cancelItem.getOrderCount()); // 재고 다시 늘림
-        item.setCount(item.getCount()-cancelItem.getOrderCount()); // 판매량 감소
+        int value1 = item.getCount();
+        int value2 = cancelItem.getOrderCount();
+
+        //item.setCount(value); // 판매량 감소
         cancelItem.setCancel(true); // 주문 취소
         orderItemRepository.save(cancelItem);
     }
