@@ -50,6 +50,14 @@ th, td {
     word-break: keep-all;
 }
 
+
+thead th {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
 tbody td {
     text-align: center;
 }
@@ -59,42 +67,42 @@ tbody td:first-child {
     color: #555;
 }
 
-tbody td:last-child {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px;
-    width: 60px;
-    height: 30px;
-    font-weight: bold;
-    font-size: 10pt;
-    color: #da0000;
-}
+/*tbody td:last-child {*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    text-align: center;*/
+/*    padding: 10px;*/
+/*    width: 60px;*/
+/*    height: 30px;*/
+/*    font-weight: bold;*/
+/*    font-size: 10pt;*/
+/*    color: #da0000;*/
+/*}*/
 
-tbody td:last-child form {
+/*tbody td:last-child form {*/
 
-    width: 60px;
-}
+/*    width: 60px;*/
+/*}*/
 
-tbody td:last-child form button {
-    cursor: pointer;
-    display: flex;
-    width: 60px;
-    height: 40px;
-    margin-bottom: 5px;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 0;
-    border-radius: 4px;
-    background-color: darkred;
-    color: white;
-}
+/*tbody td:last-child form button {*/
+/*    cursor: pointer;*/
+/*    display: flex;*/
+/*    width: 60px;*/
+/*    height: 40px;*/
+/*    margin-bottom: 5px;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-weight: bold;*/
+/*    font-size: 1rem;*/
+/*    border: 0;*/
+/*    border-radius: 4px;*/
+/*    background-color: darkred;*/
+/*    color: white;*/
+/*}*/
 
-tbody td:last-child form button:hover {
-    background-color: #ee0000;
-}
+/*tbody td:last-child form button:hover {*/
+/*    background-color: #ee0000;*/
+/*}*/
 
 .total-container {
     width: 100%;
@@ -126,20 +134,48 @@ tbody td:last-child form button:hover {
     color: #4caf50;
 }
 
-.Purchase {
-    display: block;
-    margin: 30px auto;
-    padding: 12px 24px;
-    background-color: #4caf50;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
 .checkout:hover {
     background-color: #3e8e41;
+}
+.mybutton {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    border: black 1px;
+    cursor: pointer;
+    width: 100px;
+    height: 38px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    float: left; /* Added property to move the button to the left */
+}
+
+tbody .on  {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 100px;
+    height: 38px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    !important;
+}
+
+/*.btn-primary {*/
+/*    background-color: black;*/
+/*}*/
+
+/*.btn-outline-secondary {*/
+/*    background-color: transparent;*/
+/*    color: black;*/
+/*    border: 1px solid black;*/
+/*}*/
+
+.btn:hover {
+    background-color: gray;
 }
