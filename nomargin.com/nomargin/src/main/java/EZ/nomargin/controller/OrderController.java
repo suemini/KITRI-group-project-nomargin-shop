@@ -95,14 +95,22 @@ public class OrderController {
     @GetMapping("/order/adminList")
     public String allOrderList(Model model) {
         List<OrderItem> allOrderItems = orderService.allOrderItem();
-        int totalPrice = 0;
 
+        int totalPrice = 0;
         for (OrderItem orderItem : allOrderItems) {
             if (!orderItem.isCancel()){
                 totalPrice += orderItem.getOrderTotalPrice();
             }
         }
+        int totalQuantity = 0;
+        for (OrderItem orderItem : allOrderItems) {
+            if (!orderItem.isCancel()){
+                totalQuantity += orderItem.getOrderCount();
+            }
+        }
 
+
+        model.addAttribute("totalQuantity", totalQuantity);
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("allOrderItems",allOrderItems);
         return "/admin/allOrderList";

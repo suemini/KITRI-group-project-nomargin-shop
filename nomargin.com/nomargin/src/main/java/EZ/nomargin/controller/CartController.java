@@ -83,7 +83,7 @@ public class CartController {
 
         // 로그인한 사람의 개인 장바구니의 내용물들
         Cart privateCart = member.getCart();
-        if (privateCart == null) {
+        if (privateCart == null || privateCart.getCount()==0) {
             model.addAttribute("message", "장바구니가 비어있습니다.");
             return "/members/nullCart";
         }
