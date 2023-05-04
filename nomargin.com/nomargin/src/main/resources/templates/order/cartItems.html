@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<link rel="stylesheet" href="/CSS/itemBuy.css">
+<link rel="stylesheet" href="/CSS/itemOrderBuy.css">
 <th:block th:replace="fragments/head :: headFragment"></th:block>
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
@@ -41,7 +41,7 @@
   </table>
 
   <div class="item-order-buy">
-    <button id="buy-button" class="cartItems" type="submit">주문</button>
+    <button id="buy-button" class="cart-Items" type="submit">주문</button>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <button class="cartItems" onclick="alert('상품 주문이 취소되었습니다.'); window.location.href = document.referrer;">주문 취소</button>
   </div>

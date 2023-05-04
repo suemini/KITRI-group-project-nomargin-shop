@@ -39,8 +39,8 @@ tfoot {
     margin-top: 20px;
 }
 
-button {
-    background-color: #4CAF50;
+.cart-Items {
+    background-color: black;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -48,8 +48,23 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px 30px;
+    margin: 4px 10px 30px;
     cursor: pointer;
+    width: 110px;
+}
+
+.cartItems {
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 10px 30px;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 110px;
 }
 
 button:hover {
