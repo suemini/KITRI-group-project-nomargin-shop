@@ -45,7 +45,7 @@
                 <button onclick="listReq()" class="white">목록</button>
                 <button sec:authorize="hasAnyAuthority('ROLE_ADMIN')" onclick="updateReq()" class="on">수정</button>
                 <button sec:authorize="hasAnyAuthority('ROLE_USER')" th:if="${#authentication.principal.username == review.getReviewWriter()}" onclick="updateReq()" class="on">수정</button>
-                <button sec:authorize="hasAnyAuthority('ROLE_ADMIN')" onclick="deleteReq()" class="on">삭제</button>
+                <button sec:authorize="hasAnyAuthority('ROLE_ADMIN')" onclick="deleteReq()" class="white">삭제</button>
                 <button sec:authorize="hasAnyAuthority('ROLE_USER')" th:if="${#authentication.principal.username == review.getReviewWriter()}" class="white" onclick="deleteReq()">삭제</button>
             </div>
         </div>
