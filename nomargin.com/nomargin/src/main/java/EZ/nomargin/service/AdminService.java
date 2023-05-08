@@ -1,11 +1,13 @@
 package EZ.nomargin.service;
 
 import EZ.nomargin.domain.member.Member;
+import EZ.nomargin.domain.order.Orders;
 import EZ.nomargin.dto.MemberManagementDto;
-import EZ.nomargin.repository.MemberRepository;
+import EZ.nomargin.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,12 @@ import java.util.List;
 public class AdminService {
 
     private final MemberRepository memberRepository;
+    private final CartRepository cartRepository;
+    private final CartItemRepository cartItemRepository;
+    private final OrderItemRepository orderItemRepository;
+    private final OrderRepository orderRepository;
+
+
 
     public Member findByLoginId(String loginId) {
         return memberRepository.findByLoginId(loginId).get();
@@ -27,8 +35,23 @@ public class AdminService {
         return memberRepository.findById(id).get();}
 
 
+    @Transactional
     public void deleteById(Long id) {
-        memberRepository.delete(findById(id));}
+        Member member = memberRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Not Existing Member id: " + id));
+
+        // Cart 부터 삭제
+        if (member.getCart() != null) {
+            cartItemRepository.deleteAll(member.getCart().getCartItems());
+            cartRepository.delete(member.getCart());
+        }
+        for (Orders orders : member.getMemberOrders()) {
+            orderItemRepository.deleteAll(orders.getOrderItems());
+        }
+        orderRepository.deleteAll(member.getMemberOrders());
+        orderItemRepository.deleteAll(member.getMemberOrderItem());
+        memberRepository.delete(member);
+    }
+
 
 
     public List<MemberManagementDto> findByMmDto() {

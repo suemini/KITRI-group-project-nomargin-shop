@@ -114,7 +114,9 @@ public class MemberController {
 
     @GetMapping("/denied")
     public String showAccessDeniedPage() {
-        return "/members/loginForm";
+        return "/members/notAdmin";
     }
+
+
 
 }

@@ -37,28 +37,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/","/item/images/**", "/members/**","/form/**", "/review/**").permitAll()
                 .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .mvcMatchers("/cart/**","/order/**").authenticated()
-                .anyRequest().authenticated();
+                .mvcMatchers("/cart/**","/order/**").authenticated().and()
 
 
-        // 인증 후에 로그인, 로그아웃 시 경로 설정
-        http.formLogin()
-                .loginPage("/members/loginFrom") // 로그인 기능이 있는 html파일 지정
+                .exceptionHandling()
+                .accessDeniedPage("/members/denied")
+                .and()
+
+                // 인증 후에 로그인, 로그아웃 시 경로 설정
+                .formLogin()
+                .loginPage("/members/login") // 로그인 기능이 있는 html파일 지정
                 .loginProcessingUrl("/members/login") // 로그인 기능이 있는 html파일에서 정한 action ="" 경로
-                .defaultSuccessUrl("/members/index") //로그인되면 가는곳
+                .defaultSuccessUrl("/") //로그인되면 가는곳
                 .failureUrl("/members/login/fail") //로그인 실패시
                 .usernameParameter("loginId") //username대신 쓸 값, id/password 을 username/password으로 표시하기 때문에 username으로 안쓸거면 지정해야 함.
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                .logoutSuccessUrl("/")
-                .and()
-                .exceptionHandling().accessDeniedPage("/members/denied");;
-
-
-
-
-//        http.exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+                .logoutSuccessUrl("/");
 
 
 
