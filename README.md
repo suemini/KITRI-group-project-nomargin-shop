@@ -77,8 +77,8 @@
 
 ## ERD
 
-![erd](https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png height = "400px" width = "30%")
-<img src = "https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png" height = "400px" width = "30%">
+<!-- ![erd](https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png height = "400px" width = "30%") -->
+<img src = "https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png" height = "400px" width = "100%">
 
 
 
@@ -90,8 +90,8 @@
 🔍 메인 화면 
 + 대표 이미지와 로그인 및 검색 기능 제공
 <p align="center"></p>
-c<img src = "https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png" height = "400px" width = "30%">
-
+<!-- c<img src = "https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png" height = "400px" width = "30%">
+ -->
 ![main](https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png)
 
 
