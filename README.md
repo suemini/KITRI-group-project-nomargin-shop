@@ -9,31 +9,30 @@
 
 <br/>
 
-
 ## 📝 프로젝트 기능
 
 
-+ **관리자 (Admin)**
+**+ 관리자 (Admin)**
   - 회원관리 / 상품관리 / 판매관리 / 리뷰관리
 
 
-+ 회원 (Member)
+**+ 회원 (Member)**
   - 회원가입 / 로그인 및 로그아웃 / 회원탈퇴 / 주문관리 / 리뷰관리
 
 
-+ 상품 (Item)
+**+ 상품 (Item)**
   - 상품 등록 / 상품 관리 / 상품 수정 / 상품 조회 / 상품 상세 페이지
 
 
-+ 주문 (Order)
+**+ 주문 (Order)**
   - 상품 주문 / 주문 내역 조회 / 주문 취소
  
  
-+ 장바구니 (Cart)
+**+ 장바구니 (Cart)**
   - 장바구니 담기 / 장바구니 조회 / 장바구니 삭제 / 장바구니 상품 주문
 
 
-+ 후기 (Review)
+**+ 후기 (Review)**
   - 후기 등록 / 후기 관리 / 후기 수정 / 후기 조회 / 상품 상세 페이지 등록
 
 <br/>
@@ -57,7 +56,7 @@
 + Spring Boot
 
 
-### 📙 Tool
+#### 📙 Tool
 
 
 + IntelliJ
@@ -74,9 +73,8 @@
 
 
 
-## ERD
-
-<img src = "https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png" height = "40%">
+# ERD
+<img src = "https://user-images.githubusercontent.com/121214637/236737994-7db2f050-7bf8-48bd-9e9e-e051d9c0abf2.png">
 
 
 
