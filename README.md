@@ -89,7 +89,10 @@
 🔍 메인 화면 
 + 대표 이미지와 로그인 및 검색 기능 제공
 <p align="center"></p>
-![main](https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png
+<img src = "https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png" height = "400px" width = "30%">
+
+
+![main](https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png)
 
 
 
