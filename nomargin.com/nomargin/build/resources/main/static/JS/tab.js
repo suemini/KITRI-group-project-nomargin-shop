@@ -11,12 +11,6 @@ $(document).ready(function () {
         }, 500);
     });
 
-    // $('a[href="#item-rating"]').click(function () {
-    //     $('html, body').animate({
-    //         scrollTop: $(".item-rating").offset().top
-    //     }, 1000);
-    // });
-
     $('a[href="#item-refund"]').click(function () {
         $('html, body').animate({
             scrollTop: $(".refund").offset().top

@@ -86,21 +86,6 @@
 
 
     <div class="item-return-warp refund">
-<!--    <h4 class="seller">판매자 정보</h4>-->
-<!--    <table class="seller-info">-->
-<!--        <tr class="seller-name">-->
-<!--            <td>판매자 이름</td>-->
-<!--            <td>John Doe</td>-->
-<!--        </tr>-->
-<!--        <tr class="seller-email">-->
-<!--            <td>이메일 주소</td>-->
-<!--            <td>johndoe@example.com</td>-->
-<!--        </tr>-->
-<!--        <tr class="seller-phone">-->
-<!--            <td>전화번호</td>-->
-<!--            <td>123-456-7890</td>-->
-<!--        </tr>-->
-<!--    </table>-->
     <h4 class="return">반품/환불 정보</h4>
     <table class="return-info">
         <tr>
@@ -152,11 +137,9 @@
         <ul class="review-info">
             <li class="review" th:each="review : ${reviewList}">
                 <a class="review-click" th:href="@{/review/{id}(id=${review.id})}">
-                    <!--                    <div class="review-login-id" th:text="${review.id}"></div>-->
                     <div class="review-writer" th:text="${review.reviewWriter}"></div>
                     <div class="review-title" th:text="${review.reviewTitle}"></div>
                     <div class="review-contents" th:text="${review.reviewContents}">asdf</div>
-                    <!--                    <div class="review-hits" th:text="${review.reviewHits}"></div>-->
                 </a>
             </li>
         </ul>
