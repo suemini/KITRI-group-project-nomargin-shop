@@ -77,7 +77,7 @@
 
 ## ERD
 
-<img src = "https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png" height = "80%">
+<img src = "https://user-images.githubusercontent.com/121214637/236733150-3f0126b0-544e-4704-94ae-89b141892af6.png" height = "60%">
 
 
 
@@ -88,15 +88,19 @@
 
 🔍 메인 화면 
 + 대표 이미지와 로그인 및 검색 기능 제공
-<p align="center">
+<!-- <p align="center">
 c![main](https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png)
-</p>
+</p> -->
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/121214637/236735666-5085502f-df42-4fb7-af47-9b4be047f91f.png">
+</p>
 
 🔍 관리자 회원 관리 페이지
 + 주소 API를 이용한 주소 변경 및 회원 탈퇴 
-<p align="center"></p>
+<p align="center">
 ![회원관리](https://user-images.githubusercontent.com/121214637/236733829-4fa1d56b-cda5-4e0f-8707-42c8d9ee7ad3.png)
+  </p>
 
 
 
