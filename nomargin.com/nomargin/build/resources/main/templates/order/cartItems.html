@@ -42,20 +42,18 @@
 
   <div class="item-order-buy">
     <button id="buy-button" class="cart-Items" type="submit">주문</button>
+    <a href="/members/index" class="cartItems" onclick="cancelOrder();">주문 취소</a>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
   </div>
 </form>
-<!--<button class="cartItems" onclick="alert('상품 주문이 취소되었습니다.');" ,onclick="location.href='/';">주문 취소</button>-->
-<div class="item-order-buy">
-<button class="cartItems" onclick="cancelOrder();">주문 취소</button>
-</div>
+
+
 
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 <script>
   function cancelOrder() {
     alert('상품 주문이 취소되었습니다.');
-    window.location.href = "/";
   }
 </script>
 </html>
