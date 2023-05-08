@@ -29,32 +29,16 @@
 
 
 
-#### 📙  Language
+#### 📙 Language
 
-+ HTML
++ Front-End
+  - HTML/CSS
+  - JavaScript(jQuery)
 
-  - CSS
-
-+ JavaScript(jQuery)
-
-+ Thymeleaf
-
-
-#### 📙 백엔드
-
-+ Spring Boot
++ Back-End
+  - JAVA
 
 
-+ Spring Data JPA
-
-
-+ Spring Security
-
-
-+ QueryDsl
-
-
-+ h2
 
 <br/>
 
@@ -65,7 +49,7 @@
 + IntelliJ
 
 
-+ erdCloud
++ My SQL Workbench
 
 
 + VS Code
@@ -73,7 +57,7 @@
 <br/>
 
 
-## 📸 ScreenShot 및 기능
+## 🖥기능
 
 
 
