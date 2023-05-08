@@ -3,7 +3,6 @@
 쇼핑몰 클론 코딩 프로젝트
 
 
-
 ## 개발인원    
 
 5명
@@ -14,7 +13,7 @@
 ## 📝 프로젝트 기능
 
 
-+  관리자 (Admin)
++ **관리자 (Admin)**
   - 회원관리 / 상품관리 / 판매관리 / 리뷰관리
 
 
@@ -114,14 +113,14 @@
 
 🔍 장바구니 페이지
 + 수량 변경 및 삭제
-+ <p align="center">
+<p align="center">
   <img src="https://user-images.githubusercontent.com/121214637/236735298-7288b85b-53c6-4ea0-bfb6-ec04e866b4c9.png">
 </p>
 
 
 🔍 리뷰 페이지
 + 제품에 대한 후기 등록, 조회, 수정, 삭제
-+ <p align="center">
+<p align="center">
   <img src="https://user-images.githubusercontent.com/121214637/236735446-a159a916-4acb-42af-a353-40d51f85c35b.png">
 </p>
 
