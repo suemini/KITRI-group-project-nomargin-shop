@@ -33,7 +33,7 @@
 
 + HTML
 
-++ CSS
+  - CSS
 
 + JavaScript(jQuery)
 
