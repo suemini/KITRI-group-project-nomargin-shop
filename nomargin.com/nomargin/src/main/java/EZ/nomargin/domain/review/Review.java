@@ -28,7 +28,7 @@ public class Review {
     @Column // 비밀번호
     private String reviewPass;
 
-    @Column
+    @Column(length = 20)
     private String reviewTitle;
 
     @Column(length = 500)
