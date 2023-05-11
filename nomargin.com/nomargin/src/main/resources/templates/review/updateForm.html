@@ -93,51 +93,59 @@
                     reviewItemId.value = selectedOption.getAttribute('data-value');
                 })
 
-                $(document).ready(function () {
-                    // 초기 값에서 글자 수 카운팅
-                    let title = $('[name="reviewTitle"]').val();
-                    $('.title .textCount').text(title.length + '자');
+                $(document).ready(function() {
+                    // 제목 입력란 초기 값에서 글자 수 카운팅
+                    let titleInput = $('[name="reviewTitle"]');
+                    let titleContent = titleInput.val();
+                    let titleCountElement = titleInput.siblings('.textLengthWrap').find('.textCount');
+                    titleCountElement.text(titleContent.length + '자');
 
-                    $('[name="reviewTitle"]').on('input', function () {
-                        title = $(this).val();
+                    titleInput.on('input', function() {
+                        let content = $(this).val();
                         // 글자수 세기
-                        if (title.length == 0 || title === '') {
-                            $('.title .textCount').text('0자');
+                        if (content.length === 0 || content === '') {
+                            titleCountElement.text('0자');
                         } else {
-                            $('.title .textCount').text(title.length + '자');
+                            titleCountElement.text(content.length + '자');
                         }
 
                         // 글자수 제한
-                        if (title.length > 20) {
+                        let limit = 20; // 글자수 제한 설정
+                        if (content.length > limit) {
                             // 20자로 제한
-                            $(this).val(title.substring(0, 20));
-                            // 20자 넘으면 알림창 뜨도록
-                            alert('제목은 20자까지 입력 가능합니다.');
+                            $(this).val(content.substring(0, limit));
+                            titleCountElement.text(limit + '자'); // Update the count element to show the limit
+                            alert('제목은 ' + limit + '자까지 입력 가능합니다.');
                         }
                     });
 
-                    // 초기 값에서 글자 수 카운팅
-                    let content = $('#textBox').val();
-                    $('.cont .textCount').text(content.length + '자');
+                    // 내용 입력란 초기 값에서 글자 수 카운팅
+                    let contentInput = $('#textBox');
+                    let content = contentInput.val();
+                    let contentCountElement = contentInput.siblings('.textLengthWrap').find('.textCount');
+                    contentCountElement.text(content.length + '자');
 
-                    $('#textBox').on('input', function () {
-                        content = $(this).val();
+                    contentInput.on('input', function() {
+                        let content = $(this).val();
                         // 글자수 세기
-                        if (content.length == 0 || content === '') {
-                            $('.cont .textCount').text('0자');
+                        if (content.length === 0 || content === '') {
+                            contentCountElement.text('0자');
                         } else {
-                            $('.cont .textCount').text(content.length + '자');
+                            contentCountElement.text(content.length + '자');
                         }
 
                         // 글자수 제한
-                        if (content.length > 500) {
+                        let limit = 500; // 글자수 제한 설정
+                        if (content.length > limit) {
                             // 500자로 제한
-                            $(this).val(content.substring(0, 500));
-                            // 500자 넘으면 알림창 뜨도록
-                            alert('글자수는 500자까지 입력 가능합니다.');
+                            $(this).val(content.substring(0, limit));
+                            contentCountElement.text(limit + '자'); // Update the count element to show the limit
+                            alert('글자수는 ' + limit + '자까지 입력 가능합니다.');
                         }
                     });
                 });
+
+
                 function characterCheck(obj) {
                     var regExp = /[<>"'&;]/;
                     var value = obj.value;

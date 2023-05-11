@@ -69,6 +69,30 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    // HTML 태그 XSS(Cross-Site Scripting) 공격에 노출 방지하기 위해 사용자 입력에서 HTML 태그를 제한하거나 이스케이프 처리해야 합니다.
+    // SQL 쿼리: 사용자 입력을 직접 SQL 쿼리에 삽입하면 SQL 인젝션 공격에 취약해질 수 있습니다.
+    function characterCheck(obj) {
+        var regExp = /[<>"'&@;]/;
+        var value = obj.value;
+        if (regExp.test(value)) {
+            alert("<, >, \", ', &, @는 입력하실 수 없습니다.");
+            obj.value = value.replace(/[<>"'&@;]/g, ""); // 입력한 특수문자 모두 제거
+        }
+    }
+
+    // 글자수세기
+    function countCharacters(obj, limit) {
+        var value = obj.value;
+        var count = value.length;
+        var textCountElement = $(obj).siblings('.textLengthWrap').find('.textCount');
+        textCountElement.text(count + '자');
+
+        if (count > limit) {
+            obj.value = value.substring(0, limit);
+            alert('글자수는 ' + limit + '자까지 입력 가능합니다.');
+        }
+    }
+
     $(document).ready(function() {
         $('#textBox').on('input', function() {
             let content = $(this).val();
@@ -82,30 +106,29 @@
                 alert('글자수는 500자까지 입력 가능합니다.');
             }
         });
+
+        // 제목 입력란 초기 값에서 글자 수 카운팅
+        let titleInput = $('[name="reviewTitle"]');
+        let titleContent = titleInput.val();
+        let titleCountElement = titleInput.siblings('.textLengthWrap').find('.textCount');
+        titleCountElement.text(titleContent.length + '자');
+
+        // 비밀번호 입력란 초기 값에서 글자 수 카운팅
+        let passwordInput = $('[name="reviewPass"]');
+        let passwordContent = passwordInput.val();
+        let passwordCountElement = passwordInput.siblings('.textLengthWrap').find('.textCount');
+        passwordCountElement.text(passwordContent.length + '자');
+
+        titleInput.on('input', function() {
+            let content = $(this).val();
+            countCharacters(this, 20);
+        });
+
+        passwordInput.on('input', function() {
+            let content = $(this).val();
+            countCharacters(this, 10);
+        });
     });
-
-    // HTML 태그 XSS(Cross-Site Scripting) 공격에 노출 방지하기 위해 사용자 입력에서 HTML 태그를 제한하거나 이스케이프 처리해야 합니다.
-    // SQL 쿼리: 사용자 입력을 직접 SQL 쿼리에 삽입하면 SQL 인젝션 공격에 취약해질 수 있습니다.
-    function characterCheck(obj) {
-        var regExp = /[<>"'&@;]/;
-        var value = obj.value;
-        if (regExp.test(value)) {
-            alert("<, >, \", ', &, @는 입력하실 수 없습니다.");
-            obj.value = value.replace(/[<>"'&@;]/g, ""); // 입력한 특수문자 모두 제거
-        }
-    }
-
-    function countCharacters(obj, limit) {
-        var value = obj.value;
-        var count = value.length;
-        var textCountElement = $(obj).siblings('.textLengthWrap').find('.textCount');
-        textCountElement.text(count + '자');
-
-        if (count > limit) {
-            obj.value = value.substring(0, limit);
-            alert('글자수는 ' + limit + '자까지 입력 가능합니다.');
-        }
-    }
 </script>
 </html>
 
