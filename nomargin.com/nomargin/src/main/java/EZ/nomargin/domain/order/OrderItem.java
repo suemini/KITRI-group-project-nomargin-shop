@@ -65,5 +65,20 @@ public class OrderItem {
     }
 
 
+    public static OrderItem createOneOrderItem(Long orderId, Member member, Item item, Orders orders, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setOrderId(orderId);
+        orderItem.setMember(member);
+        orderItem.setOrders(orders);
+        orderItem.setOrderName(item.getItemName());
+        orderItem.setItemStore(item.getItemStore());
+        orderItem.setOrderPrice(item.getPrice());
+        orderItem.setOrderCount(count);
+        orderItem.setItemType(item.getItemType());
+        orderItem.setOrderTotalPrice(orderItem.orderPrice * count);
+        return orderItem;
+    }
+
+
 
 }

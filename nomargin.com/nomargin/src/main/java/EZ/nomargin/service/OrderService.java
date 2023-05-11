@@ -44,6 +44,8 @@ public class OrderService {
     }
 
 
+
+
     // 주문시 주문 상품 정보를 저장
     @Transactional
     public OrderItem addCartOrder(Long itemId , Long id, CartItem cartItem) {
@@ -52,6 +54,8 @@ public class OrderService {
         orderItemRepository.save(orderItem);
         return orderItem;
     }
+
+
 
     // 주문 취소 기능
     @Transactional
@@ -79,5 +83,15 @@ public class OrderService {
     }
 
 
+    // 현덕
+    // 단일 구매시 order과 orderItem에 바로 저장
+    @Transactional
+    public void addOneItemOrder(String memberId, Item item, int count) {
+        Member member = memberService.findByLoginId(memberId);
+        Orders order = Orders.createOneOrder(member);
+        OrderItem orderItem = OrderItem.createOneOrderItem(item.getItemId(), member, item, order, count);
+        orderItemRepository.save(orderItem);
+        orderRepository.save(order);
+    }
 
 }

@@ -45,7 +45,9 @@
                     <input type="hidden" name="username" th:value="${#authentication.name}">
                     <div class="item-cartOrBuy">
                         <button type="button" onclick="addToCart()">장바구니</button>
-                        <button type="button" onclick="directPurchase()">상품구매</button>
+<!--                        아래 @빨간줄 오류아님-->
+                        <input class="directBuy" type="submit" value="구매" th:formaction="@{/order/direct/{itemId}(itemId=${item.itemId})}" th:method="post" onclick="setQuantity()">
+<!--                        <button type="button" onclick="directPurchase()">상품구매</button>-->
                     </div>
 
 

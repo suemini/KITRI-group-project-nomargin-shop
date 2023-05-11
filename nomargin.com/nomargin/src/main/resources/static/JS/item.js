@@ -20,3 +20,9 @@ function calculatePrice() {
     const totalPrice = amount * price;
     document.querySelector(".totalPrice").textContent = totalPrice.toLocaleString();
 }
+
+
+function setQuantity() {
+    var amount = document.getElementById("amount").value;
+    document.getElementById("quantity").value = amount;
+}

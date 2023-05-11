@@ -81,6 +81,21 @@ public class MemberController {
 
 
 
+//    @PostConstruct
+//    @Transactional
+//    public void init() {
+//        Member member = new Member();
+//        member.setName("kitri");
+//        member.setPassword(passwordEncoder.encode("kitri"));
+//        member.setLoginId("kitri");
+//        member.setRole(Role.ADMIN);
+//        member.setPhoneNumber("010-0000-0000");
+//        member.setFullAddr("서울특별시 용산구 유엔빌리지길 7");
+//
+//        memberService.joinMember(member);
+//
+//
+//
 //        Member member1 = new Member();
 //        member1.setName("USER");
 //        member1.setPassword(passwordEncoder.encode("user"));
@@ -107,16 +122,13 @@ public class MemberController {
 
     // 로그인이 성공되면 메인으로 이동
     @GetMapping("/index")
-    public String login(Model model) {
+    public String login() {
         return "redirect:/";
     }
-
 
     @GetMapping("/denied")
     public String showAccessDeniedPage() {
         return "/members/notAdmin";
     }
-
-
 
 }

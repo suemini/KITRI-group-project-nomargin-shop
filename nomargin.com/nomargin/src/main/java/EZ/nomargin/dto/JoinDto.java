@@ -16,6 +16,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Builder
 public class JoinDto {
     @NotBlank(message = "로그인 ID를 입력하세요!")
+    @Pattern( regexp = "^[a-z]{1}[a-z0-9]{5,10}+$", message = "영문 숫자 조합으로 6자 이상, 10자 이하로 입력해주세요")
     private String loginId; //로그인 ID
 //    private String username;
 

@@ -54,6 +54,8 @@ public class Orders {
         this.orderDateTime = LocalDateTime.now();
     }
 
+
+    // 장바구니 구매
     public static Orders createOrder(Member member, List<OrderItem> orderItemList) {
         Orders order = new Orders();
         order.setMember(member);
@@ -63,8 +65,11 @@ public class Orders {
         return order;
     }
 
-
-
-
-
+    // 현덕
+    //단일 구매
+    public static Orders createOneOrder(Member member) {
+        Orders orders = new Orders();
+        orders.setMember(member);
+        return orders;
+    }
 }

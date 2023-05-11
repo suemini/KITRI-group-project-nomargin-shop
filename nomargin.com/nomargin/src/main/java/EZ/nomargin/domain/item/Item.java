@@ -42,7 +42,7 @@ public class Item {
     }
 
     public Item(String itemName, String itemStore, Integer price, Integer stock, ItemType itemType , String mainImg,
-                String detailImg1, String detailImg2, String detailImg3, String sizeImg, Integer count) {
+                String detailImg1, String detailImg2, String detailImg3, String sizeImg, int count) {
         this.itemName = itemName;
         this.itemStore = itemStore;
         this.price = price;
