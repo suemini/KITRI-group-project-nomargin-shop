@@ -117,26 +117,26 @@
             <br>
             <a>메인 이미지</a>
             <br>
-            <input type="file" name="mainImg" id="mainImg" onchange="readURL1(this)">
+            <input type="file" accept="image/*" onchange="validateFile(this); readURL1(this)" name="mainImg" id="mainImg">
             <img id="img1" width="300" height="300">
             <br>
             <a>디테일이미지1</a>
             <br>
-            <input type="file" name="detailImg1" id="detailImg1" onchange="readURL2(this)">
+            <input type="file" accept="image/*" name="detailImg1" id="detailImg1" onchange="validateFile(this); readURL2(this)">
             <img id="img2" width="300" height="300">
             <br>
             <a>디테일이미지2</a>
-            <br><input type="file" name="detailImg2" id="detailImg2" onchange="readURL3(this)">
+            <br><input type="file" accept="image/*" name="detailImg2" id="detailImg2" onchange="validateFile(this); readURL3(this)">
             <img id="img3" width="300" height="300">
             <br>
             <a>디테일이미지3</a>
             <br>
-            <input type="file" name="detailImg3" id="detailImg3" onchange="readURL4(this)">
+            <input type="file" accept="image/*" name="detailImg3" id="detailImg3" onchange="validateFile(this); readURL4(this)">
             <img id="img4" width="300" height="300">
             <br>
             <a>사이즈 이미지</a>
             <br>
-            <input type="file" name="sizeImg" id="sizeImg" onchange="readURL5(this)">
+            <input type="file" accept="image/*" name="sizeImg" id="sizeImg" onchange="validateFile(this); readURL5(this)">
             <img id="img5" width="300" height="300">
         </div>
 
