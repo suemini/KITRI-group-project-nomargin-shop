@@ -121,27 +121,27 @@
             <br>
             <a>메인 이미지</a>
             <br>
-            <input type="file" name="mainImg" id="file1">
+            <input type="file" accept="image/*" name="mainImg" id="file1" onchange="validateFile(this);">
             <img id="img1" th:src="|/item/images/${item.mainImg}|" value="사진1" width="300" height="300"/>
             <br>
             <a>디테일이미지1</a>
             <br>
-            <input type="file" name="detailImg1" id="file2">
+            <input type="file" accept="image/*" name="detailImg1" id="file2" onchange="validateFile(this);">
             <img id="img2" th:src="|/item/images/${item.getDetailImg1}|" value="사진1" width="300" height="300"/>
             <br>
             <a>디테일이미지2</a>
             <br>
-            <input type="file" name="detailImg2" id="file3">
+            <input type="file" accept="image/*" name="detailImg2" id="file3" onchange="validateFile(this);">
             <img id="img3" th:src="|/item/images/${item.getDetailImg2}|" value="사진1" width="300" height="300"/>
             <br>
             <a>디테일이미지3</a>
             <br>
-            <input type="file" name="detailImg3" id="file4">
+            <input type="file" accept="image/*" name="detailImg3" id="file4" onchange="validateFile(this);">
             <img id="img4" th:src="|/item/images/${item.getDetailImg3}|" value="사진1" width="300" height="300"/>
             <br>
             <a>사이즈 이미지</a>
             <br>
-            <input type="file" name="sizeImg" id="file5">
+            <input type="file" accept="image/*" name="sizeImg" id="file5" onchange="validateFile(this);">
             <img id="img5" th:src="|/item/images/${item.getSizeImg}|" value="사진1" width="300" height="300"/>
         </div>
 

@@ -23,6 +23,10 @@ public class FileStore {
             return null;
         }
 
+        if (!isImageFile(multipartFile)) {
+            throw new IllegalArgumentException("올바른 이미지 파일 형식이 아닙니다.");
+        }
+
         String originalFilename = multipartFile.getOriginalFilename();
         String storeFileName = createStoreFileName(originalFilename);//저장할 떄는 originalFilename 가 아닌 고유한 값을 저장. 확장자까지 저장함
         multipartFile.transferTo(new File(getFullPath(storeFileName))); // 고유한 파일명을 만들어줌. 서버에 이 이름으로 저장됨
@@ -46,5 +50,8 @@ public class FileStore {
             int pos = originalFilename.lastIndexOf(".");
             return originalFilename.substring(pos + 1);
         }
-
+    private boolean isImageFile(MultipartFile multipartFile) {
+        String mimeType = multipartFile.getContentType();
+        return mimeType != null && mimeType.startsWith("image/");
+    }
 }

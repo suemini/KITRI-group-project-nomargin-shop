@@ -12,17 +12,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/review")
 public class ReviewController {
     private final ReviewService reviewService;
     @Autowired
     private final ItemService itemService;
 
-    @GetMapping("/save")
+    @GetMapping("/review/save")
     public String saveForm(Model model) {
         List<Item> item = itemService.findAll();
         model.addAttribute("items", item);
@@ -31,7 +32,7 @@ public class ReviewController {
     }
 
     // 리뷰 저장
-    @PostMapping("/save")
+    @PostMapping("/review/save")
     public String save(@ModelAttribute ReviewDto reviewDto,
                        RedirectAttributes redirectAttributes, Model model) {
         Review review = reviewService.save(reviewDto);
@@ -42,11 +43,11 @@ public class ReviewController {
         List<Item> items = itemService.findAll();
         model.addAttribute("items", items);
 
-        return "redirect:/review/{id}";
+        return "redirect:/reviews/{id}";
     }
 
     // 리뷰 목록
-    @GetMapping("")
+    @GetMapping("/reviews")
     public String findAll(Model model) {
         List<ReviewDto> reviewDtoList = reviewService.findAll();
         List<Item> items = itemService.findAll();
@@ -55,16 +56,16 @@ public class ReviewController {
         return "review/list";
     }
 
-    // 리뷰 상세
-    @GetMapping("/{id}")
-    public String findById(@PathVariable Long id, Model model) {
-        reviewService.updateHits(id);
+    @GetMapping("/reviews/{id}")
+    public String findById(@PathVariable Long id, Model model, HttpSession session) {
+        reviewService.updateHits(id, session);
         ReviewDto reviewDto = reviewService.findById(id);
         model.addAttribute("review", reviewDto);
         return "review/detail";
     }
 
-    @GetMapping("/update/{id}")
+
+    @GetMapping("/review/update/{id}")
     public String updateForm(@PathVariable Long id, Model model) {
         ReviewDto reviewDto = reviewService.findById(id);
         model.addAttribute("reviewUpdate", reviewDto);
@@ -74,7 +75,7 @@ public class ReviewController {
     }
 
 
-    @PostMapping("/update")
+    @PostMapping("/review/update")
     public String update(@ModelAttribute ReviewDto reviewDto, Model model) {
         ReviewDto review = reviewService.updateReview(reviewDto);
         model.addAttribute("review", review);
@@ -82,10 +83,10 @@ public class ReviewController {
     }
 
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/review/delete/{id}")
     private String delete(@PathVariable Long id) {
         reviewService.delete(id);
-        return "redirect:/review";
+        return "redirect:/reviews";
     }
 
 }

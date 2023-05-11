@@ -90,6 +90,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    height: 60px;
 }
 
 .board_list >div.review-contents:hover {
@@ -191,7 +192,9 @@
 }
 
 .board_view .title {
-    padding: 20px 15px;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px dashed #ddd;
     font-size: 1.5rem;
 }
@@ -270,13 +273,24 @@
     align-content: center;
 }
 
-.board_write .title dt,
-.board_write .title dd,
-.board_write .info dt,
 .board_write .info dd {
     display: inline-block;
     vertical-align: middle;
     font-size: 1.1rem;
+}
+
+.board_write .title dt {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    margin-left: 20px;
+}
+
+.board_write .info dt{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    margin-left: 20px;
 }
 
 .board_write .info dt:nth-child(2),
@@ -298,7 +312,8 @@
 }
 
 .board_write .title input[type="text"],
-.board_write .info dl:nth-child(1) input[type="text"] {
+.board_write .info dl:nth-child(1) input[type="text"],
+.board_write .info dl:nth-child(3) input[type="password"] {
     padding: 10px;
     box-sizing: border-box;
     font-size: 17px;
@@ -315,7 +330,7 @@
 
 .board_write .title input[type="text"] {
     font-size: 17px;
-    width: 800px;
+    width: 300px;
     border: 0;
 }
 
@@ -343,9 +358,6 @@
     margin-left: 15px;
 }
 
-
-
-
 .board_write .cont {
     border-bottom: 1px solid #000;
 }
@@ -359,4 +371,41 @@
     border: 0;
     resize: vertical;
     font-size: 15pt;
+}
+
+.board_write .cont .textLengthWrap {
+     display: flex;
+     justify-content: flex-end;
+ }
+
+
+.board_write .title .textLengthWrap {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 20px;
+}
+
+.board_write .cont .textCount,
+.board_write .cont .textTotal {
+    margin: 0;
+}
+
+.board_write .title dl {
+    display: flex;
+    align-items: center;
+}
+
+.board_write .title dd {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    vertical-align: middle;
+    font-size: 1.1rem;
+    margin-left: 0px
+}
+
+.board_write .title{
+    align-items: center;
+    height: 58px;
+    !important;
 }

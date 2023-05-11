@@ -21,8 +21,14 @@
                     <div class="title">
                         <dl>
                             <dt>제목</dt>
-                            <dt><input type="text" name="reviewTitle" th:value="${reviewUpdate.reviewTitle}"
-                                       value="글 제목이 들어갑니다"></dt>
+                            <dd>
+                                <input type="text" name="reviewTitle" th:value="${reviewUpdate.reviewTitle}"
+                                       value="글 제목이 들어갑니다" oninput="characterCheck(this)">
+                                <div class="textLengthWrap">
+                                    <p class="textCount">0자</p>
+                                    <p class="textTotal">/20자</p>
+                                </div>
+                            </dd>
                         </dl>
                     </div>
                     <div class="info">
@@ -45,22 +51,28 @@
                         <input type="hidden" id="reviewItemId" th:value="${reviewUpdate.itemId}"/>
                         <dl class="updatePass-only">
                             <dt>비밀번호</dt>
-                            <dd><input type="text" name="reviewPass" id="reviewPass"></dd>
+                            <dd><input type="password" name="reviewPass" id="reviewPass"></dd>
                         </dl>
                     </div>
 
                     <div class="cont">
-                        <textarea name="reviewContents" th:text="${reviewUpdate.reviewContents}"></textarea>
+                        <div class="textLengthWrap">
+                            <p class="textCount">0자</p>
+                            <p class="textTotal">/500자</p>
+                        </div>
+                        <textarea id="textBox" name="reviewContents" th:text="${reviewUpdate.reviewContents}"
+                                  oninput="characterCheck(this)"></textarea>
                     </div>
                 </div>
                 <div class="bt_wrap">
                     <button type="submit" onclick="return reviewUpdate()" class="on">수정</button>
-                    <a th:href="@{/review}">취소</a>
+                    <a th:href="@{/reviews}">취소</a>
                 </div>
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
 
             </form>
 
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script th:inline="javascript">
                 const reviewUpdate = () => {
                     const pass = [[${reviewUpdate.reviewPass}]];
@@ -81,6 +93,60 @@
                     reviewItemId.value = selectedOption.getAttribute('data-value');
                 })
 
+                $(document).ready(function () {
+                    // 초기 값에서 글자 수 카운팅
+                    let title = $('[name="reviewTitle"]').val();
+                    $('.title .textCount').text(title.length + '자');
+
+                    $('[name="reviewTitle"]').on('input', function () {
+                        title = $(this).val();
+                        // 글자수 세기
+                        if (title.length == 0 || title === '') {
+                            $('.title .textCount').text('0자');
+                        } else {
+                            $('.title .textCount').text(title.length + '자');
+                        }
+
+                        // 글자수 제한
+                        if (title.length > 20) {
+                            // 20자로 제한
+                            $(this).val(title.substring(0, 20));
+                            // 20자 넘으면 알림창 뜨도록
+                            alert('제목은 20자까지 입력 가능합니다.');
+                        }
+                    });
+
+                    // 초기 값에서 글자 수 카운팅
+                    let content = $('#textBox').val();
+                    $('.cont .textCount').text(content.length + '자');
+
+                    $('#textBox').on('input', function () {
+                        content = $(this).val();
+                        // 글자수 세기
+                        if (content.length == 0 || content === '') {
+                            $('.cont .textCount').text('0자');
+                        } else {
+                            $('.cont .textCount').text(content.length + '자');
+                        }
+
+                        // 글자수 제한
+                        if (content.length > 500) {
+                            // 500자로 제한
+                            $(this).val(content.substring(0, 500));
+                            // 500자 넘으면 알림창 뜨도록
+                            alert('글자수는 500자까지 입력 가능합니다.');
+                        }
+                    });
+                });
+                function characterCheck(obj) {
+                    var regExp = /[<>"'&;]/;
+                    var value = obj.value;
+
+                    if (regExp.test(value)) {
+                        alert("<, >, \", ', &는 입력하실 수 없습니다.");
+                        obj.value = value.replace(/[<>"'&;]/g, ""); // 입력한 특수문자 모두 제거
+                    }
+                }
             </script>
         </div>
     </div>

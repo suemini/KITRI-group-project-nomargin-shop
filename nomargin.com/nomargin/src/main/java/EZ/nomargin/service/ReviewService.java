@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +47,21 @@ public class ReviewService {
     }
 
     @Transactional
-    public void updateHits(Long id) {
-        reviewRepository.updateHits(id);
+    public void updateHits(Long id, HttpSession session) {
+        List<Long> viewedReviewIds = (List<Long>) session.getAttribute("viewedReviewIds");
+        // 세션에 저장된 조회한 리뷰 ID가 없으면 새로 생성
+        if (viewedReviewIds == null) {
+            viewedReviewIds = new ArrayList<>();
+        }
+
+        // 이미 조회한 리뷰인 경우 조회수를 증가시키지 않음
+        if (!viewedReviewIds.contains(id)) {
+            // 조회수 업데이트
+            reviewRepository.updateHits(id, viewedReviewIds);
+            // 조회한 리뷰 ID를 세션에 저장
+            viewedReviewIds.add(id);
+            session.setAttribute("viewedReviewIds", viewedReviewIds);
+        }
     }
 
     public ReviewDto findById(Long id) {
