@@ -9,7 +9,7 @@
     <th:block th:replace="fragments/header :: headerFragment"></th:block>
     <th:block th:replace="fragments/navigation :: navigationFragment"></th:block>
     <div class="list-title" th:each="item : ${items}"></div>
-    <div class="list-title" th:text="${type}">TOP</div>
+    <div class="list-title" th:text="${type.toUpperCase()}">TOP</div>
 
 
     <section class="item-list">
@@ -28,6 +28,21 @@
                 </a>
             </div>
             <div th:if="${not #strings.isEmpty(message)}" class="no-result-message" th:text="${message}"></div>
+        </div>
+        <div class="pagination">
+            <ul>
+                <li th:class="${page <= 1} ? 'disabled' : ''">
+                    <a href="#" th:href="@{|/form/itemList/type/${type}?page=${page - 1}|}" th:if="${page > 1}">Prev</a>
+                    <span th:if="${page <= 1}">Prev</span>
+                </li>
+                <li th:each="p : ${#numbers.sequence(firstPage, lastPage)}" th:class="${p == page} ? 'active' : ''">
+                    <a href="#" th:href="@{|/form/itemList/type/${type}?page=${p}|}" th:text="${p}"></a>
+                </li>
+                <li th:class="${page >= pageCount} ? 'disabled' : ''">
+                    <a href="#" th:href="@{|/form/itemList/type/${type}?page=${page + 1}|}" th:if="${page < pageCount}">Next</a>
+                    <span th:if="${page >= pageCount}">Next</span>
+                </li>
+            </ul>
         </div>
     </section>
 

@@ -46,3 +46,57 @@
     color: rgb(88, 88, 88);
     margin-top: 3px;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination ul li {
+    margin: 0 5px;
+}
+
+.pagination ul li.disabled {
+    color: #ccc;
+    border: none; /* 추가 */
+    cursor: default;
+}
+
+.pagination ul li.active a {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+.pagination ul li a,
+.pagination ul li span {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    color: #000; /* 여기를 검은색으로 변경 */
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination ul li a:hover {
+    color: black;
+    border-color: black;
+}
+
+.pagination ul li.disabled a:hover,
+.pagination ul li.disabled span:hover {
+    color: #6c757d;
+    border-color: #ddd;
+    background-color: #fff;
+    cursor: default;
+}
