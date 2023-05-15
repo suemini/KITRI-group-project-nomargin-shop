@@ -47,26 +47,49 @@ public class ItemController {
 
 
     @GetMapping("/form/itemList/type/{type}")
-    public String itemsTop(@PathVariable("type") String type, Model model) {
+    public String itemsTop(@PathVariable("type") String type,
+                           @RequestParam(value = "page", defaultValue = "1") int page,
+                           @RequestParam(name = "pageSize", defaultValue = "9") int pageSize,
+                           Model model) {
         List<Item> items = new ArrayList<>();
-
         switch (type) {
             case "top":
                 items = itemService.findTop();
-                model.addAttribute("items", items);
-                model.addAttribute("type", "TOP");
+                model.addAttribute("type", type.toLowerCase());
                 break;
             case "bottom":
                 items = itemService.findBottom();
-                model.addAttribute("items", items);
-                model.addAttribute("type", "BOTTOM");
+                model.addAttribute("type", type.toLowerCase());
                 break;
             case "outer":
                 items = itemService.findOuter();
-                model.addAttribute("items", items);
-                model.addAttribute("type", "OUTER");
+                model.addAttribute("type", type.toLowerCase());
                 break;
         }
+
+        // 전체 아이템 개수
+        int itemCount = items.size();
+
+        // 전체 페이지 수
+        int pageCount = (itemCount + pageSize - 1) / pageSize;
+
+        // 현재 페이지의 아이템
+        int start = (page - 1) * pageSize;
+        int end = Math.min(start + pageSize, itemCount);
+        List<Item> pageItems = items.subList(start, end);
+
+        // 페이지 링크를 구성하기 위한 로직
+        int visiblePages = 5;
+        int firstPage = Math.max(1, Math.min(pageCount - visiblePages + 1, page - 2));
+        int lastPage = Math.min(pageCount, Math.max(visiblePages, page + 2));
+
+        model.addAttribute("items", pageItems);
+        model.addAttribute("page", page);
+        model.addAttribute("pageSize", pageSize);
+        model.addAttribute("pageCount", pageCount);
+        model.addAttribute("firstPage", firstPage);
+        model.addAttribute("lastPage", lastPage);
+
         return "/form/itemList";
     }
 
