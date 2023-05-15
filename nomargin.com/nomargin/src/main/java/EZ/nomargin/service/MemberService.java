@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -28,6 +29,10 @@ public class MemberService implements UserDetailsService , Validator {
     public Member findById(Long id) {
 
         return memberRepository.findById(id).get();
+    }
+
+    public List<Member> findAll() {
+        return memberRepository.findAll();
     }
 
 
