@@ -1,12 +1,18 @@
 package EZ.nomargin.controller;
 
 import EZ.nomargin.domain.item.Item;
+import EZ.nomargin.domain.order.OrderItem;
 import EZ.nomargin.domain.review.Review;
 import EZ.nomargin.dto.ReviewDto;
+import EZ.nomargin.repository.OrderItemRepository;
+import EZ.nomargin.repository.OrderRepository;
 import EZ.nomargin.service.ItemService;
+import EZ.nomargin.service.OrderService;
 import EZ.nomargin.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +25,18 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ReviewController {
+
     private final ReviewService reviewService;
-    @Autowired
     private final ItemService itemService;
+    private final OrderService orderService;
+
 
     @GetMapping("/review/save")
-    public String saveForm(Model model) {
-        List<Item> item = itemService.findAll();
-        model.addAttribute("items", item);
+    public String saveForm(Model model, Authentication authentication) {
+        String loginId = authentication.getName();
+        List<OrderItem> orderItemList = orderService.findMemberOrdersItems(loginId);
+
+        model.addAttribute("items", orderItemList);
         model.addAttribute("reviewDto", new ReviewDto());
         return "review/saveForm";
     }
@@ -66,11 +76,15 @@ public class ReviewController {
 
 
     @GetMapping("/review/update/{id}")
-    public String updateForm(@PathVariable Long id, Model model) {
+    public String updateForm(@PathVariable Long id, Model model, Authentication authentication) {
+
         ReviewDto reviewDto = reviewService.findById(id);
         model.addAttribute("reviewUpdate", reviewDto);
-        List<Item> items = itemService.findAll();
-        model.addAttribute("items", items);
+
+        String loginId = authentication.getName();
+        List<OrderItem> orderItemList = orderService.findMemberOrdersItems(loginId);
+
+        model.addAttribute("items", orderItemList);
         return "review/updateForm";
     }
 
