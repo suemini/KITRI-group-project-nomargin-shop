@@ -36,7 +36,7 @@ public class MemberController {
 
 
 
-    //안되면 이거 쓰기
+    //0517 안되면 이거 쓰기
     // 회원 가입 버튼 눌렀을 때
 //    @GetMapping("/new")
 //    public String memberJoin(JoinDto joinDto, Model model) {
@@ -47,6 +47,8 @@ public class MemberController {
 //    }
 
 
+
+    //0517
     @GetMapping("/new")
     public String memberJoin(JoinDto joinDto, Model model) throws JsonProcessingException {
         model.addAttribute("joinDto", joinDto);
