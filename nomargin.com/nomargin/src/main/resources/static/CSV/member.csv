@@ -1,0 +1,7 @@
+member_id,address,detail_address,extra_address,full_addr,login_id,name,password,phone_number,postcode,role,fk_member_id
+1,NULL,NULL,NULL,NULL,kitri,관리자,$2a$10$rQNdx0WylIZQc/zpDSyg3u1GY.6sYnXX1A0nnnhR.CoCerIbPR0Ru,NULL,NULL,ADMIN,NULL
+2,NULL,NULL,NULL,"서울특별시 용산구 유엔빌리지길 7",user,USER,$2a$10$p5m8s/OllOaMJsSPRZ0Y2uK/.v6QhqVvhsEr7ANFhTWCBHmmyjENm,010-1234-5679,NULL,USER,NULL
+3,NULL,NULL,NULL,"서울특별시 동대문구 천호대로 129",test,test,$2a$10$xB5WC3IkAVKeknRfLnrtK.9NOB61FLb8yyGLhXVSmOah03IPTkHYC,010-0580-4442,NULL,USER,NULL
+4,NULL,NULL,NULL,"24867 강원 속초시 울산바위길 9-1  (노학동) 3층",apple,apple,$2a$10$cLJRw3feXpc0UTPy19/.cOkxS3Oha1p8KpgKDFEkpe2aw6ifzOSVu,010-8858-4723,NULL,USER,NULL
+5,NULL,NULL,NULL,"13480 경기 성남시 분당구 대왕판교로 477  (판교동) 우리집",mouse,쥐,$2a$10$FeO3rHmnh/t9UP2T5pMF2O9jtAj62WLioUT80BIAVBzi9VbH9pIO.,010-7899-4466,NULL,USER,NULL
+6,NULL,NULL,NULL,"55744 전북 남원시 광주대구고속도로 51",nomargin,노마진,$2a$10$KNVlgvOGYIDhNXD8rSYe3eXgqkM12C9IrA/m8.39qrKn0dBWasENO,010-7412-1234,NULL,USER,NULL
