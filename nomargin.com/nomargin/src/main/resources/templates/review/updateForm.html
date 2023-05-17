@@ -41,10 +41,10 @@
                             <dt>상품 선택</dt>
                             <select name="itemId" id="itemId">
                                 <option value="" selected disabled hidden>구매한 상품을 선택하세요</option>
-                                <option th:each="item : ${items}"
-                                        th:value="${item.getId()}"
-                                        th:text="${item.getOrderName()}"
-                                        th:selected="${item.getId() == reviewUpdate.itemId}"
+                                <option th:each="orderitem : ${orderitems}"
+                                        th:value="${orderitem.getId()}"
+                                        th:text="${orderitem.getOrderName()}"
+                                        th:selected="${orderitem.getId() == reviewUpdate.itemId}"
                                         th:attr="data-value=${reviewUpdate.itemId}"></option>
                             </select>
                         </dl>

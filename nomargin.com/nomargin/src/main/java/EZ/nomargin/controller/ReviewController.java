@@ -36,7 +36,7 @@ public class ReviewController {
         String loginId = authentication.getName();
         List<OrderItem> orderItemList = orderService.findMemberOrdersItems(loginId);
 
-        model.addAttribute("items", orderItemList);
+        model.addAttribute("orderitems", orderItemList);
         model.addAttribute("reviewDto", new ReviewDto());
         return "review/saveForm";
     }
@@ -84,7 +84,7 @@ public class ReviewController {
         String loginId = authentication.getName();
         List<OrderItem> orderItemList = orderService.findMemberOrdersItems(loginId);
 
-        model.addAttribute("items", orderItemList);
+        model.addAttribute("orderitems", orderItemList);
         return "review/updateForm";
     }
 
