@@ -6,6 +6,9 @@ import EZ.nomargin.dto.JoinDto;
 import EZ.nomargin.repository.MemberRepository;
 import EZ.nomargin.service.ItemService;
 import EZ.nomargin.service.MemberService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,21 +32,33 @@ public class MemberController {
 
     private final PasswordEncoder passwordEncoder;
     private final MemberService memberService;
-    private final ItemService itemService;
     private final MemberRepository memberRepository;
 
 
 
-
+    //안되면 이거 쓰기
     // 회원 가입 버튼 눌렀을 때
+//    @GetMapping("/new")
+//    public String memberJoin(JoinDto joinDto, Model model) {
+//        model.addAttribute("joinDto", joinDto);
+//        List<Member> memberList = memberService.findAll();
+//        model.addAttribute("memberList",memberList);
+//        return "members/joinForm";
+//    }
+
+
     @GetMapping("/new")
-    public String memberJoin(JoinDto joinDto, Model model) {
+    public String memberJoin(JoinDto joinDto, Model model) throws JsonProcessingException {
         model.addAttribute("joinDto", joinDto);
         List<Member> memberList = memberService.findAll();
-        model.addAttribute("memberList",memberList);
-
+        ObjectMapper objectMapper = new ObjectMapper();
+        String memberListJson = objectMapper.writeValueAsString(memberList);
+        model.addAttribute("memberListJson", memberListJson);
         return "members/joinForm";
     }
+
+
+
 
 
     //회원 가입 입력 창

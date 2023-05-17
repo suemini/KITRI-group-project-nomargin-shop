@@ -42,6 +42,10 @@ dependencies {
 	 */
 	runtimeOnly 'com.mysql:mysql-connector-j'
 
+
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
+
+
 	// 콘솔 깨짐
 	compileJava.options.encoding = 'UTF-8'
 	tasks.withType(JavaCompile) {

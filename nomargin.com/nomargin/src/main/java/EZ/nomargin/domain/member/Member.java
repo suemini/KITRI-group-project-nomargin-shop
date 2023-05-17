@@ -4,6 +4,7 @@ import EZ.nomargin.domain.cart.Cart;
 import EZ.nomargin.domain.order.OrderItem;
 import EZ.nomargin.domain.order.Orders;
 import EZ.nomargin.dto.JoinDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -52,16 +53,19 @@ public class Member {
     private String phoneNumber;
 
 
-    //--------------05.02 추가(현덕)
+    //--------------05.02 추가(현덕) // 05.17 안되면   @JsonIgnore 이거 3개 모두 없애
     // 구매자의 장바구니
+    @JsonIgnore
     @OneToOne(mappedBy = "member")
     private Cart cart;
 
     // 구매자의 주문
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Orders> memberOrders = new ArrayList<>();
 
     // 구매자의 주문상품들
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<OrderItem> memberOrderItem = new ArrayList<>();
 
