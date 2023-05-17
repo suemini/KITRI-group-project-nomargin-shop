@@ -45,29 +45,3 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }
-
-let memberList = [[${memberList}]];
-
-let idConfirm = false;
-
-let inputId = document.querySelector("#memberLoginId");
-
-// 아이디 확인 버튼
-let loginIdBtn = document.querySelector("#loginIdCheck");
-// 아이디 확인 코멘트
-let loginIdCheckComment = document.querySelector("#loginIdCheckComment");
-
-
-// 2. 아이디 확인 버튼을 누르면, memberList 에서 중복체크 후 결과 반환
-loginIdBtn.addEventListener("click", function () {
-    for (let i = 0; i < memberList.length; i++) {
-        if (memberList[i].loginId === inputId.value) {
-            loginIdCheckComment.innerHTML = "* 중복된 아이디가 있습니다. 다시 입력해 주세요";
-            return;
-        }
-    }
-    loginIdCheckComment.innerHTML = "* 사용가능한 아이디 입니다.";
-    inputId.style.borderColor = "green";
-    loginIdCheckComment.style.color = "green";
-    idConfirm = true;
-});

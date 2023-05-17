@@ -33,24 +33,40 @@ input:focus {
     background-color: #F8F8F8;
 }
 
-.form-group {
-    padding-bottom: 15px;
+.input-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 330px;
 }
 
 .name-group, .id-group, .pw-group {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
+    padding-bottom: 15px;
 }
 
+.input-group button {
+    width: 100px;
+    height: 30px;
+    margin-left: 5px;
+    border: none;
+    background-color: lightgrey;
+    color: black;
+}
+
+
+
 .name-group input, .id-group input, .pw-group input {
-    width: 90%;
+    width: 80%;
 }
 
 .phone-group input {
     text-align: center;
     width: 140px;
 }
+
 
 @keyframes blink-effect {
     50% {
@@ -151,4 +167,7 @@ label[for="agree"] {
     background-color: lightgrey;
     color: gray;
 }
+
+
+
 
